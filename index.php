@@ -11,6 +11,9 @@
 </head>
 
 <body>
+    <?php
+    include "components/header.php";
+    ?>
 
 
 </body>
