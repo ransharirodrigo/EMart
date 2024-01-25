@@ -7,6 +7,11 @@
   width: 100% !important;
 }
 
+.footer_icon {
+  color: white;
+  font-size: 25px;
+}
+
 @media (min-width: 768px) {
   .logo {
     width: 75% !important;
