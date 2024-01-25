@@ -1,6 +1,20 @@
-.header_top_icon{
-
-    width: 35px;
-    height:35px;
+.header_top_icon {
+  color: black;
+  font-size: 30px;
 }
 
+.logo {
+  width: 100% !important;
+}
+
+@media (min-width: 768px) {
+  .logo {
+    width: 75% !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .logo {
+    width: 35% !important;
+  }
+}
