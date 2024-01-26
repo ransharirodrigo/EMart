@@ -123,6 +123,70 @@
                 </div>
             </div>
 
+
+            <div class="d-none d-md-block col-md-8 offset-md-2 mt-5">
+                <div class="row">
+                    <div class="col-6">
+                        <img src="assets/img/index_img1.jpg " class="w-100" alt="">
+                    </div>
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-12">
+                                <img src="assets/img/index_img2.jpg" class="w-100" alt="">
+                            </div>
+                        </div>
+                        <div class="row mt-3 mt-md-4 mt-lg-5">
+                            <div class="col-12">
+                                <img src="assets/img/index_img3.jpg" class="w-100" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-12 mt-5 mb-5">
+                <div class="row">
+
+                    <div class="col-12">
+                        <h3>Top Ratings</h3>
+                    </div>
+
+                    <div class="col-12 mt-3">
+                        <div class="row">
+                            <span class="col-2 col-md-1">All</span>
+                            <span class="col-2 col-md-1">Mobiles</span>
+                            <span class="col-2 col-md-1">Laptops</span>
+                            <span class="col-2 col-md-1">Cameras</span>
+                        </div>
+                    </div>
+
+                    <div class="col-12 mt-3">
+                        <div class="row">
+
+                            <?php
+                            for ($i = 0; $i < 4; $i++) {
+                            ?>
+                                <div class="col-8 offset-2  col-md-4 offset-md-0 col-lg-3 mt-2">
+                                    <a href="#" class="text-decoration-none text-reset">
+                                        <div class="card">
+                                            <img src="assets/img/mobile_tmp.jpeg" class="card-img-top" alt="...">
+                                            <div class="text-center">
+                                                <span>Iphone 11</span>
+                                            </div>
+                                        </div>
+                                    </a>
+
+                                </div>
+                            <?php
+                            }
+                            ?>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
             <?php
             include "components/footer.php";
             ?>
