@@ -22,7 +22,7 @@
                 <img src="assets/img/welcome_image.jpg" class="w-50" alt="">
             </div>
 
-            <div class="col-12">
+            <div class="col-12 mt-5">
                 <div class="row">
                     <?php
                     for ($i = 0; $i < 8; $i++) {
@@ -43,15 +43,14 @@
                 </div>
             </div>
 
-            <div class="col-12 mt-5">
+            <div class="col-12 mt-md-5">
                 <div class="row">
-
 
                     <div class="col-12">
                         <h3>Best Selling</h3>
                     </div>
 
-                    <div class="col-12">
+                    <div class="col-12 mt-3">
                         <div class="row">
                             <span class="col-2 col-md-1">All</span>
                             <span class="col-2 col-md-1">Mobiles</span>
@@ -60,7 +59,7 @@
                         </div>
                     </div>
 
-                    <div class="col-12">
+                    <div class="col-12 mt-3">
                         <div class="row">
 
                             <?php
@@ -86,8 +85,42 @@
                 </div>
             </div>
 
-            <div class="col-12">
-
+            <div class="col-12 col-md-10 offset-md-1 bg-success bg-opacity-25 py-5 px-4 rounded-3 mt-5">
+                <div class="row">
+                    <div class="col-12 col-md-4">
+                        <div class="row">
+                            <i class="bi bi-truck index_page_green_div_icon"></i>
+                        </div>
+                        <div class="row">
+                            <h4>Fast Delivery</h4>
+                        </div>
+                        <div class="row">
+                            <p>Elevate your shopping experience with lightning-fast delivery!</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <div class="row">
+                            <i class="bi bi-currency-dollar index_page_green_div_icon"></i>
+                        </div>
+                        <div class="row">
+                            <h4>Save Money</h4>
+                        </div>
+                        <div class="row">
+                            <p>Shop savvy, spend wisely, and unlock unbeatable deals!</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <div class="row">
+                            <i class="bi bi-telephone-fill index_page_green_div_icon"></i>
+                        </div>
+                        <div class="row">
+                            <h4>Contact with us</h4>
+                        </div>
+                        <div class="row">
+                            <p>Our team is just a click away, ready to assist you with a smile!</p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <?php

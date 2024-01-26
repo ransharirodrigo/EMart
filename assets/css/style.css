@@ -12,6 +12,11 @@
   font-size: 25px;
 }
 
+.index_page_green_div_icon{
+  font-size: 30px;
+
+}
+
 @media (min-width: 768px) {
   .logo {
     width: 75% !important;
