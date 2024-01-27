@@ -30,9 +30,9 @@
                         $category_data = $category_resultset->fetch_assoc();
                     ?>
                         <div class="d-none d-md-block col-md-3 col-lg-2 mt-2">
-                            <div class="card">
+                            <div class="card bg-success bg-opacity-50 ">
                                 <img  src="<?php echo $category_data['category_img'] ?>" class="card-img-top" alt="<?php echo $category_data['category_name'] . " " . "Image" ?>">
-                                <div class="card-footer">
+                                <div class="card-footer text-center text-white">
                                     <a href="#" class="text-decoration-none text-reset"><?php echo $category_data['category_name'] ?></a>
                                 </div>
                             </div>

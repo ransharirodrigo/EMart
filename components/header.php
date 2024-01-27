@@ -31,15 +31,25 @@
             </div>
             <div class="col-5 offset-7 col-md-4 offset-md-8 col-lg-3 offset-lg-3">
                 <div class="row">
+
                     <div class="col-3">
-                        <i class="bi bi-person header_top_icon"></i>
+                        <a href="" class="text-decoration-none text-reset">
+                            <i class="bi bi-person header_top_icon"></i>
+                        </a>
                     </div>
+
                     <div class="col-3">
-                        <i class="bi bi-heart header_top_icon"></i>
+                        <a href="" class="text-decoration-none text-reset">
+                            <i class="bi bi-heart header_top_icon"></i>
+                        </a>
                     </div>
+
                     <div class="col-3">
-                        <i class="bi bi-cart-check header_top_icon"></i>
+                        <a href="" class="text-decoration-none text-reset">
+                            <i class="bi bi-cart-check header_top_icon"></i>
+                        </a>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -67,7 +77,7 @@
 
                             ?>
                         </ul>
-                        <input type="text" class="form-control" aria-label="Text input with dropdown button" id="search">
+                        <input type="text" class="form-control" autocomplete="off" aria-label="Text input with dropdown button" id="search">
                         <button class="btn btn-secondary" type="button" id="button-addon2">Search</button>
                     </div>
                 </div>
