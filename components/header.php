@@ -16,6 +16,12 @@
     <div class="container-fluid">
         <div class="row mt-4">
 
+            <?php
+            include "libs/connection.php";
+
+            $category_resultset = Database::execute("SELECT * FROM `category`");
+            ?>
+
             <div class="d-none col-lg-6 d-lg-block">
                 <div class="row">
                     <span class="col-4 fs-6 ">0761212065</span>
@@ -49,10 +55,17 @@
                 <div class="row">
                     <div class="input-group mb-3">
                         <button class="btn btn-outline-secondary dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">Categories</button>
-                        <ul class="dropdown-menu" style="">
+                        <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">All</a></li>
-                            <li><a class="dropdown-item" href="#">Mobiles</a></li>
-                            <li><a class="dropdown-item" href="#">Laptops</a></li>
+                            <?php
+                            for ($i = 0; $i < $category_resultset->num_rows; $i++) {
+                                $category_data = $category_resultset->fetch_assoc();
+                            ?>
+                                <li><a class="dropdown-item" href="#"><?php echo $category_data["category_name"] ?></a></li>
+                            <?php
+                            }
+
+                            ?>
                         </ul>
                         <input type="text" class="form-control" aria-label="Text input with dropdown button" id="search">
                         <button class="btn btn-secondary" type="button" id="button-addon2">Search</button>

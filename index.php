@@ -16,22 +16,24 @@
         <div class="row">
             <?php
             include "components/header.php";
+            $category_resultset = Database::execute("SELECT * FROM `category`");
             ?>
 
             <div class=" col-12 d-flex justify-content-center">
-                <img src="assets/img/welcome_image.jpg" class="w-50" alt="">
+                <img src="assets/img/welcome_image.jpg" class="w-50" alt="welcome_image.jpg">
             </div>
 
             <div class="col-12 mt-5">
                 <div class="row">
                     <?php
-                    for ($i = 0; $i < 8; $i++) {
+                    for ($i = 0; $i < $category_resultset->num_rows; $i++) {
+                        $category_data = $category_resultset->fetch_assoc();
                     ?>
                         <div class="d-none d-md-block col-md-3 col-lg-2 mt-2">
                             <div class="card">
-                                <img src="assets/img/mobile_tmp.jpeg" class="card-img-top" alt="...">
+                                <img  src="<?php echo $category_data['category_img'] ?>" class="card-img-top" alt="<?php echo $category_data['category_name'] . " " . "Image" ?>">
                                 <div class="card-footer">
-                                    <a href="#" class="text-decoration-none text-reset">Laptops</a>
+                                    <a href="#" class="text-decoration-none text-reset"><?php echo $category_data['category_name'] ?></a>
                                 </div>
                             </div>
                         </div>
@@ -127,17 +129,17 @@
             <div class="d-none d-md-block col-md-8 offset-md-2 mt-5">
                 <div class="row">
                     <div class="col-6">
-                        <img src="assets/img/index_img1.jpg " class="w-100" alt="">
+                        <img src="assets/img/index_img1.jpg " class="w-100" alt="img.jpg ">
                     </div>
                     <div class="col-6">
                         <div class="row">
                             <div class="col-12">
-                                <img src="assets/img/index_img2.jpg" class="w-100" alt="">
+                                <img src="assets/img/index_img2.jpg" class="w-100" alt="img.jpg">
                             </div>
                         </div>
                         <div class="row mt-3 mt-md-4 mt-lg-5">
                             <div class="col-12">
-                                <img src="assets/img/index_img3.jpg" class="w-100" alt="">
+                                <img src="assets/img/index_img3.jpg" class="w-100" alt="img.jpg">
                             </div>
                         </div>
                     </div>
