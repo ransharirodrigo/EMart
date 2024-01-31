@@ -10,7 +10,7 @@
     <link rel="icon" href="assets/img/e_mart_logo.png">
 </head>
 
-<body class="">
+<body class="" onload="loadBestSellingItems('All')">
 
     <div class="container-fluid m-0 ">
         <div class="row">
@@ -31,16 +31,14 @@
                     ?>
                         <div class="d-none d-md-block col-md-3 col-lg-2 mt-2">
                             <div class="card bg-success bg-opacity-50 ">
-                                <img  src="<?php echo $category_data['category_img'] ?>" class="card-img-top" alt="<?php echo $category_data['category_name'] . " " . "Image" ?>">
+                                <img src="<?php echo $category_data['category_img'] ?>" class="card-img-top" alt="<?php echo $category_data['category_name'] . " " . "Image" ?>">
                                 <div class="card-footer text-center text-white">
                                     <a href="#" class="text-decoration-none text-reset"><?php echo $category_data['category_name'] ?></a>
                                 </div>
                             </div>
                         </div>
-
                     <?php
                     }
-
                     ?>
                 </div>
             </div>
@@ -52,35 +50,32 @@
                         <h3>Best Selling</h3>
                     </div>
 
-                    <div class="col-12 mt-3">
-                        <div class="row">
-                            <span class="col-2 col-md-1">All</span>
-                            <span class="col-2 col-md-1">Mobiles</span>
-                            <span class="col-2 col-md-1">Laptops</span>
-                            <span class="col-2 col-md-1">Cameras</span>
+                    <div class="col-12 mt-3 ">
+                        <div class="row ">
+
+                            <?php
+                            $best_selling_category_resultset = Database::execute("SELECT DISTINCT(`category_name`) FROM `top_selling_items` INNER JOIN `product` ON `product`.`product_id`=`top_selling_items`.`product_product_id` INNER JOIN `category` ON `category`.`category_id`=`product`.`category_category_id` LIMIT 4");
+                            ?>
+
+                            <span class="col-2 col-md-1" onclick="loadBestSellingItems('All');">All</span>
+
+                            <?php
+                            for ($i = 0; $i < $best_selling_category_resultset->num_rows; $i++) {
+                                $best_selling_category_data = $best_selling_category_resultset->fetch_assoc();
+
+                            ?>
+                                <span class="col-2 col-md-1" onclick="loadBestSellingItems('<?php echo $best_selling_category_data['category_name'] ?>');"> <?php echo $best_selling_category_data["category_name"] ?></span>
+                            <?php
+                            }
+                            ?>
+
                         </div>
                     </div>
 
                     <div class="col-12 mt-3">
-                        <div class="row">
+                        <div class="row" id="best_selling_items_div">
 
-                            <?php
-                            for ($i = 0; $i < 4; $i++) {
-                            ?>
-                                <div class="col-8 offset-2  col-md-4 offset-md-0 col-lg-3 mt-2">
-                                    <a href="#" class="text-decoration-none text-reset">
-                                        <div class="card">
-                                            <img src="assets/img/mobile_tmp.jpeg" class="card-img-top" alt="...">
-                                            <div class="text-center">
-                                                <span>Iphone 11</span>
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-                            <?php
-                            }
-                            ?>
+                          
                         </div>
                     </div>
 
@@ -129,17 +124,17 @@
             <div class="d-none d-md-block col-md-8 offset-md-2 mt-5">
                 <div class="row">
                     <div class="col-6">
-                        <img src="assets/img/index_img1.jpg " class="w-100" alt="img.jpg ">
+                        <img src="assets/img/index_page_img1.jpg" class="w-100" alt="img.jpg ">
                     </div>
                     <div class="col-6">
                         <div class="row">
                             <div class="col-12">
-                                <img src="assets/img/index_img2.jpg" class="w-100" alt="img.jpg">
+                                <img src="assets/img/index_page_img2.jpg" class="w-100" alt="img.jpg">
                             </div>
                         </div>
                         <div class="row mt-3 mt-md-4 mt-lg-5">
                             <div class="col-12">
-                                <img src="assets/img/index_img3.jpg" class="w-100" alt="img.jpg">
+                                <img src="assets/img/index_page_img3.jpg" class="w-100" alt="img.jpg">
                             </div>
                         </div>
                     </div>

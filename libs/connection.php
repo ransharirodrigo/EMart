@@ -12,9 +12,6 @@ class Database
         }
     }
 
-
-
-
     public static function execute($query)
     {
         Database::setUpConnection();
