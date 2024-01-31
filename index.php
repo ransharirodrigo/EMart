@@ -10,7 +10,7 @@
     <link rel="icon" href="assets/img/e_mart_logo.png">
 </head>
 
-<body class="" onload="loadBestSellingItems('All')">
+<body class="" onload="loadBestSellingItems('All'); loadTopRatedItems('All')">
 
     <div class="container-fluid m-0 ">
         <div class="row">
@@ -43,6 +43,8 @@
                 </div>
             </div>
 
+
+            <!-- Best selling -->
             <div class="col-12 mt-md-5">
                 <div class="row">
 
@@ -57,14 +59,14 @@
                             $best_selling_category_resultset = Database::execute("SELECT DISTINCT(`category_name`) FROM `top_selling_items` INNER JOIN `product` ON `product`.`product_id`=`top_selling_items`.`product_product_id` INNER JOIN `category` ON `category`.`category_id`=`product`.`category_category_id` LIMIT 4");
                             ?>
 
-                            <span class="col-2 col-md-1" onclick="loadBestSellingItems('All');">All</span>
+                            <span class="col-2 col-md-1 best_selling_items_category_span" onclick="loadBestSellingItems('All');">All</span>
 
                             <?php
                             for ($i = 0; $i < $best_selling_category_resultset->num_rows; $i++) {
                                 $best_selling_category_data = $best_selling_category_resultset->fetch_assoc();
 
                             ?>
-                                <span class="col-2 col-md-1" onclick="loadBestSellingItems('<?php echo $best_selling_category_data['category_name'] ?>');"> <?php echo $best_selling_category_data["category_name"] ?></span>
+                                <span class="col-2 col-md-1 best_selling_items_category_span" onclick="loadBestSellingItems('<?php echo $best_selling_category_data['category_name'] ?>');"> <?php echo $best_selling_category_data["category_name"] ?></span>
                             <?php
                             }
                             ?>
@@ -75,12 +77,13 @@
                     <div class="col-12 mt-3">
                         <div class="row" id="best_selling_items_div">
 
-                          
+
                         </div>
                     </div>
 
                 </div>
             </div>
+            <!-- Best selling -->
 
             <div class="col-12 col-md-10 offset-md-1 bg-success bg-opacity-25 py-5 px-4 rounded-3 mt-5">
                 <div class="row">
@@ -120,7 +123,7 @@
                 </div>
             </div>
 
-
+            <!-- Three Images -->
             <div class="d-none d-md-block col-md-8 offset-md-2 mt-5">
                 <div class="row">
                     <div class="col-6">
@@ -140,8 +143,9 @@
                     </div>
                 </div>
             </div>
+            <!-- Three Images -->
 
-
+            <!-- Top Rated -->
             <div class="col-12 mt-5 mb-5">
                 <div class="row">
 
@@ -151,38 +155,31 @@
 
                     <div class="col-12 mt-3">
                         <div class="row">
-                            <span class="col-2 col-md-1">All</span>
-                            <span class="col-2 col-md-1">Mobiles</span>
-                            <span class="col-2 col-md-1">Laptops</span>
-                            <span class="col-2 col-md-1">Cameras</span>
+                            <span class="col-2 col-md-1 top_ratings_category_span" onclick="loadTopRatedItems('All')">All</span>
+
+                            <?php
+                            $top_rated_category_resultset = Database::execute("SELECT DISTINCT(`category_name`) FROM `category` WHERE `category`.`category_name` IN (SELECT `category_name` FROM `category` INNER JOIN `product` ON `product`.`category_category_id`=`category`.`category_id` ORDER BY `product`.`points` DESC)  LIMIT 4");
+                            for ($i = 0; $i <  $top_rated_category_resultset->num_rows; $i++) {
+                                $top_rated_category_array = $top_rated_category_resultset->fetch_assoc();
+                            ?>
+                                <span class="col-2 col-md-1 top_ratings_category_span" onclick="loadTopRatedItems('<?php echo  $top_rated_category_array['category_name'] ?>')"><?php echo  $top_rated_category_array["category_name"] ?></span>
+                            <?php
+                            }
+                            ?>
+
                         </div>
                     </div>
 
                     <div class="col-12 mt-3">
-                        <div class="row">
+                        <div class="row" id="top_rated_items_div">
 
-                            <?php
-                            for ($i = 0; $i < 4; $i++) {
-                            ?>
-                                <div class="col-8 offset-2  col-md-4 offset-md-0 col-lg-3 mt-2">
-                                    <a href="#" class="text-decoration-none text-reset">
-                                        <div class="card">
-                                            <img src="assets/img/mobile_tmp.jpeg" class="card-img-top" alt="...">
-                                            <div class="text-center">
-                                                <span>Iphone 11</span>
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-                            <?php
-                            }
-                            ?>
+                           
                         </div>
                     </div>
 
                 </div>
             </div>
+            <!-- Top Rated -->
 
             <?php
             include "components/footer.php";

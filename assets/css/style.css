@@ -16,7 +16,9 @@
   font-size: 30px;
 }
 
-
+.best_selling_items_category_span , .top_ratings_category_span:hover {
+  cursor: pointer;
+}
 
 @media (min-width: 768px) {
   .logo {
