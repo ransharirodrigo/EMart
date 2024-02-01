@@ -16,8 +16,13 @@
   font-size: 30px;
 }
 
-.best_selling_items_category_span , .top_ratings_category_span:hover {
+.best_selling_items_category_span , .top_ratings_category_span:hover, .emart_logo_div {
   cursor: pointer;
+}
+
+.signin_page_line_with_paragraph{
+  position: absolute;
+  top: 590px;
 }
 
 @media (min-width: 768px) {
@@ -29,5 +34,19 @@
 @media (min-width: 992px) {
   .logo {
     width: 35% !important;
+  }
+
+  .signin_page_line_with_paragraph{
+    top: 570px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .logo {
+    width: 35% !important;
+  }
+
+  .signin_page_line_with_paragraph{
+    top: 600px;
   }
 }

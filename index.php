@@ -173,7 +173,7 @@
                     <div class="col-12 mt-3">
                         <div class="row" id="top_rated_items_div">
 
-                           
+
                         </div>
                     </div>
 

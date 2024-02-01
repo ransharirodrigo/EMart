@@ -57,7 +57,7 @@
         <hr class="my-0" />
 
         <div class="row d-flex align-items-center">
-            <div class="col-3">
+            <div class="col-3 emart_logo_div" onclick="reload();">
                 <img class="logo" src="assets/img/e_mart_logo.png" alt="">
             </div>
 
@@ -92,6 +92,12 @@
 
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/script.js"></script>
+
+    <script>
+        function reload() {
+            window.location.reload("index.php");
+        }
+    </script>
 </body>
 
 </html>
