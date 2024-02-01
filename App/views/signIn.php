@@ -15,9 +15,15 @@
 <body>
     <div class="container-fluid">
         <div class="row d-flex justify-content-center align-items-center vh-100">
+            <div class="col-12">
+                <div class="row">
+                    <div class=" d-flex justify-content-center ">
+                        <img class="logo" src="../../assets/img/e_mart_logo.png" alt="">
+                    </div>
+                </div>
+            </div>
 
-
-            <div class="col-8 col-sm-6 col-lg-5  border py-5 rounded-3">
+            <div class="col-8 col-sm-6 col-lg-5  border py-3 rounded-3">
 
                 <div class="row text-center">
                     <div>

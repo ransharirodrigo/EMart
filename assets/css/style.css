@@ -4,7 +4,8 @@
 }
 
 .logo {
-  width: 100% !important;
+  /* width: 100% !important; */
+width: 150px !important;
 }
 
 .footer_icon {
@@ -16,37 +17,42 @@
   font-size: 30px;
 }
 
-.best_selling_items_category_span , .top_ratings_category_span:hover, .emart_logo_div {
+.best_selling_items_category_span,
+.top_ratings_category_span:hover,
+.emart_logo_div {
   cursor: pointer;
 }
 
-.signin_page_line_with_paragraph{
+.signin_page_line_with_paragraph {
   position: absolute;
   top: 590px;
 }
 
 @media (min-width: 768px) {
   .logo {
-    width: 75% !important;
+    /* width: 75% !important; */
+    width: 160px !important;
   }
 }
 
 @media (min-width: 992px) {
   .logo {
-    width: 35% !important;
+    /* width: 35% !important; */
+    width: 150px !important;
   }
 
-  .signin_page_line_with_paragraph{
+  .signin_page_line_with_paragraph {
     top: 570px;
   }
 }
 
 @media (min-width: 1400px) {
   .logo {
-    width: 35% !important;
+    /* width: 35% !important; */
+    width: 200px !important;
   }
 
-  .signin_page_line_with_paragraph{
+  .signin_page_line_with_paragraph {
     top: 600px;
   }
 }
