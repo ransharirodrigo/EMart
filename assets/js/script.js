@@ -49,7 +49,7 @@ function signUp() {
     request.onreadystatechange = function () {
         if (request.readyState == 4 && request.status == 200) {
             if (request.responseText == "success") {
-                window.location.href("../App/views/signIn.php");
+                window.location.href="signIn.php";
             } else {
                 alert(request.responseText);
             }
