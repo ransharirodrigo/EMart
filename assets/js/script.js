@@ -6,7 +6,6 @@ function loadBestSellingItems(category_name) {
     request.onreadystatechange = function () {
         if (request.readyState == 4 && request.status == 200) {
             document.getElementById("best_selling_items_div").innerHTML = request.responseText;
-
         }
     };
     request.open("GET", "App/process/loadBestSellingItemsProcess.php?category_name=" + category_name, true);
@@ -27,4 +26,31 @@ function loadTopRatedItems(category_name) {
     };
     request.open("GET", "App/process/loadTopRatedItemsProcess.php?category_name=" + category_name, true);
     request.send();
+}
+
+function signUp() {
+
+    var first_name = document.getElementById("first_name").value;
+    var last_name = document.getElementById("last_name").value;
+    var email = document.getElementById("email").value;
+    var mobile = document.getElementById("mobile").value;
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+
+    var form = new FormData();
+    form.append("first_name", first_name);
+    form.append("last_name", last_name);
+    form.append("email", email);
+    form.append("mobile", mobile);
+    form.append("username", username);
+    form.append("password", password);
+
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 && request.status == 200) {
+            alert(request.responseText);
+        }
+    };
+    request.open("POST", "../../App/process/signUpProcess.php", true);
+    request.send(form);
 }

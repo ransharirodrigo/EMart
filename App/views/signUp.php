@@ -37,7 +37,7 @@
                         <span>First Name</span>
                     </div>
                     <div class="col-12 col-lg-9">
-                        <input type="text" class="form-control" />
+                        <input type="text" class="form-control" id="first_name">
                     </div>
                 </div>
                 <div class="row mt-4">
@@ -45,7 +45,7 @@
                         <span>Last Name</span>
                     </div>
                     <div class="col-12 col-lg-9">
-                        <input type="text" class="form-control" />
+                        <input type="text" class="form-control" id="last_name"/>
                     </div>
                 </div>
                 <div class="row mt-4">
@@ -53,7 +53,7 @@
                         <span>Email</span>
                     </div>
                     <div class="col-12 col-lg-9">
-                        <input type="email" class="form-control" />
+                        <input type="email" class="form-control" id="email"/>
                     </div>
                 </div>
                 <div class="row mt-4">
@@ -61,7 +61,7 @@
                         <span>Mobile</span>
                     </div>
                     <div class="col-12 col-lg-9">
-                        <input type="number" class="form-control" />
+                        <input type="text" class="form-control" id="mobile"/>
                     </div>
                 </div>
                 <div class="row mt-4">
@@ -69,7 +69,7 @@
                         <span>Username</span>
                     </div>
                     <div class="col-12 col-lg-9">
-                        <input type="text" class="form-control" />
+                        <input type="text" class="form-control" id="username"/>
                     </div>
                 </div>
                 <div class="row mt-4">
@@ -77,13 +77,13 @@
                         <span>Password</span>
                     </div>
                     <div class="col-12 col-lg-9">
-                        <input type="password" class="form-control" />
+                        <input type="password" class="form-control" id="password"/>
                     </div>
                 </div>
 
                 
                 <div class="row justify-content-center mt-4">
-                    <button class="btn btn-warning col-6">Sign Up</button>
+                    <button class="btn btn-warning col-6" onclick="signUp();">Sign Up</button>
                 </div>
 
             </div>
@@ -93,6 +93,7 @@
 
     </div>
 
+    <script src="../../assets/js/script.js"></script>
 </body>
 
 </html>

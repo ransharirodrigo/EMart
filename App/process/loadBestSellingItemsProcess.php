@@ -1,7 +1,7 @@
 <?php
 include "../../libs/connection.php";
 
-$date = date("Y-m");
+$date = date("Y");
 
 $category_name = $_GET["category_name"];
 
