@@ -84,7 +84,9 @@
                 <div class="row justify-content-center">
                     <div class="col-8 col-sm-6 col-lg-3">
                         <div class="row justify-content-center">
-                            <button class="btn btn-outline-secondary col-8">Create Account</button>
+                            <a href="signUp.php" class="text-decoration-none text-reset">
+                                <button class="btn btn-outline-secondary col-8">Create Account</button>
+                            </a>
                         </div>
                     </div>
                 </div>

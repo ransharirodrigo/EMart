@@ -33,7 +33,7 @@
                 <div class="row">
 
                     <div class="col-3">
-                        <a href="" class="text-decoration-none text-reset">
+                        <a href="App/views/signIn.php" class="text-decoration-none text-reset">
                             <i class="bi bi-person header_top_icon"></i>
                         </a>
                     </div>
