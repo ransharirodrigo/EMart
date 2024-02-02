@@ -4,7 +4,6 @@ $first_name = $_POST["first_name"];
 $last_name = $_POST["last_name"];
 $email = $_POST["email"];
 $mobile = $_POST["mobile"];
-$username = $_POST["username"];
 $password = $_POST["password"];
 
 if (empty($first_name)) {
@@ -25,9 +24,7 @@ if (empty($first_name)) {
     echo ("Please enter your Mobile Number");
 } elseif (!preg_match("/^[0]{1}[7]{1}[01245678]{1}[0-9]{7}$/", $mobile)) {
     echo ("Please enter a valid Mobile Number");
-} elseif (empty($username)) {
-    echo ("Please enter your username");
-} elseif (empty($password)) {
+}  elseif (empty($password)) {
     echo ("Please enter your password");
 } elseif (strlen($password) < 8 || strlen($password) > 50) {
     echo ("Your password must contain between 8 to 50 characters");
@@ -36,7 +33,7 @@ if (empty($first_name)) {
 
     $user_details_resultset = Database::execute("SELECT * FROM `user` WHERE `email`='$email'");
     if ($user_details_resultset->num_rows == 0) {
-        Database::execute("INSERT INTO `user` (`email`,`first_name`,`last_name`,`username`,`password`,`mobile`,`user_type_user_type_id`) VALUES ('$email','$first_name','$last_name','$username','$password','$mobile','1')");
+        Database::execute("INSERT INTO `user` (`email`,`first_name`,`last_name`,`password`,`mobile`,`user_type_user_type_id`) VALUES ('$email','$first_name','$last_name','$password','$mobile','1')");
         echo ("success");
     } else if ($user_details_resultset->num_rows == 1) {
         echo ("User already registered");

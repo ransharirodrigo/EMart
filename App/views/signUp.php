@@ -66,14 +66,6 @@
                 </div>
                 <div class="row mt-4">
                     <div class="col-12 col-lg-3">
-                        <span>Username</span>
-                    </div>
-                    <div class="col-12 col-lg-9">
-                        <input type="text" class="form-control" id="username"/>
-                    </div>
-                </div>
-                <div class="row mt-4">
-                    <div class="col-12 col-lg-3">
                         <span>Password</span>
                     </div>
                     <div class="col-12 col-lg-9">

@@ -34,7 +34,6 @@ function signUp() {
     var last_name = document.getElementById("last_name").value;
     var email = document.getElementById("email").value;
     var mobile = document.getElementById("mobile").value;
-    var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
 
     var form = new FormData();
@@ -42,19 +41,38 @@ function signUp() {
     form.append("last_name", last_name);
     form.append("email", email);
     form.append("mobile", mobile);
-    form.append("username", username);
     form.append("password", password);
 
     var request = new XMLHttpRequest();
     request.onreadystatechange = function () {
         if (request.readyState == 4 && request.status == 200) {
             if (request.responseText == "success") {
-                window.location.href="signIn.php";
+                window.location.href = "signIn.php";
             } else {
                 alert(request.responseText);
             }
         }
     };
     request.open("POST", "../../App/process/signUpProcess.php", true);
+    request.send(form);
+}
+
+function signIn() {
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+    var remember_me = document.getElementById("remember_me").checked ;
+   
+    var form = new FormData();
+    form.append("email", email);
+    form.append("password", password);
+    form.append("remember_me", remember_me);
+
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 && request.status == 200) {
+            // alert(request.responseText);
+        }
+    };
+    request.open("POST", "../../App/process/signInProcess.php", true);
     request.send(form);
 }

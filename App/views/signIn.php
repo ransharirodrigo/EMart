@@ -36,7 +36,7 @@
                         <span>Email</span>
                     </div>
                     <div class="col-12 col-lg-9">
-                        <input type="email" class="form-control" />
+                        <input type="email" class="form-control" id="email"/>
                     </div>
                 </div>
                 <div class="row mt-4">
@@ -44,7 +44,7 @@
                         <span>Password</span>
                     </div>
                     <div class="col-12 col-lg-9">
-                        <input type="password" class="form-control" />
+                        <input type="password" class="form-control" id="password"/>
                     </div>
                 </div>
 
@@ -52,7 +52,7 @@
                     <div class="col-12 col-xl-7">
                         <div class="row">
 
-                            <input type="checkbox" class="col-1 offset-xl-1" />
+                            <input type="checkbox" class="col-1 offset-xl-1" id="remember_me"/>
                             <span class="col-6">Remember Me</span>
 
                         </div>
@@ -63,7 +63,7 @@
                 </div>
 
                 <div class="row justify-content-center mt-4">
-                    <button class="btn btn-warning col-6">Sign In</button>
+                    <button class="btn btn-warning col-6" onclick="signIn();">Sign In</button>
                 </div>
 
             </div>
@@ -93,9 +93,9 @@
             </div>
 
         </div>
-
-
     </div>
+
+    <script src="../../assets/js/script.js"></script>
 </body>
 
 </html>
