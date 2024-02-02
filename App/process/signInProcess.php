@@ -17,11 +17,18 @@ if (empty($email)) {
     $user_resultset = Database::execute("SELECT * FROM `user` WHERE `email`='$email' AND `password`='$password'");
 
     if ($user_resultset->num_rows == 1) {
+        session_start();
+        $_SESSION["user"] = $user_resultset->fetch_assoc();
+     
         if ($remember_me == true) {
             setcookie("email", $email, time() + (60 * 60 * 24 * 365));
             setcookie("password", $password, time() + (60 * 60 * 24 * 365));
         } else {
+            setcookie("email", "", -1);
+            setcookie("password", "", -1);
         }
+
+        echo ("success");
     } else {
         echo ("Invalid credentials");
     }

@@ -36,7 +36,7 @@
                         <span>Email</span>
                     </div>
                     <div class="col-12 col-lg-9">
-                        <input type="email" class="form-control" id="email"/>
+                        <input type="email" class="form-control" id="email" />
                     </div>
                 </div>
                 <div class="row mt-4">
@@ -44,7 +44,7 @@
                         <span>Password</span>
                     </div>
                     <div class="col-12 col-lg-9">
-                        <input type="password" class="form-control" id="password"/>
+                        <input type="password" class="form-control" id="password" />
                     </div>
                 </div>
 
@@ -52,7 +52,7 @@
                     <div class="col-12 col-xl-7">
                         <div class="row">
 
-                            <input type="checkbox" class="col-1 offset-xl-1" id="remember_me"/>
+                            <input type="checkbox" class="col-1 offset-xl-1" id="remember_me" />
                             <span class="col-6">Remember Me</span>
 
                         </div>

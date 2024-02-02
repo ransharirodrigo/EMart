@@ -60,8 +60,8 @@ function signUp() {
 function signIn() {
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
-    var remember_me = document.getElementById("remember_me").checked ;
-   
+    var remember_me = document.getElementById("remember_me").checked;
+
     var form = new FormData();
     form.append("email", email);
     form.append("password", password);
@@ -70,7 +70,13 @@ function signIn() {
     var request = new XMLHttpRequest();
     request.onreadystatechange = function () {
         if (request.readyState == 4 && request.status == 200) {
-            // alert(request.responseText);
+            if (request.responseText == "success") {
+                window.location.href = "profile.php";
+            } else {
+                alert(request.responseText);
+            }
+
+           
         }
     };
     request.open("POST", "../../App/process/signInProcess.php", true);

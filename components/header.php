@@ -33,9 +33,24 @@
                 <div class="row">
 
                     <div class="col-3">
-                        <a href="App/views/signIn.php" class="text-decoration-none text-reset">
-                            <i class="bi bi-person header_top_icon"></i>
-                        </a>
+
+                        <?php
+                        session_start();
+                        if (isset($_SESSION["user"])) {
+                        ?>
+                            <a href="App/views/profile.php" class="text-decoration-none text-reset">
+                                <i class="bi bi-person header_top_icon"></i>
+                            </a>
+                        <?php
+                        } else {
+                        ?>
+                            <a href="App/views/signIn.php" class="text-decoration-none text-reset">
+                                <i class="bi bi-person header_top_icon"></i>
+                            </a>
+                        <?php
+                        }
+                        ?>
+
                     </div>
 
                     <div class="col-3">
