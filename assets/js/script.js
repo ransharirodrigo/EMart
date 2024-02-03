@@ -61,6 +61,7 @@ function signIn() {
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
     var remember_me = document.getElementById("remember_me").checked;
+    alert(remember_me);
 
     var form = new FormData();
     form.append("email", email);
@@ -76,7 +77,7 @@ function signIn() {
                 alert(request.responseText);
             }
 
-           
+
         }
     };
     request.open("POST", "../../App/process/signInProcess.php", true);

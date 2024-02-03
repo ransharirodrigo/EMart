@@ -36,7 +36,18 @@
                         <span>Email</span>
                     </div>
                     <div class="col-12 col-lg-9">
-                        <input type="email" class="form-control" id="email" />
+                        <?php
+                        if (isset($_COOKIE["email"])) {
+                        ?>
+                            <input type="email" class="form-control" id="email" value="<?php echo $_COOKIE["email"] ?>" />
+                        <?php
+                        } else {
+                        ?>
+                            <input type="email" class="form-control" id="email" value="" />
+                        <?php
+                        }
+                        ?>
+
                     </div>
                 </div>
                 <div class="row mt-4">

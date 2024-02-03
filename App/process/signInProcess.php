@@ -1,5 +1,4 @@
 <?php
-
 $email = $_POST["email"];
 $password = $_POST["password"];
 $remember_me = $_POST["remember_me"];
@@ -19,10 +18,10 @@ if (empty($email)) {
     if ($user_resultset->num_rows == 1) {
         session_start();
         $_SESSION["user"] = $user_resultset->fetch_assoc();
-     
+
         if ($remember_me == true) {
-            setcookie("email", $email, time() + (60 * 60 * 24 * 365));
-            setcookie("password", $password, time() + (60 * 60 * 24 * 365));
+            setcookie("email", "email", time() + 20 * 24 * 60 * 60);
+            setcookie("password", "password", time() + 20 * 24 * 60 * 60);
         } else {
             setcookie("email", "", -1);
             setcookie("password", "", -1);
