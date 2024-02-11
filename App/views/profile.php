@@ -19,37 +19,47 @@ if (isset($_SESSION["user"])) {
     </head>
 
     <body>
-        <div class="container-fluid vh-100 pt-5">
+        <div class="container-fluid vh-100 pt-3">
+
+            <div class="row mb-5">
+
+                <div class="col-3 col-sm-2 col-md-1">
+                    <p>Home</p>
+                </div>
+
+                <div class="col-3 col-sm-2 col-md-1">
+                    <p>Signout</p>
+                </div>
+
+            </div>
+
             <div class="row">
 
                 <div class="col-12 col-md-3">
 
                     <div class="row d-flex justify-content-center">
-                        <img src="../../assets/img/profile_images//profile_image_tmp.jpg" alt="profileImage" class="col-2 col-md-8">
+                        <img src="../../assets/img/profile_images//profile_image_tmp.jpg" alt="profileImage" class="col-6 col-sm-4 col-md-10 col-lg-8">
                     </div>
                     <div class="row  d-flex justify-content-center text-center">
-                        <h3 class="col-2 col-md-12">Tharushi Rodrigo</h3>
+                        <h3 class="col-12">Tharushi Rodrigo</h3>
                     </div>
                     <div class="row d-flex justify-content-center text-center">
-                        <span class="col-2 col-md-12">ransharirodrigo@gmail.com</span>
+                        <span class="col-12 ">ransharirodrigo@gmail.com</span>
                     </div>
                     <div class="row d-flex justify-content-center text-center mt-3">
-                        <button class="btn btn-warning  col-2 col-md-8 text-dark">Change Profile Image</button>
-                    </div>
-                    <div class="row d-flex justify-content-center text-center mt-3">
-                        <button class="btn btn-danger  col-2 col-md-8 text-white">Logout</button>
+                        <button class="btn btn-warning  col-10 col-sm-6 col-md-12 col-lg-10 text-dark">Change Profile Image</button>
                     </div>
 
                 </div>
 
-                <div class="col-12 col-md-9">
+                <div class="col-12 col-md-9 mt-5 mt-md-0">
 
-                    <div class="row">
+                    <div class="row text-center">
                         <h2>Profile Settings</h2>
                     </div>
 
                     <div class="row mt-3 ">
-                        <div class="col-12 col-md-5 ">
+                        <div class="col-10 offset-1 col-md-5 offset-md-0">
                             <div class="row ">
                                 <span>First Name</span>
                             </div>
@@ -57,7 +67,7 @@ if (isset($_SESSION["user"])) {
                                 <input type="text" class="form-control" />
                             </div>
                         </div>
-                        <div class="col-12 col-md-5 offset-md-1">
+                        <div class="col-10 offset-1 col-md-5 ">
                             <div class="row">
                                 <span>Last Name</span>
                             </div>
@@ -68,7 +78,7 @@ if (isset($_SESSION["user"])) {
                     </div>
 
                     <div class="row mt-4">
-                        <div class="col-12 col-md-11 ">
+                        <div class="col-10 offset-1 col-md-11 offset-md-0">
                             <div class="row">
                                 <span>Email</span>
                             </div>
@@ -79,7 +89,7 @@ if (isset($_SESSION["user"])) {
                     </div>
 
                     <div class="row mt-4 ">
-                        <div class="col-12 col-md-5 ">
+                        <div class="col-10 offset-1  col-md-5 offset-md-0 ">
                             <div class="row">
                                 <span>Mobile</span>
                             </div>
@@ -87,7 +97,7 @@ if (isset($_SESSION["user"])) {
                                 <input type="text" class="form-control" />
                             </div>
                         </div>
-                        <div class="col-12 col-md-5 offset-md-1">
+                        <div class="col-10 offset-1  col-md-5  ">
                             <div class="row">
                                 <span>Password</span>
                             </div>
@@ -97,7 +107,7 @@ if (isset($_SESSION["user"])) {
                         </div>
                     </div>
 
-                    <div class="row justify-content-center mt-5">
+                    <div class="row justify-content-center my-5 ">
 
                         <button class="btn btn-outline-success col-4">Save Changes</button>
 
@@ -105,6 +115,11 @@ if (isset($_SESSION["user"])) {
                 </div>
 
             </div>
+
+
+
+
+
         </div>
 
     </body>
@@ -116,5 +131,4 @@ if (isset($_SESSION["user"])) {
 } else {
 
     header("Location:signIn.php");
-
 } ?>
