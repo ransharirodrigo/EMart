@@ -2,7 +2,7 @@
 session_start();
 
 if (isset($_SESSION["user"])) {
-
+    $user = $_SESSION["user"];
 ?>
     <!DOCTYPE html>
     <html>
@@ -41,10 +41,10 @@ if (isset($_SESSION["user"])) {
                         <img src="../../assets/img/profile_images//profile_image_tmp.jpg" alt="profileImage" class="col-6 col-sm-4 col-md-10 col-lg-8">
                     </div>
                     <div class="row  d-flex justify-content-center text-center">
-                        <h3 class="col-12">Tharushi Rodrigo</h3>
+                        <h3 class="col-12"><?php echo ($user["first_name"]) ?></h3>
                     </div>
                     <div class="row d-flex justify-content-center text-center">
-                        <span class="col-12 ">ransharirodrigo@gmail.com</span>
+                        <span class="col-12 "><?php echo ($user["email"]) ?></span>
                     </div>
                     <div class="row d-flex justify-content-center text-center mt-3">
                         <button class="btn btn-warning  col-10 col-sm-6 col-md-12 col-lg-10 text-dark">Change Profile Image</button>
@@ -64,7 +64,7 @@ if (isset($_SESSION["user"])) {
                                 <span>First Name</span>
                             </div>
                             <div class="row mt-2">
-                                <input type="text" class="form-control" />
+                                <input type="text" class="form-control" value="<?php echo ($user["first_name"]) ?>" />
                             </div>
                         </div>
                         <div class="col-10 offset-1 col-md-5 ">
@@ -72,7 +72,7 @@ if (isset($_SESSION["user"])) {
                                 <span>Last Name</span>
                             </div>
                             <div class="row mt-2">
-                                <input type="text" class="form-control" />
+                                <input type="text" class="form-control" value="<?php echo ($user["last_name"]) ?>" />
                             </div>
                         </div>
                     </div>
@@ -83,7 +83,7 @@ if (isset($_SESSION["user"])) {
                                 <span>Email</span>
                             </div>
                             <div class="row mt-2">
-                                <input type="email" class="form-control" />
+                                <input type="email" class="form-control" readonly value="<?php echo($user["email"]) ?>"/>
                             </div>
                         </div>
                     </div>
@@ -94,7 +94,7 @@ if (isset($_SESSION["user"])) {
                                 <span>Mobile</span>
                             </div>
                             <div class="row mt-2">
-                                <input type="text" class="form-control" />
+                                <input type="text" class="form-control" value="<?php echo($user["mobile"]) ?>"/>
                             </div>
                         </div>
                         <div class="col-10 offset-1  col-md-5  ">
@@ -102,7 +102,7 @@ if (isset($_SESSION["user"])) {
                                 <span>Password</span>
                             </div>
                             <div class="row mt-2">
-                                <input type="password" class="form-control" />
+                                <input type="password" class="form-control" value="<?php echo($user["password"]) ?>"/>
                             </div>
                         </div>
                     </div>
