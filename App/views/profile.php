@@ -38,7 +38,7 @@ if (isset($_SESSION["user"])) {
                 <div class="col-12 col-md-3">
 
                     <div class="row d-flex justify-content-center">
-                        <img src="../../assets/img/profile_images//profile_image_tmp.jpg" alt="profileImage" class="col-6 col-sm-4 col-md-10 col-lg-8">
+                        <img src="../../assets/img/profile_images//profile_image_tmp.jpg" alt="profileImage" class="col-6 col-sm-4 col-md-10 col-lg-8" id="image">
                     </div>
                     <div class="row  d-flex justify-content-center text-center">
                         <h3 class="col-12"><?php echo ($user["first_name"]) ?></h3>
@@ -48,7 +48,7 @@ if (isset($_SESSION["user"])) {
                     </div>
                     <div class="row d-flex justify-content-center text-center mt-3">
                         <input type="file" class="d-none" id="profile_img">
-                        <label for="profile_img" class="btn btn-warning  col-10 col-sm-6 col-md-12 col-lg-10 text-dark" >Change Profile Image</label>
+                        <label for="profile_img" class="btn btn-warning  col-10 col-sm-6 col-md-12 col-lg-10 text-dark" onclick="changeProfileImage();">Change Profile Image</label>
                     </div>
  
                 </div>
@@ -103,7 +103,7 @@ if (isset($_SESSION["user"])) {
                                 <span>Password</span>
                             </div>
                             <div class="row mt-2">
-                                <input type="password" class="form-control" placeholder="Password" />
+                                <input type="password" class="form-control" placeholder="If you want to update your password, enter it here" />
                             </div>
                         </div>
                     </div>
