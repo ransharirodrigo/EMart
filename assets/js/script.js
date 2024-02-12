@@ -87,13 +87,40 @@ function signIn() {
 
 function updateProfileDetails() {
 
+    var first_name = document.getElementById("first_name").value;
+    var last_name = document.getElementById("last_name").value;
+    var email = document.getElementById("email").value;
+    var mobile = document.getElementById("mobile").value;
+    var password = document.getElementById("password").value;
+    var image_file = document.getElementById("profile_img").files[0];
+
+    var form = new FormData();
+    form.append("first_name", first_name);
+    form.append("last_name", last_name);
+    form.append("email", email);
+    form.append("mobile", mobile);
+    form.append("password", password);
+    form.append("image_file", image_file);
+
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 && request.status == 200) {
+            alert(request.responseText);
+            if (request.responseText=="success") {
+                window.location.reload();
+            }
+        }
+    };
+    request.open("POST", "../../App/process/profileDetailsUpdateProcess.php", true);
+    request.send(form);
+
 }
 
 function changeProfileImage() {
-   
+
     var profile_img = document.getElementById("profile_img");
 
-    profile_img.onchange = function()  {
+    profile_img.onchange = function () {
         var new_img = this.files[0];
 
         var url = window.URL.createObjectURL(new_img);

@@ -1,4 +1,6 @@
 <?php
+include "../../libs/connection.php";
+
 session_start();
 
 if (isset($_SESSION["user"])) {
@@ -37,11 +39,30 @@ if (isset($_SESSION["user"])) {
 
                 <div class="col-12 col-md-3">
 
+
+
                     <div class="row d-flex justify-content-center">
-                        <img src="../../assets/img/profile_images//profile_image_tmp.jpg" alt="profileImage" class="col-6 col-sm-4 col-md-10 col-lg-8" id="image">
+                        <?php
+                        $user_profile_image_resultset = Database::execute("SELECT * FROM `profile_image` WHERE `user_email`='" . $user["email"] . "'");
+                        if ($user_profile_image_resultset->num_rows == 1) {
+                            $user_profile_image_data = $user_profile_image_resultset->fetch_assoc();
+                        ?>
+                            <img src="<?php echo ($user_profile_image_data["image_path"]) ?>" alt="profileImage" class="col-6 col-sm-4 col-md-10 col-lg-8" id="image">
+                        <?php
+
+                        } else {
+                        ?>
+                            <img src="../../assets/img/profile_images//user_default_profile_image.png" alt="profileImage" class="col-6 col-sm-4 col-md-10 col-lg-8" id="image">
+
+                        <?php
+                        }
+
+
+                        ?>
+
                     </div>
                     <div class="row  d-flex justify-content-center text-center">
-                        <h3 class="col-12"><?php echo ($user["first_name"]) ?></h3>
+                        <h3 class="col-12"><?php echo ($user["first_name"]." ".$user["last_name"]) ?></h3>
                     </div>
                     <div class="row d-flex justify-content-center text-center">
                         <span class="col-12 "><?php echo ($user["email"]) ?></span>
@@ -50,7 +71,7 @@ if (isset($_SESSION["user"])) {
                         <input type="file" class="d-none" id="profile_img">
                         <label for="profile_img" class="btn btn-warning  col-10 col-sm-6 col-md-12 col-lg-10 text-dark" onclick="changeProfileImage();">Change Profile Image</label>
                     </div>
- 
+
                 </div>
 
                 <div class="col-12 col-md-9 mt-5 mt-md-0">
@@ -84,7 +105,7 @@ if (isset($_SESSION["user"])) {
                                 <span>Email</span>
                             </div>
                             <div class="row mt-2">
-                                <input type="email" class="form-control" readonly value="<?php echo ($user["email"]) ?>" />
+                                <input type="email" class="form-control" readonly value="<?php echo ($user["email"]) ?>" id="email" />
                             </div>
                         </div>
                     </div>
@@ -103,7 +124,7 @@ if (isset($_SESSION["user"])) {
                                 <span>Password</span>
                             </div>
                             <div class="row mt-2">
-                                <input type="password" class="form-control" placeholder="If you want to update your password, enter it here" />
+                                <input type="password" class="form-control" placeholder="If you want to update your password, enter it here" id="password" />
                             </div>
                         </div>
                     </div>
