@@ -26,11 +26,11 @@ if (isset($_SESSION["user"])) {
             <div class="row mb-5">
 
                 <div class="col-3 col-sm-2 col-md-1">
-                    <p>Home</p>
+                    <a href="../../index.php" class="text-decoration-none text-reset">Home</a>
                 </div>
 
                 <div class="col-3 col-sm-2 col-md-1">
-                    <p>Signout</p>
+                    <p class="signOut text-dark" onclick="signOut();">Signout</p>
                 </div>
 
             </div>
@@ -62,7 +62,7 @@ if (isset($_SESSION["user"])) {
 
                     </div>
                     <div class="row  d-flex justify-content-center text-center">
-                        <h3 class="col-12"><?php echo ($user["first_name"]." ".$user["last_name"]) ?></h3>
+                        <h3 class="col-12"><?php echo ($user["first_name"] . " " . $user["last_name"]) ?></h3>
                     </div>
                     <div class="row d-flex justify-content-center text-center">
                         <span class="col-12 "><?php echo ($user["email"]) ?></span>
@@ -130,18 +130,10 @@ if (isset($_SESSION["user"])) {
                     </div>
 
                     <div class="row justify-content-center my-5 ">
-
                         <button class="btn btn-outline-success col-4" onclick="updateProfileDetails()">Save Changes</button>
-
                     </div>
                 </div>
-
             </div>
-
-
-
-
-
         </div>
 
         <script src="../../assets/js/script.js"></script>

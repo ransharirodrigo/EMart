@@ -5,7 +5,7 @@
 
 .logo {
   /* width: 100% !important; */
-width: 150px !important;
+  width: 150px !important;
 }
 
 .footer_icon {
@@ -26,6 +26,10 @@ width: 150px !important;
 .signin_page_line_with_paragraph {
   position: absolute;
   top: 590px;
+}
+
+.signOut:hover {
+  cursor: pointer;
 }
 
 @media (min-width: 768px) {

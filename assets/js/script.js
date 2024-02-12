@@ -106,7 +106,7 @@ function updateProfileDetails() {
     request.onreadystatechange = function () {
         if (request.readyState == 4 && request.status == 200) {
             alert(request.responseText);
-            if (request.responseText=="success") {
+            if (request.responseText == "success") {
                 window.location.reload();
             }
         }
@@ -128,4 +128,18 @@ function changeProfileImage() {
         document.getElementById("image").src = url;
     }
 
+}
+
+function signOut() {
+
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 && request.status == 200) {
+            if ("success") {
+                window.location.href = "../../index.php";
+            }
+        }
+    };
+    request.open("GET", "../../App/process/signOutProcess.php", true);
+    request.send();
 }
