@@ -47,9 +47,10 @@ if (isset($_SESSION["user"])) {
                         <span class="col-12 "><?php echo ($user["email"]) ?></span>
                     </div>
                     <div class="row d-flex justify-content-center text-center mt-3">
-                        <button class="btn btn-warning  col-10 col-sm-6 col-md-12 col-lg-10 text-dark">Change Profile Image</button>
+                        <input type="file" class="d-none" id="profile_img">
+                        <label for="profile_img" class="btn btn-warning  col-10 col-sm-6 col-md-12 col-lg-10 text-dark" >Change Profile Image</label>
                     </div>
-
+ 
                 </div>
 
                 <div class="col-12 col-md-9 mt-5 mt-md-0">
@@ -64,7 +65,7 @@ if (isset($_SESSION["user"])) {
                                 <span>First Name</span>
                             </div>
                             <div class="row mt-2">
-                                <input type="text" class="form-control" value="<?php echo ($user["first_name"]) ?>" />
+                                <input type="text" class="form-control" value="<?php echo ($user["first_name"]) ?>" id="first_name" />
                             </div>
                         </div>
                         <div class="col-10 offset-1 col-md-5 ">
@@ -72,7 +73,7 @@ if (isset($_SESSION["user"])) {
                                 <span>Last Name</span>
                             </div>
                             <div class="row mt-2">
-                                <input type="text" class="form-control" value="<?php echo ($user["last_name"]) ?>" />
+                                <input type="text" class="form-control" value="<?php echo ($user["last_name"]) ?>" id="last_name" />
                             </div>
                         </div>
                     </div>
@@ -83,7 +84,7 @@ if (isset($_SESSION["user"])) {
                                 <span>Email</span>
                             </div>
                             <div class="row mt-2">
-                                <input type="email" class="form-control" readonly value="<?php echo($user["email"]) ?>"/>
+                                <input type="email" class="form-control" readonly value="<?php echo ($user["email"]) ?>" />
                             </div>
                         </div>
                     </div>
@@ -94,7 +95,7 @@ if (isset($_SESSION["user"])) {
                                 <span>Mobile</span>
                             </div>
                             <div class="row mt-2">
-                                <input type="text" class="form-control" value="<?php echo($user["mobile"]) ?>"/>
+                                <input type="text" class="form-control" value="<?php echo ($user["mobile"]) ?>" id="mobile" />
                             </div>
                         </div>
                         <div class="col-10 offset-1  col-md-5  ">
@@ -102,14 +103,14 @@ if (isset($_SESSION["user"])) {
                                 <span>Password</span>
                             </div>
                             <div class="row mt-2">
-                                <input type="password" class="form-control" value="<?php echo($user["password"]) ?>"/>
+                                <input type="password" class="form-control" placeholder="Password" />
                             </div>
                         </div>
                     </div>
 
                     <div class="row justify-content-center my-5 ">
 
-                        <button class="btn btn-outline-success col-4">Save Changes</button>
+                        <button class="btn btn-outline-success col-4" onclick="updateProfileDetails()">Save Changes</button>
 
                     </div>
                 </div>
@@ -122,6 +123,7 @@ if (isset($_SESSION["user"])) {
 
         </div>
 
+        <script src="../../assets/js/script.js"></script>
     </body>
 
     </html>

@@ -31,9 +31,12 @@ if (empty($first_name)) {
 } else {
     include "../../libs/connection.php";
 
+    $hashed_password=password_hash($password,PASSWORD_BCRYPT);
+   
+
     $user_details_resultset = Database::execute("SELECT * FROM `user` WHERE `email`='$email'");
     if ($user_details_resultset->num_rows == 0) {
-        Database::execute("INSERT INTO `user` (`email`,`first_name`,`last_name`,`password`,`mobile`,`user_type_user_type_id`) VALUES ('$email','$first_name','$last_name','$password','$mobile','1')");
+        Database::execute("INSERT INTO `user` (`email`,`first_name`,`last_name`,`password`,`mobile`,`user_type_user_type_id`) VALUES ('$email','$first_name','$last_name','$hashed_password','$mobile','1')");
         echo ("success");
     } else if ($user_details_resultset->num_rows == 1) {
         echo ("User already registered");

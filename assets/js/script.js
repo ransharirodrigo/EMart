@@ -46,6 +46,7 @@ function signUp() {
     var request = new XMLHttpRequest();
     request.onreadystatechange = function () {
         if (request.readyState == 4 && request.status == 200) {
+            
             if (request.responseText == "success") {
                 window.location.href = "signIn.php";
             } else {
@@ -82,4 +83,8 @@ function signIn() {
     };
     request.open("POST", "../../App/process/signInProcess.php", true);
     request.send(form);
+}
+
+function updateProfileDetails() {
+   
 }

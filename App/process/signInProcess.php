@@ -13,21 +13,29 @@ if (empty($email)) {
 
     include "../../libs/connection.php";
 
-    $user_resultset = Database::execute("SELECT * FROM `user` WHERE `email`='$email' AND `password`='$password'");
+    $user_resultset = Database::execute("SELECT * FROM `user` WHERE `email`='$email'");
 
     if ($user_resultset->num_rows == 1) {
-        session_start();
-        $_SESSION["user"] = $user_resultset->fetch_assoc();
 
-        if ($remember_me == true) {
-            setcookie("email", "email", time() + 20 * 24 * 60 * 60);
-            setcookie("password", "password", time() + 20 * 24 * 60 * 60);
+        $user_data = $user_resultset->fetch_assoc();
+
+        if (password_verify($password, $user_data['password'])) {
+            
+            session_start();
+            $_SESSION["user"] = $user_data;
+
+            if ($remember_me == true) {
+                setcookie("email", "email", time() + 20 * 24 * 60 * 60);
+                setcookie("password", "password", time() + 20 * 24 * 60 * 60);
+            } else {
+                setcookie("email", "", -1);
+                setcookie("password", "", -1);
+            }
+
+            echo ("success");
         } else {
-            setcookie("email", "", -1);
-            setcookie("password", "", -1);
+            echo ("Invalid credentials");
         }
-
-        echo ("success");
     } else {
         echo ("Invalid credentials");
     }
