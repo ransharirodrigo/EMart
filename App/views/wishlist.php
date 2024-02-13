@@ -16,6 +16,8 @@
     <div class="container-fluid pt-5">
         <div class="row d-flex justify-content-center">
 
+
+            <!-- Breadcrumb -->
             <div class=" offset-1 col-11">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
@@ -24,10 +26,14 @@
                     </ol>
                 </nav>
             </div>
+            <!-- Breadcrumb -->
 
+            <!-- Wishlist page heading -->
             <div class="text-center mt-5">
                 <h2>WISHLIST</h2>
             </div>
+            <!-- Wishlist page heading -->
+
 
             <?php
             session_start();
