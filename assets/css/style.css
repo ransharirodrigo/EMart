@@ -32,10 +32,22 @@
   cursor: pointer;
 }
 
+.wishlist_item_image{
+  width: 80px;
+}
+
+.wishlist_item_div{
+  height: 500px;
+}
+
 @media (min-width: 768px) {
   .logo {
     /* width: 75% !important; */
     width: 160px !important;
+  }
+
+  .wishlist_item_image{
+    width: 100px;
   }
 }
 
@@ -48,6 +60,11 @@
   .signin_page_line_with_paragraph {
     top: 570px;
   }
+
+
+  .wishlist_item_image{
+    width: 120px;
+  }
 }
 
 @media (min-width: 1400px) {
@@ -58,5 +75,9 @@
 
   .signin_page_line_with_paragraph {
     top: 600px;
+  }
+
+  .wishlist_item_image{
+    width: 140px;
   }
 }
