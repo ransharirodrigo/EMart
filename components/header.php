@@ -54,7 +54,7 @@
                     </div>
 
                     <div class="col-3">
-                        <a href="" class="text-decoration-none text-reset">
+                        <a href="App/views/wishlist.php" class="text-decoration-none text-reset">
                             <i class="bi bi-heart header_top_icon"></i>
                         </a>
                     </div>
