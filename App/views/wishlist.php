@@ -38,7 +38,7 @@
             <?php
             session_start();
 
-            if (isset($_SESSION["wishlist_product_id_array"])) {
+            if (isset($_SESSION["user_wishlist_id"])) {
             ?>
 
                 <div class="col-10 mt-5 overflow-y-scroll wishlist_item_div">
@@ -74,7 +74,6 @@
                 </div>
             <?php
             } else {
-
             ?>
                 <div class="text-center mt-5">
                     <span class="text-secondary ">No products added to the wishlist</span>

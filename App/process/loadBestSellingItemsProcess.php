@@ -5,7 +5,7 @@ $date = date("Y");
 
 $category_name = $_GET["category_name"];
 
-$query = "SELECT product.title,product_images.path FROM emart_db.top_selling_items
+$query = "SELECT product.product_id,product.title,product_images.path FROM emart_db.top_selling_items
  INNER JOIN `product` ON product.product_id=top_selling_items.product_product_id 
  LEFT JOIN emart_db.product_images ON product.product_id=product_images.product_product_id
   INNER JOIN emart_db.category ON category.category_id=product.category_category_id";
@@ -44,11 +44,12 @@ if ($best_selling_items_resultset->num_rows > 0) {
                     <div class="text-center">
                         <span><?php echo $best_selling_items_array["title"] ?></span>
                     </div>
-                    <div class="col-2 offset-5">
-                        <i class="bi bi-bag-heart-fill wishlist_icon_for_product_card" size></i>
-                    </div>
+
                 </div>
             </a>
+            <div class="col-2 offset-5">
+                <i class="bi bi-bag-heart-fill wishlist_icon_for_product_card" onclick="addToWishList(<?php echo ($best_selling_items_array['product_id']) ?>)"></i>
+            </div>
         </div>
 
 <?php

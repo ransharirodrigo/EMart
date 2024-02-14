@@ -23,6 +23,8 @@ class Database
             return $resultset;
         } else {
             Database::$connection->query($query);
+
+            return Database::$connection->insert_id;
         }
     }
 }

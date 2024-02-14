@@ -105,7 +105,7 @@ function updateProfileDetails() {
     request.onreadystatechange = function () {
         if (request.readyState == 4 && request.status == 200) {
             alert(request.responseText);
-           
+
             if (request.responseText == "success") {
                 window.location.reload();
             }
@@ -142,4 +142,18 @@ function signOut() {
     };
     request.open("GET", "../../App/process/signOutProcess.php", true);
     request.send();
+}
+
+function addToWishList(product_id) {
+
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 && request.status == 200) {
+
+            alert(request.responseText);
+        }
+    };
+    request.open("GET", "App/process/addToWishlistProcess.php?product_id=" + product_id, true);
+    request.send();
+
 }
