@@ -1,3 +1,7 @@
+<?php
+include "../../libs/connection.php";
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -39,24 +43,48 @@
             session_start();
 
             if (isset($_SESSION["user_wishlist_id"])) {
+                $user_wishlist_id = $_SESSION["user_wishlist_id"];
             ?>
 
-                <div class="col-10 mt-5 overflow-y-scroll wishlist_item_div">
+                <div class="col-10 overflow-y-scroll wishlist_item_div">
                     <?php
-                    for ($i = 0; $i < 15; $i++) {
+                    $wishlist_resultset = Database::execute("SELECT * FROM `wishlist`
+                     INNER JOIN `product` ON product.product_id=wishlist.product_id 
+                     LEFT JOIN `product_images` ON product_images.product_product_id=product.product_id
+                    WHERE wishlist.user_wishlist_id='$user_wishlist_id'");
+                    ?>
+
+                    <?php
+                    for ($i = 0; $i < $wishlist_resultset->num_rows; $i++) {
+                        $wishlist_array = $wishlist_resultset->fetch_assoc();
                     ?>
                         <div class="row mb-3">
                             <div class="col-3  justify-content-center">
-                                <img src="../../assets/img/index_page_img2.jpg" class="wishlist_item_image" alt="wishlist_image">
+
+                                <?php
+                                if (isset($wishlist_array["path"])) {
+                                ?>
+
+                                    <img src="../../<?php echo ($wishlist_array['path']) ?>" class="wishlist_item_image" alt="wishlist_image">
+                                <?php
+                                } else {
+                                ?>
+                                    <img src="../../assets/img/product_images/default_product_icon.svg" class="wishlist_item_image" alt="wishlist_image">
+                                <?php
+                                }
+
+                                ?>
+
+
                             </div>
 
                             <div class="col-5 ">
                                 <div class="row">
                                     <div class="col-12 text-center col-md-5">
-                                        <span>Hpf jgjfj</span>
+                                        <span><?php echo($wishlist_array["title"])?></span>
                                     </div>
                                     <div class="col-12  text-center mt-2 mt-md-0 col-md-5">
-                                        <span>150 000/=</span>
+                                        <span><?php echo($wishlist_array["price"])?>/=</span>
                                     </div>
                                 </div>
                             </div>
