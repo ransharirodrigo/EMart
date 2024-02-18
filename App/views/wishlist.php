@@ -45,67 +45,82 @@ include "../../libs/connection.php";
 
             if (isset($_SESSION["user_wishlist_id"])) {
                 $user_wishlist_id = $_SESSION["user_wishlist_id"];
-            ?>
 
-                <div class="col-10 overflow-y-scroll wishlist_item_div">
-                    <?php
-                    $wishlist_resultset = Database::execute("SELECT * FROM `wishlist`
+
+                $wishlist_resultset = Database::execute("SELECT * FROM `wishlist`
                      INNER JOIN `product` ON product.product_id=wishlist.product_id 
                      LEFT JOIN `product_images` ON product_images.product_product_id=product.product_id
                     WHERE wishlist.user_wishlist_id='$user_wishlist_id'");
 
-                 
-                    ?>
+                if ($wishlist_resultset->num_rows == 0) {
+            ?>
+                    <div class="text-center mt-5">
+                        <span class="text-secondary ">No products added to the wishlist</span>
+                    </div>
+                <?php
+                } else {
+                ?>
+                    <div class="col-10 overflow-y-scroll wishlist_item_div">
 
-                    <?php
-                    for ($i = 0; $i < $wishlist_resultset->num_rows; $i++) {
-                        $wishlist_array = $wishlist_resultset->fetch_assoc();
-                    ?>
-                        <div class="row mb-3">
-                            <div class="col-1 d-flex justify-content-center align-items-center">
-                                <i class="bi bi-x-lg remove_from_wishlist" onclick="removeFromWishlist(<?php echo ($wishlist_array['product_id']) ?>)"></i>
-                            </div>
-                            <div class="col-3  justify-content-center">
+                        <?php
+                        for ($i = 0; $i < $wishlist_resultset->num_rows; $i++) {
+                            $wishlist_array = $wishlist_resultset->fetch_assoc();
+                        ?>
+                            <div class="row mb-3">
+                                <div class="col-1 d-flex justify-content-center align-items-center">
+                                    <i class="bi bi-x-lg remove_from_wishlist" onclick="removeFromWishlist(<?php echo ($wishlist_array['product_id']) ?>)"></i>
+                                </div>
+                                <div class="col-3  justify-content-center">
 
-                                <?php
-                                if (isset($wishlist_array["path"])) {
-                                ?>
+                                    <?php
+                                    if (isset($wishlist_array["path"])) {
+                                    ?>
 
-                                    <img src="../../<?php echo ($wishlist_array['path']) ?>" class="wishlist_item_image" alt="wishlist_image">
-                                <?php
-                                } else {
-                                ?>
-                                    <img src="../../assets/img/product_images/default_product_icon.svg" class="wishlist_item_image" alt="wishlist_image">
-                                <?php
-                                }
+                                        <img src="../../<?php echo ($wishlist_array['path']) ?>" class="wishlist_item_image" alt="wishlist_image">
+                                    <?php
+                                    } else {
+                                    ?>
+                                        <img src="../../assets/img/product_images/default_product_icon.svg" class="wishlist_item_image" alt="wishlist_image">
+                                    <?php
+                                    }
 
-                                ?>
+                                    ?>
 
 
-                            </div>
+                                </div>
 
-                            <div class="col-4 ">
-                                <div class="row">
-                                    <div class="col-12 text-center col-md-5">
-                                        <span><?php echo ($wishlist_array["title"]) ?></span>
+                                <div class="col-4 ">
+                                    <div class="row">
+                                        <div class="col-12 text-center col-md-5">
+                                            <span><?php echo ($wishlist_array["title"]) ?></span>
+                                        </div>
+                                        <div class="col-12  text-center mt-2 mt-md-0 col-md-5">
+                                            <span><?php echo ($wishlist_array["price"]) ?>/=</span>
+                                        </div>
                                     </div>
-                                    <div class="col-12  text-center mt-2 mt-md-0 col-md-5">
-                                        <span><?php echo ($wishlist_array["price"]) ?>/=</span>
+                                </div>
+
+                                <div class="col-4 ">
+                                    <div class="row justify-content-center">
+                                        <button class="btn btn-warning col-12 col-md-5">Add to cart</button>
                                     </div>
                                 </div>
                             </div>
+                        <?php
+                        }
 
-                            <div class="col-4 ">
-                                <div class="row justify-content-center">
-                                    <button class="btn btn-warning col-12 col-md-5">Add to cart</button>
-                                </div>
-                            </div>
-                        </div>
-                    <?php
-                    }
+                        ?>
+                    </div>
+                <?php
+                }
 
-                    ?>
-                </div>
+
+                ?>
+
+
+
+
+
             <?php
             } else {
             ?>
