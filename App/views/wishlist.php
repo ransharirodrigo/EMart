@@ -76,20 +76,19 @@ include "../../libs/connection.php";
                                     if (isset($wishlist_array["path"])) {
                                     ?>
 
-                                        <img src="../../<?php echo ($wishlist_array['path']) ?>" class="wishlist_item_image" alt="wishlist_image">
+                                        <img src="../../<?php echo ($wishlist_array['path']) ?>" class="wishlist_item_image" alt="wishlist_image" onclick="open_wishlist_single_item_popup_view_modal('<?php echo $wishlist_array['title'] ?>','<?php echo $wishlist_array['description'] ?>','<?php echo $wishlist_array['price'] ?>','<?php echo $wishlist_array['points'] ?>','<?php echo $wishlist_array['path'] ?>');" />
                                     <?php
                                     } else {
                                     ?>
-                                        <img src="../../assets/img/product_images/default_product_icon.svg" class="wishlist_item_image" alt="wishlist_image">
+                                        <img src="../../assets/img/product_images/default_product_icon.svg" class="wishlist_item_image" alt="wishlist_image" onclick="open_wishlist_single_item_popup_view_modal('<?php echo $wishlist_array['title'] ?>','<?php echo $wishlist_array['description'] ?>','<?php echo $wishlist_array['price'] ?>','<?php echo $wishlist_array['points'] ?>','../../assets/img/product_images/default_product_icon.svg');"/>
                                     <?php
                                     }
 
                                     ?>
 
-
                                 </div>
 
-                                <div class="col-4 ">
+                                <div class="col-4">
                                     <div class="row">
                                         <div class="col-12 text-center col-md-5">
                                             <span><?php echo ($wishlist_array["title"]) ?></span>
@@ -114,12 +113,7 @@ include "../../libs/connection.php";
                 <?php
                 }
 
-
                 ?>
-
-
-
-
 
             <?php
             } else {
@@ -133,9 +127,55 @@ include "../../libs/connection.php";
             ?>
 
         </div>
+
+
+        <!-- wishlist_single_item_popup_view_modal -->
+        <div class="modal" id="wishlist_single_item_popup_view_modal" data-bs-backdrop="static">
+            <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body ">
+                        <div class="row d-flex justify-content-end">
+                            <div class="col-1">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <img src="../../assets/img/product_images/default_product_icon.svg" alt="product_image" id="product_image" />
+                            </div>
+                            <div class="col-6 ">
+                                <div class="row">
+                                    <h3 id="product_name">product name</h3>
+                                </div>
+                                <div class="row">
+                                    <span id="price">price</span>
+                                </div>
+                                <div class="row mt-5">
+                                    <i class="bi bi-star col-1"></i>
+                                    <i class="bi bi-star col-1"></i>
+                                    <i class="bi bi-star col-1"></i>
+                                    <i class="bi bi-star col-1"></i>
+                                    <i class="bi bi-star col-1"></i>
+                                </div>
+                                <div class="row">
+                                    <p id="product_description">product description</p>
+                                </div>
+                                <div class="row">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- wishlist_single_item_popup_view_modal -->
+
     </div>
 
 
+    <script src="../../assets/js/bootstrap.bundle.min.js"></script>
     <script src="../../assets/js/script.js"></script>
 </body>
 

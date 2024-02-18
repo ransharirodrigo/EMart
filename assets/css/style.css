@@ -48,6 +48,10 @@
   height: 500px;
 }
 
+.wishlist_item_image:hover {
+  cursor: pointer;
+}
+
 @media (min-width: 768px) {
   .logo {
     /* width: 75% !important; */

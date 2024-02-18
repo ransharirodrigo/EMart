@@ -149,8 +149,11 @@ function addToWishList(product_id) {
     var request = new XMLHttpRequest();
     request.onreadystatechange = function () {
         if (request.readyState == 4 && request.status == 200) {
-
-            alert(request.responseText);
+            if (request.responseText == "success") {
+                alert("Product added to your wishlist");
+            } else {
+                alert(request.responseText);
+            }
         }
     };
     request.open("GET", "App/process/addToWishlistProcess.php?product_id=" + product_id, true);
@@ -171,4 +174,21 @@ function removeFromWishlist(product_id) {
     };
     request.open("GET", "../../App/process/removeFromWishlistProcess.php?product_id=" + product_id, true);
     request.send();
+}
+
+function open_wishlist_single_item_popup_view_modal(title, description, price, points, image_path) {
+
+    if (image_path.startsWith("../")) {
+        document.getElementById("product_image").src = image_path;
+    } else {
+        document.getElementById("product_image").src = "../../" + image_path;
+    }
+
+    document.getElementById("product_name").innerHTML = title;
+    document.getElementById("price").innerHTML = price;
+    document.getElementById("product_description").innerHTML = description;
+
+
+    const wishlist_single_item_popup_view_modal = new bootstrap.Modal(document.getElementById("wishlist_single_item_popup_view_modal"), {})
+    wishlist_single_item_popup_view_modal.show();
 }

@@ -5,7 +5,6 @@ $product_id = $_GET["product_id"];
 
 session_start();
 
-
 function generateUniqueUserWishlistId($callback)
 {
     do {
@@ -34,7 +33,7 @@ function insertUserWishlistId($callback)
 {
 
     Database::execute("INSERT INTO `user_wishlist_id` VALUES ('" . $_SESSION["user_wishlist_id"] . "')");
-    call_user_func($callback,$_SESSION["user_wishlist_id"]);
+    call_user_func($callback, $_SESSION["user_wishlist_id"]);
 }
 
 if (isset($_SESSION["user_wishlist_id"])) {
@@ -61,15 +60,16 @@ if (isset($_SESSION["user_wishlist_id"])) {
         echo ("Something went wrong. Please try again");
     }
 } else {
+    generateUniqueUserWishlistId(
+        function ($user_wishlist_id) use ($product_id) {
+            $_SESSION["user_wishlist_id"] = $user_wishlist_id;
 
+            insertUserWishlistId(
+                function ($user_wishlist_id) use ($product_id) {
 
-    generateUniqueUserWishlistId(function ($user_wishlist_id) use ($product_id) {
-        $_SESSION["user_wishlist_id"] = $user_wishlist_id;
-
-        insertUserWishlistId(function ($user_wishlist_id) use ($product_id) {
-
-            insertProductIntoWishlist($user_wishlist_id, $product_id);
-        });
-    });
-
+                    insertProductIntoWishlist($user_wishlist_id, $product_id);
+                }
+            );
+        }
+    );
 }
