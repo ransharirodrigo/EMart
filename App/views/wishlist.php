@@ -80,7 +80,7 @@ include "../../libs/connection.php";
                                     <?php
                                     } else {
                                     ?>
-                                        <img src="../../assets/img/product_images/default_product_icon.svg" class="wishlist_item_image" alt="wishlist_image" onclick="open_wishlist_single_item_popup_view_modal('<?php echo $wishlist_array['title'] ?>','<?php echo $wishlist_array['description'] ?>','<?php echo $wishlist_array['price'] ?>','<?php echo $wishlist_array['points'] ?>','../../assets/img/product_images/default_product_icon.svg');"/>
+                                        <img src="../../assets/img/product_images/default_product_icon.svg" class="wishlist_item_image" alt="wishlist_image" onclick="open_wishlist_single_item_popup_view_modal('<?php echo $wishlist_array['title'] ?>','<?php echo $wishlist_array['description'] ?>','<?php echo $wishlist_array['price'] ?>','<?php echo $wishlist_array['points'] ?>','../../assets/img/product_images/default_product_icon.svg');" />
                                     <?php
                                     }
 
@@ -161,8 +161,9 @@ include "../../libs/connection.php";
                                 <div class="row">
                                     <p id="product_description">product description</p>
                                 </div>
-                                <div class="row">
-
+                                <div class="row input-group">
+                                    <span class="col-7 input-group-text">Quantity</span>
+                                    <input type="number" id="quantityInput" class="col-5 form-control" value="1" oninput="validateQuantity()"/>
                                 </div>
                             </div>
                         </div>

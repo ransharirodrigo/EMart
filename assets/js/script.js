@@ -192,3 +192,10 @@ function open_wishlist_single_item_popup_view_modal(title, description, price, p
     const wishlist_single_item_popup_view_modal = new bootstrap.Modal(document.getElementById("wishlist_single_item_popup_view_modal"), {})
     wishlist_single_item_popup_view_modal.show();
 }
+
+function validateQuantity() {
+    var quantityInput = document.getElementById('quantityInput');
+    if (quantityInput.value < 1 || isNaN(quantityInput.value) || !Number.isInteger(Number(quantityInput.value))) {
+        quantityInput.value = 1;
+    }
+}
