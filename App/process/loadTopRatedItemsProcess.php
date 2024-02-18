@@ -36,11 +36,11 @@ if ($top_rated_items_resultset->num_rows > 0) {
                     <div class="text-center">
                         <span><?php echo $top_rated_items_array["title"] ?></span>
                     </div>
-                    <div class="col-2 offset-5">
-                        <i class="bi bi-bag-heart-fill wishlist_icon_for_product_card" onclick="addToWishList(<?php echo ($top_rated_items_array['product_id']) ?>)"></i>
-                    </div>
                 </div>
             </a>
+            <div class="col-2 offset-5">
+                <i class="bi bi-bag-heart-fill wishlist_icon_for_product_card" onclick="addToWishList(<?php echo ($top_rated_items_array['product_id']) ?>)"></i>
+            </div>
         </div>
 <?php
     }
