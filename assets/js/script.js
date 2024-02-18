@@ -157,3 +157,18 @@ function addToWishList(product_id) {
     request.send();
 
 }
+
+function removeFromWishlist(product_id) {
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 && request.status == 200) {
+            if (request.responseText == "Success") {
+                window.location.reload();
+            } else {
+                alert(request.responseText);
+            }
+        }
+    };
+    request.open("GET", "../../App/process/removeFromWishlistProcess.php?product_id=" + product_id, true);
+    request.send();
+}

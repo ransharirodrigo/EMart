@@ -13,6 +13,7 @@ include "../../libs/connection.php";
     <link rel="icon" href="../../assets/img/e_mart_logo.png" />
     <link rel="stylesheet" href="../../assets/css/bootstrap.css" />
     <link rel="stylesheet" href="../../assets/css/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
 <body class="">
@@ -52,6 +53,8 @@ include "../../libs/connection.php";
                      INNER JOIN `product` ON product.product_id=wishlist.product_id 
                      LEFT JOIN `product_images` ON product_images.product_product_id=product.product_id
                     WHERE wishlist.user_wishlist_id='$user_wishlist_id'");
+
+                 
                     ?>
 
                     <?php
@@ -59,6 +62,9 @@ include "../../libs/connection.php";
                         $wishlist_array = $wishlist_resultset->fetch_assoc();
                     ?>
                         <div class="row mb-3">
+                            <div class="col-1 d-flex justify-content-center align-items-center">
+                                <i class="bi bi-x-lg remove_from_wishlist" onclick="removeFromWishlist(<?php echo ($wishlist_array['product_id']) ?>)"></i>
+                            </div>
                             <div class="col-3  justify-content-center">
 
                                 <?php
@@ -78,13 +84,13 @@ include "../../libs/connection.php";
 
                             </div>
 
-                            <div class="col-5 ">
+                            <div class="col-4 ">
                                 <div class="row">
                                     <div class="col-12 text-center col-md-5">
-                                        <span><?php echo($wishlist_array["title"])?></span>
+                                        <span><?php echo ($wishlist_array["title"]) ?></span>
                                     </div>
                                     <div class="col-12  text-center mt-2 mt-md-0 col-md-5">
-                                        <span><?php echo($wishlist_array["price"])?>/=</span>
+                                        <span><?php echo ($wishlist_array["price"]) ?>/=</span>
                                     </div>
                                 </div>
                             </div>
@@ -111,11 +117,11 @@ include "../../libs/connection.php";
             }
             ?>
 
-
-
         </div>
     </div>
 
+
+    <script src="../../assets/js/script.js"></script>
 </body>
 
 </html>
