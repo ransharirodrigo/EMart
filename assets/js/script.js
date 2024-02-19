@@ -72,7 +72,7 @@ function signIn() {
     request.onreadystatechange = function () {
         if (request.readyState == 4 && request.status == 200) {
             if (request.responseText == "success") {
-                window.location.href = "profile.php";
+                window.location.href = "../../index.php";
             } else {
                 alert(request.responseText);
             }

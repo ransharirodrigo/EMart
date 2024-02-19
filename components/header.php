@@ -60,9 +60,25 @@
                     </div>
 
                     <div class="col-3">
-                        <a href="" class="text-decoration-none text-reset">
-                            <i class="bi bi-cart-check header_top_icon"></i>
-                        </a>
+
+                        <?php
+
+                        if (isset($_SESSION["user"])) {
+                        ?>
+                            <a href="App/views/cart.php" class="text-decoration-none text-reset">
+                                <i class="bi bi-cart-check header_top_icon"></i>
+                            </a>
+                        <?php
+                        } else {
+                        ?>
+                            <a href="App/views/signIn.php" class="text-decoration-none text-reset">
+                                <i class="bi bi-cart-check header_top_icon"></i>
+                            </a>
+                        <?php
+                        }
+                        ?>
+
+
                     </div>
 
                 </div>
