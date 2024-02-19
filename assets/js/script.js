@@ -201,5 +201,18 @@ function validateQuantity() {
 }
 
 function addToCart(product_id) {
-    alert(product_id);
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 && request.status == 200) {
+            var responseText = request.responseText;
+            alert(responseText);
+            if (responseText == "Login First") {
+                window.location.href = "App/views/signIn.php";
+            } else if (responseText == "success") {
+
+            }
+        }
+    };
+    request.open("GET", "App/process/addToCart.php?product_id=" + product_id, true);
+    request.send();
 }

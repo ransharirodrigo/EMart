@@ -46,7 +46,6 @@ if ($top_rated_items_resultset->num_rows > 0) {
                     <i class="bi  bi-cart-fill cart_icon_for_product_card"  onclick="addToCart(<?php echo $top_rated_items_array['product_id']?>)"></i>
                 </div>
             </div>
-
         </div>
 <?php
     }
