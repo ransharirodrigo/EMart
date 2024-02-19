@@ -38,7 +38,7 @@
             <!-- scroll div -->
             <div class=" overflow-y-scroll col-10 cart_item_div">
                 <?php
-                for ($i = 0; $i < 5; $i++) {
+                for ($i = 0; $i < 5; $i++) { 
                 ?>
                     <div class="row mt-3">
                         <div class="col-1 d-flex align-items-center">

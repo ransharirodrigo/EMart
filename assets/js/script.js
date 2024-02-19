@@ -199,3 +199,7 @@ function validateQuantity() {
         quantityInput.value = 1;
     }
 }
+
+function addToCart(product_id) {
+    alert(product_id);
+}

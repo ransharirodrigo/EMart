@@ -17,12 +17,13 @@
   font-size: 30px;
 }
 
-.wishlist_icon_for_product_card {
+.wishlist_icon_for_product_card,.cart_icon_for_product_card {
   font-size: 40px;
 }
 
-.wishlist_icon_for_product_card:hover {
+.wishlist_icon_for_product_card:hover,.cart_icon_for_product_card:hover {
   color: green;
+  cursor: pointer;
 }
 
 .best_selling_items_category_span,

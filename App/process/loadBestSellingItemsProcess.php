@@ -47,8 +47,13 @@ if ($best_selling_items_resultset->num_rows > 0) {
 
                 </div>
             </a>
-            <div class="col-2 offset-5">
-                <i class="bi bi-bag-heart-fill wishlist_icon_for_product_card" onclick="addToWishList(<?php echo ($best_selling_items_array['product_id']) ?>)"></i>
+            <div class="row">
+                <div class="col-2 offset-5">
+                    <i class="bi bi-bag-heart-fill wishlist_icon_for_product_card" onclick="addToWishList(<?php echo ($best_selling_items_array['product_id']) ?>)"></i>
+                </div>
+                <div class="col-2 ">
+                    <i class="bi  bi-cart-fill cart_icon_for_product_card" onclick="addToCart(<?php echo $best_selling_items_array['product_id']?>)"></i>
+                </div>
             </div>
         </div>
 
