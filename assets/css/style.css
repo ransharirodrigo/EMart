@@ -50,7 +50,7 @@
 
 
 
-.wishlist_item_image:hover {
+.wishlist_item_image,.cart_item_image:hover {
   cursor: pointer;
 }
 
@@ -70,7 +70,7 @@
   color: black;
 }
 
-.remove_from_wishlist:hover {
+.remove_from_wishlist,.remove_from_cart:hover {
   cursor: pointer;
 }
 
