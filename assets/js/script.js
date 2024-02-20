@@ -206,10 +206,8 @@ function addToCart(product_id) {
         if (request.readyState == 4 && request.status == 200) {
             var responseText = request.responseText;
             alert(responseText);
-            if (responseText == "Login First") {
+            if (responseText == "Login First" || responseText == "Something went wrong. Try Sign In again") {
                 window.location.href = "App/views/signIn.php";
-            } else if (responseText == "success") {
-
             }
         }
     };
