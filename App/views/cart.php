@@ -58,22 +58,39 @@ if (isset($_SESSION["user"])) {
                 } else {
                 ?>
                     <!-- scroll div -->
-                    <div class=" overflow-y-scroll col-10 cart_item_div">
+                    <div class=" overflow-y-scroll col-10 cart_item_div pb-5">
                         <?php
                         for ($i = 0; $i < $cart_resultset->num_rows; $i++) {
+                            $cart_data_array = $cart_resultset->fetch_assoc();
                         ?>
-                            <div class="row mt-3">
+                            <div class="row mt-5">
                                 <div class="col-1 d-flex align-items-center">
                                     <i class="bi bi-x-lg remove_from_cart"></i>
                                 </div>
-                                <div class="col-3  d-flex align-items-center">
-                                    <img src="../../assets/img/product_images/default_product_icon.svg" class="cart_item_image" alt="cart product image" />
-                                </div>
+
+                                <?php
+
+                                if (isset($cart_data_array["path"])) {
+                                ?>
+                                    <div class="col-3  d-flex align-items-center">
+                                        <img src="../../<?php echo $cart_data_array["path"] ?>" class="cart_item_image" alt="cart product image" />
+                                    </div>
+                                <?php
+
+                                } else {
+                                ?>
+                                    <div class="col-3  d-flex align-items-center">
+                                        <img src="../../assets/img/product_images/default_product_icon.svg" class="cart_item_image" alt="cart product image" />
+                                    </div>
+                                <?php
+                                }
+                                ?>
+
                                 <div class="col-3 col-md-2  d-flex align-items-center">
-                                    <span class="fs-5 fw-semibold">Bella Grey</span>
+                                    <span class="fs-5 fw-semibold"><?php echo $cart_data_array["title"] ?></span>
                                 </div>
                                 <div class="col-2 offset-md-2  d-flex align-items-center">
-                                    <span>$62.00</span>
+                                    <span><?php echo $cart_data_array["price"] ?></span>
                                 </div>
                                 <div class="col-2 col-md-1  d-flex align-items-center">
                                     <div class="row">
