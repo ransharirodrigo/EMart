@@ -4,7 +4,7 @@ include "../../libs/connection.php";
 
 $category_name = $_GET["category_name"];
 
-$query = "SELECT * FROM `product` INNER JOIN `category` ON product.category_category_id=category.category_id LEFT JOIN product_images ON product.product_id=product_images.product_product_id WHERE ";
+$query = "SELECT * FROM `product` INNER JOIN `category` ON product.category_category_id=category.category_id LEFT JOIN product_images ON product.product_id=product_images.product_product_id WHERE `product`.`status_status_id`='1' AND";
 
 if ($category_name != "All") {
     $query .= "`category`.`category_name`='$category_name' AND ";

@@ -5,15 +5,15 @@ $date = date("Y");
 
 $category_name = $_GET["category_name"];
 
-$query = "SELECT product.product_id,product.title,product_images.path FROM emart_db.top_selling_items
+$query = "SELECT product.product_id,product.title,product_images.path,product.status_status_id FROM emart_db.top_selling_items
  INNER JOIN `product` ON product.product_id=top_selling_items.product_product_id 
  LEFT JOIN emart_db.product_images ON product.product_id=product_images.product_product_id
   INNER JOIN emart_db.category ON category.category_id=product.category_category_id";
 
 if ($category_name != "All") {
-    $query .= " WHERE category.category_name='" . $category_name . "' AND `top_selling_items`.`date_time` LIKE '" . $date . "%" . "'";
+    $query .= " WHERE category.category_name='" . $category_name . "' AND `top_selling_items`.`date_time` LIKE '" . $date . "%" . "' AND `product`.`status_status_id`='1'";
 } else {
-    $query .= " WHERE `top_selling_items`.`date_time` LIKE '" . $date . "%" . "' ORDER BY `top_selling_items`.`qty` LIMIT 4";
+    $query .= " WHERE `product`.`status_status_id`='1' AND `top_selling_items`.`date_time` LIKE '" . $date . "%" . "' ORDER BY `top_selling_items`.`qty` LIMIT 4";
 }
 
 
