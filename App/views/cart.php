@@ -99,7 +99,7 @@ if (isset($_SESSION["user"])) {
                                 </div>
                                 <div class="col-2 col-md-1  d-flex align-items-center">
                                     <div class="row">
-                                        <input type="number" class="text-center" value="<?php echo $cart_data_array['qty'] ?>" />
+                                        <input type="number" class="text-center" id="quantityInput" value="<?php echo $cart_data_array['qty'] ?>" oninput="validateQuantity()"/>
                                     </div>
 
                                 </div>
