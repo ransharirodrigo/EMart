@@ -45,7 +45,8 @@ if (isset($_SESSION["user"])) {
                 <!-- Heading -->
 
                 <?php
-                $cart_resultset = Database::execute("SELECT `product_images`.`path` AS `path`,
+                $cart_resultset = Database::execute("SELECT `product`.`product_id` AS `product_id`
+                ,`product_images`.`path` AS `path`,
                  `product`.`title` AS `title`,
                  `product`.`price` AS `price`,
                  `cart`.`qty` AS `qty`
@@ -69,7 +70,7 @@ if (isset($_SESSION["user"])) {
                         ?>
                             <div class="row mt-5">
                                 <div class="col-1 d-flex align-items-center">
-                                    <i class="bi bi-x-lg remove_from_cart"></i>
+                                    <i class="bi bi-x-lg remove_from_cart" onclick="removeFromCart(<?php echo $cart_data_array['product_id'] ?>)"></i>
                                 </div>
 
                                 <?php
@@ -102,7 +103,7 @@ if (isset($_SESSION["user"])) {
                                     </div>
 
                                 </div>
-                              
+
                             </div>
                         <?php
                         }
@@ -120,6 +121,7 @@ if (isset($_SESSION["user"])) {
             </div>
         </div>
 
+        <script src="../../assets/js/script.js"></script>
     </body>
 
     </html>
