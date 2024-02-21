@@ -45,7 +45,11 @@ if (isset($_SESSION["user"])) {
                 <!-- Heading -->
 
                 <?php
-                $cart_resultset = Database::execute("SELECT * FROM `cart` INNER JOIN `product` ON `product`.`product_id`=`cart`.`product_product_id` LEFT JOIN `product_images` ON `product`.`product_id`=`product_images`.`product_product_id` WHERE `user_email`='" . $user['email'] . "'");
+                $cart_resultset = Database::execute("SELECT `product_images`.`path` AS `path`,
+                 `product`.`title` AS `title`,
+                 `product`.`price` AS `price`,
+                 `cart`.`qty` AS `qty`
+                 FROM `cart` INNER JOIN `product` ON `product`.`product_id`=`cart`.`product_product_id` LEFT JOIN `product_images` ON `product`.`product_id`=`product_images`.`product_product_id` WHERE `user_email`='" . $user['email'] . "'");
 
                 if ($cart_resultset->num_rows == 0) {
 
@@ -94,10 +98,11 @@ if (isset($_SESSION["user"])) {
                                 </div>
                                 <div class="col-2 col-md-1  d-flex align-items-center">
                                     <div class="row">
-                                        <input type="number" class="text-center" />
+                                        <input type="number" class="text-center" value="<?php echo $cart_data_array['qty'] ?>" />
                                     </div>
 
                                 </div>
+                              
                             </div>
                         <?php
                         }
