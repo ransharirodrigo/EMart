@@ -45,8 +45,10 @@ if (isset($_SESSION["user"])) {
                 <!-- Heading -->
 
                 <?php
-                $cart_resultset = Database::execute("SELECT `product`.`product_id` AS `product_id`
-                ,`product_images`.`path` AS `path`,
+                $cart_resultset = Database::execute("SELECT `product`.`product_id` AS `product_id`,
+                `product`.`description` AS `description`,
+                `product`.`points` AS `points`,
+                `product_images`.`path` AS `path`,
                  `product`.`title` AS `title`,
                  `product`.`price` AS `price`,
                  `cart`.`qty` AS `qty`
@@ -78,14 +80,16 @@ if (isset($_SESSION["user"])) {
                                 if (isset($cart_data_array["path"])) {
                                 ?>
                                     <div class="col-3  d-flex align-items-center">
-                                        <img src="../../<?php echo $cart_data_array["path"] ?>" class="cart_item_image" alt="cart product image" />
+                                        <img src="../../<?php echo $cart_data_array["path"] ?>" class="cart_item_image" alt="cart product image"
+                                         onclick="open_cart_single_item_popup_view_modal('<?php echo $cart_data_array['title'] ?>','<?php echo $cart_data_array['description'] ?>','<?php echo $cart_data_array['price'] ?>','<?php echo $cart_data_array['points'] ?>','<?php echo $cart_data_array['path'] ?>','<?php echo $cart_data_array['qty'] ?>');" />
                                     </div>
                                 <?php
 
                                 } else {
                                 ?>
                                     <div class="col-3  d-flex align-items-center">
-                                        <img src="../../assets/img/product_images/default_product_icon.svg" class="cart_item_image" alt="cart product image" />
+                                        <img src="../../assets/img/product_images/default_product_icon.svg" class="cart_item_image" alt="cart product image" 
+                                         onclick="open_cart_single_item_popup_view_modal('<?php echo $cart_data_array['title'] ?>','<?php echo $cart_data_array['description'] ?>','<?php echo $cart_data_array['price'] ?>','<?php echo $cart_data_array['points'] ?>','../../assets/img/product_images/default_product_icon.svg','<?php echo $cart_data_array['qty'] ?>');"/>
                                     </div>
                                 <?php
                                 }
@@ -99,7 +103,7 @@ if (isset($_SESSION["user"])) {
                                 </div>
                                 <div class="col-2 col-md-1  d-flex align-items-center">
                                     <div class="row">
-                                        <input type="number" class="text-center" id="quantityInput" value="<?php echo $cart_data_array['qty'] ?>" oninput="validateQuantity()"/>
+                                        <input type="number" class="text-center" id="quantityInput" value="<?php echo $cart_data_array['qty'] ?>" oninput="validateQuantity()" />
                                     </div>
 
                                 </div>
@@ -119,8 +123,16 @@ if (isset($_SESSION["user"])) {
 
 
             </div>
+
+
+            <?php
+            include "../../components/product_modal.php"
+            ?>
+
+
         </div>
 
+        <script src="../../assets/js/bootstrap.bundle.min.js"></script>
         <script src="../../assets/js/script.js"></script>
     </body>
 

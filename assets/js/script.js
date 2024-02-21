@@ -187,6 +187,31 @@ function open_wishlist_single_item_popup_view_modal(title, description, price, p
     document.getElementById("product_name").innerHTML = title;
     document.getElementById("price").innerHTML = price;
     document.getElementById("product_description").innerHTML = description;
+    document.getElementById("quantityInputInPopup").value = 1;
+
+    document.getElementById("addToCartBtn").classList.add("d-block");
+    document.getElementById("buyNowBtn").classList.add ("d-none") ;
+
+    const wishlist_single_item_popup_view_modal = new bootstrap.Modal(document.getElementById("wishlist_single_item_popup_view_modal"), {})
+    wishlist_single_item_popup_view_modal.show();
+}
+
+
+function open_cart_single_item_popup_view_modal(title, description, price, points, image_path, qty) {
+
+    if (image_path.startsWith("../")) {
+        document.getElementById("product_image").src = image_path;
+    } else {
+        document.getElementById("product_image").src = "../../" + image_path;
+    }
+
+    document.getElementById("product_name").innerHTML = title;
+    document.getElementById("price").innerHTML = price;
+    document.getElementById("product_description").innerHTML = description;
+    document.getElementById("quantityInputInPopup").value = qty;
+
+    document.getElementById("addToCartBtn").classList.add ("d-none") ;
+    document.getElementById("buyNowBtn").classList.add("d-block");
 
 
     const wishlist_single_item_popup_view_modal = new bootstrap.Modal(document.getElementById("wishlist_single_item_popup_view_modal"), {})
