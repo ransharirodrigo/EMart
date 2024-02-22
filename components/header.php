@@ -102,7 +102,7 @@
                             for ($i = 0; $i < $category_resultset->num_rows; $i++) {
                                 $category_data = $category_resultset->fetch_assoc();
                             ?>
-                                <li><a class="dropdown-item" href="#"><?php echo $category_data["category_name"] ?></a></li>
+                                <li><a class="dropdown-item" href="App/views/categoryPage.php?id=<?php echo($category_data['category_id'])?> &name=<?php echo $category_data["category_name"] ?>"><?php echo $category_data["category_name"] ?></a></li>
                             <?php
                             }
 
