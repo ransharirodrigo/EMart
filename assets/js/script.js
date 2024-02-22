@@ -176,7 +176,11 @@ function removeFromWishlist(product_id) {
     request.send();
 }
 
-function open_wishlist_single_item_popup_view_modal(title, description, price, points, image_path) {
+var product_id_for_add_to_cart;
+
+function open_wishlist_single_item_popup_view_modal(product_id, title, description, price, points, image_path) {
+
+    product_id_for_add_to_cart = product_id;
 
     if (image_path.startsWith("../")) {
         document.getElementById("product_image").src = image_path;
@@ -190,7 +194,7 @@ function open_wishlist_single_item_popup_view_modal(title, description, price, p
     document.getElementById("quantityInputInPopup").value = 1;
 
     document.getElementById("addToCartBtn").classList.add("d-block");
-    document.getElementById("buyNowBtn").classList.add ("d-none") ;
+    document.getElementById("buyNowBtn").classList.add("d-none");
 
     const wishlist_single_item_popup_view_modal = new bootstrap.Modal(document.getElementById("wishlist_single_item_popup_view_modal"), {})
     wishlist_single_item_popup_view_modal.show();
@@ -210,7 +214,7 @@ function open_cart_single_item_popup_view_modal(title, description, price, point
     document.getElementById("product_description").innerHTML = description;
     document.getElementById("quantityInputInPopup").value = qty;
 
-    document.getElementById("addToCartBtn").classList.add ("d-none") ;
+    document.getElementById("addToCartBtn").classList.add("d-none");
     document.getElementById("buyNowBtn").classList.add("d-block");
 
 
@@ -253,4 +257,35 @@ function removeFromCart(product_id) {
     };
     request.open("GET", "../../App/process/removeFromCart.php?product_id=" + product_id, true);
     request.send();
+}
+
+function addToCartFromPopup() {
+
+    if (product_id_for_add_to_cart != null && product_id_for_add_to_cart != undefined && product_id_for_add_to_cart != "") {
+        var request = new XMLHttpRequest();
+        request.onreadystatechange = function () {
+            if (request.readyState == 4 && request.status == 200) {
+                if (request.responseText == "Product successfully added to your cart") {
+
+                    var r = new XMLHttpRequest();
+                    r.onreadystatechange = function () {
+                        if (r.readyState == 4 && r.status == 200) {
+                            if (r.responseText == "Success") {
+                                product_id_for_add_to_cart = null;
+                                window.location.reload();
+                            }
+                        }
+                    }
+                    r.open("GET", "../../App/process/removeFromWishlistProcess.php?product_id=" + product_id_for_add_to_cart);
+                    r.send();
+
+                } else {
+                    alert(request.responseText);
+                }
+            }
+        };
+        request.open("GET", "../../App/process/addToCart.php?product_id=" + product_id_for_add_to_cart, true);
+        request.send();
+    }
+
 }

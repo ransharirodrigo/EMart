@@ -44,7 +44,7 @@
                                     <input type="number" id="quantityInputInPopup" class="col-5 form-control" oninput="validateQuantity()" />
                                 </div>
                                 <div class="row mt-3" id="addToCartBtn">
-                                    <button class="btn btn-dark col-11">Add to Cart</button>
+                                    <button class="btn btn-dark col-11" onclick="addToCartFromPopup()">Add to Cart</button>
                                 </div>
                                 <div class="row mt-1" id="buyNowBtn">
                                     <button class="btn btn-dark col-11">Buy Now</button>

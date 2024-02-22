@@ -76,11 +76,11 @@ include "../../libs/connection.php";
                                     if (isset($wishlist_array["path"])) {
                                     ?>
 
-                                        <img src="../../<?php echo ($wishlist_array['path']) ?>" class="wishlist_item_image" alt="wishlist_image" onclick="open_wishlist_single_item_popup_view_modal('<?php echo $wishlist_array['title'] ?>','<?php echo $wishlist_array['description'] ?>','<?php echo $wishlist_array['price'] ?>','<?php echo $wishlist_array['points'] ?>','<?php echo $wishlist_array['path'] ?>');" />
+                                        <img src="../../<?php echo ($wishlist_array['path']) ?>" class="wishlist_item_image" alt="wishlist_image" onclick="open_wishlist_single_item_popup_view_modal('<?php echo $wishlist_array['product_id'] ?>','<?php echo $wishlist_array['title'] ?>','<?php echo $wishlist_array['description'] ?>','<?php echo $wishlist_array['price'] ?>','<?php echo $wishlist_array['points'] ?>','<?php echo $wishlist_array['path'] ?>');" />
                                     <?php
                                     } else {
                                     ?>
-                                        <img src="../../assets/img/product_images/default_product_icon.svg" class="wishlist_item_image" alt="wishlist_image" onclick="open_wishlist_single_item_popup_view_modal('<?php echo $wishlist_array['title'] ?>','<?php echo $wishlist_array['description'] ?>','<?php echo $wishlist_array['price'] ?>','<?php echo $wishlist_array['points'] ?>','../../assets/img/product_images/default_product_icon.svg');" />
+                                        <img src="../../assets/img/product_images/default_product_icon.svg" class="wishlist_item_image" alt="wishlist_image" onclick="open_wishlist_single_item_popup_view_modal('<?php echo $wishlist_array['product_id'] ?>','<?php echo $wishlist_array['title'] ?>','<?php echo $wishlist_array['description'] ?>','<?php echo $wishlist_array['price'] ?>','<?php echo $wishlist_array['points'] ?>','../../assets/img/product_images/default_product_icon.svg');" />
                                     <?php
                                     }
 
