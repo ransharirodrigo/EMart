@@ -17,7 +17,8 @@
         <div class="row mt-4">
 
             <?php
-            include "libs/connection.php";
+            // include "constant.php";
+            include(BASE_PATH . '/libs/connection.php');
 
             $category_resultset = Database::execute("SELECT * FROM `category`");
             ?>
@@ -102,7 +103,7 @@
                             for ($i = 0; $i < $category_resultset->num_rows; $i++) {
                                 $category_data = $category_resultset->fetch_assoc();
                             ?>
-                                <li><a class="dropdown-item" href="App/views/categoryPage.php?id=<?php echo($category_data['category_id'])?> &name=<?php echo $category_data["category_name"] ?>"><?php echo $category_data["category_name"] ?></a></li>
+                                <li><a class="dropdown-item" href="App/views/categoryPage.php?id=<?php echo ($category_data['category_id']) ?> &name=<?php echo $category_data["category_name"] ?>"><?php echo $category_data["category_name"] ?></a></li>
                             <?php
                             }
 
