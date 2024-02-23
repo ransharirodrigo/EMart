@@ -33,7 +33,7 @@
                             <div class="card bg-success bg-opacity-50 ">
                                 <img src="<?php echo $category_data['category_img'] ?>" class="card-img-top" alt="<?php echo $category_data['category_name'] . " " . "Image" ?>">
                                 <div class="card-footer text-center text-white">
-                                    <a href="#" class="text-decoration-none text-reset"><?php echo $category_data['category_name'] ?></a>
+                                    <a href="App/views/categoryPage.php?id=<?php echo $category_data['category_id'] ?>&name=<?php echo $category_data['category_name'] ?>" class="text-decoration-none text-reset"><?php echo $category_data['category_name'] ?></a>
                                 </div>
                             </div>
                         </div>

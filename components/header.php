@@ -97,7 +97,7 @@
                     <div class="input-group mb-3">
                         <button class="btn btn-outline-secondary dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">Categories</button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">All</a></li>
+                            <li><a class="dropdown-item" href="App/views/categoryPage.php?id=0&name=All">All</a></li>
                             <?php
                             for ($i = 0; $i < $category_resultset->num_rows; $i++) {
                                 $category_data = $category_resultset->fetch_assoc();
