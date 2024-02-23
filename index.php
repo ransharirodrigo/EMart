@@ -8,6 +8,12 @@
     <title>E Mart</title>
 
     <link rel="icon" href="assets/img/e_mart_logo.png">
+
+
+    <link rel="stylesheet" href="assets/css/bootstrap.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
 <body class="" onload="loadBestSellingItems('All'); loadTopRatedItems('All')">
@@ -16,8 +22,9 @@
         <div class="row">
             <?php
             include ("config.php");
+            
             include(BASE_PATH . '/components/header.php');
-          
+
             $category_resultset = Database::execute("SELECT * FROM `category`");
             ?>
 
