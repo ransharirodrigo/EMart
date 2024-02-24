@@ -222,8 +222,11 @@ function open_cart_single_item_popup_view_modal(title, description, price, point
     wishlist_single_item_popup_view_modal.show();
 }
 
-function validateQuantity() {
-    var quantityInput = document.getElementById('quantityInput');
+function validateQuantity(inputElement) {
+
+
+    // var quantityInput = document.getElementById('quantityInput');
+    var quantityInput = inputElement;
     if (quantityInput.value < 1 || isNaN(quantityInput.value) || !Number.isInteger(Number(quantityInput.value))) {
         quantityInput.value = 1;
     }

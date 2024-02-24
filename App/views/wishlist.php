@@ -66,7 +66,7 @@ include "../../libs/connection.php";
                         for ($i = 0; $i < $wishlist_resultset->num_rows; $i++) {
                             $wishlist_array = $wishlist_resultset->fetch_assoc();
                         ?>
-                            <div class="row mb-3">
+                            <div class="row mb-3 d-flex align-items-center">
                                 <div class="col-1 d-flex justify-content-center align-items-center">
                                     <i class="bi bi-x-lg remove_from_wishlist" onclick="removeFromWishlist(<?php echo ($wishlist_array['product_id']) ?>)"></i>
                                 </div>
@@ -88,8 +88,8 @@ include "../../libs/connection.php";
 
                                 </div>
 
-                                <div class="col-4">
-                                    <div class="row">
+                                <div class="col-4 ">
+                                    <div class="row  ">
                                         <div class="col-12 text-center col-md-5">
                                             <span><?php echo ($wishlist_array["title"]) ?></span>
                                         </div>

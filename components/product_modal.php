@@ -41,7 +41,7 @@
                                 </div>
                                 <div class="row input-group ">
                                     <span class="col-7 input-group-text">Quantity</span>
-                                    <input type="number" id="quantityInputInPopup" class="col-5 form-control" oninput="validateQuantity()" />
+                                    <input type="number" id="quantityInputInPopup" class="col-5 form-control" oninput="validateQuantity(this)" />
                                 </div>
                                 <div class="row mt-3" id="addToCartBtn">
                                     <button class="btn btn-dark col-11" onclick="addToCartFromPopup()">Add to Cart</button>
@@ -58,6 +58,8 @@
 
     </div>
 
+
+    <script src="../../assets/js/script.js"></script>
 </body>
 
 </html>
