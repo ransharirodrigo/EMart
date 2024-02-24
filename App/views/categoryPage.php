@@ -17,15 +17,15 @@ if (isset($_GET['id'])) {
 
     <body>
         <div class="container-fluid">
-            <div class="row">
+            <div class="row ">
 
                 <?php
                 include "../../config.php";
                 include(BASE_PATH . '/components/header.php');
                 ?>
 
-                <div class="col-3">
-                    <select name="" id="">
+                <div class="col-1  ">
+                    <select name="" id="" class="form-select">
                         <option value="">Default Sort</option>
                         <option value="">Name</option>
                     </select>

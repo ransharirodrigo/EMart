@@ -23,7 +23,7 @@
 
 
             ?>
-
+  
             <div class="d-none col-lg-6 d-lg-block">
                 <div class="row">
                     <span class="col-4 fs-6 ">0761212065</span>
