@@ -49,10 +49,12 @@
   height: 500px;
 }
 
-
-
 .wishlist_item_image,.cart_item_image:hover {
   cursor: pointer;
+}
+
+.category_page_product_image{
+  width: 300px;
 }
 
 @media (min-width: 768px) {
@@ -64,6 +66,11 @@
   .wishlist_item_image ,.cart_item_image{
     width: 100px;
   }
+
+  .category_page_product_image{
+    width: 220px;
+  }
+  
 }
 
 .remove_from_wishlist {
@@ -87,6 +94,10 @@
 
   .wishlist_item_image,.cart_item_image {
     width: 120px;
+  }
+
+  .category_page_product_image{
+    width: 180px;
   }
 }
 
