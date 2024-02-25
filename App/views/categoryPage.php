@@ -25,11 +25,13 @@ if (isset($_GET['id'])) {
                 include "../../config.php";
                 include(BASE_PATH . '/components/header.php');
 
-                $query = "SELECT * FROM `product`";
+                $query = "SELECT * FROM `product` LEFT JOIN `product_images` ON `product`.`product_id`=`product_images`.`product_product_id`";
 
                 if ($category_id != 0) {
                     $query .= " WHERE `category_category_id`='$category_id'";
                 }
+
+
 
                 $category_resultset = Database::execute($query);
 
@@ -56,6 +58,8 @@ if (isset($_GET['id'])) {
                             <?php
                         } else {
                             for ($i = 0; $i < $category_resultset->num_rows; $i++) {
+
+                                $category_data =   $category_resultset->fetch_assoc();
                             ?>
                                 <div class="col-8 col-md-6 col-lg-3  mt-5 ">
                                     <!-- <img src="../../assets/img/product_images/iphone_11.jpeg" class="category_page_product_image" alt="product image" /> -->
@@ -63,9 +67,25 @@ if (isset($_GET['id'])) {
 
                                     <div class="row">
                                         <a href="" class="text-decoration-none text-reset  ">
-                                            <img src="../../assets/img/product_images/iphone_11.jpeg" class="category_page_product_image" alt="product image" />
+                                            <?php
+
+                                            if ($category_data["path"] == null) {
+                                            ?>
+
+                                                <img src="../../assets/img/product_images/default_product_icon.svg" class="category_page_product_image" alt="product image" />
+                                            <?php
+                                            } else {
+                                            ?>
+                                                <img src="../../<?php echo $category_data['path'] ?>" class="category_page_product_image" alt="product image" />
+                                            <?php
+                                            }
+
+                                            ?>
+
+
+
                                             <div class="card-body">
-                                                <span>Iphone</span>
+                                                <span><?php echo $category_data["title"] ?></span>
                                             </div>
                                         </a>
                                     </div>
