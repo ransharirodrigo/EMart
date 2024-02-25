@@ -37,9 +37,28 @@ if (isset($_GET['id'])) {
                         <?php
                         for ($i = 0; $i < 10; $i++) {
                         ?>
-                            <div class="col-8 col-md-6 col-lg-3 d-flex justify-content-center mt-3">
-                                <img src="../../assets/img/product_images/iphone_11.jpeg" class="category_page_product_image" alt="product image" />
+                            <div class="col-8 col-md-6 col-lg-3  mt-5 ">
+                                <!-- <img src="../../assets/img/product_images/iphone_11.jpeg" class="category_page_product_image" alt="product image" /> -->
+
+
+                                <div class="row">
+                                    <a href="" class="text-decoration-none text-reset  ">
+                                        <img src="../../assets/img/product_images/iphone_11.jpeg" class="category_page_product_image" alt="product image" />
+                                        <div class="card-body">
+                                            <span>Iphone</span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="row">
+                                    <div class="col-2 ">
+                                        <i class="bi bi-bag-heart-fill wishlist_icon_for_product_card"></i>
+                                    </div>
+                                    <div class="col-2 ">
+                                        <i class="bi  bi-cart-fill cart_icon_for_product_card"></i>
+                                    </div>
+                                </div>
                             </div>
+
 
                         <?php
                         }
