@@ -292,3 +292,17 @@ function addToCartFromPopup() {
     }
 
 }
+
+function searchProducts(category_id) {
+    var searchText = document.getElementById("searchText").value;
+    var category_id = category_id;
+
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 && request.status == 200) {
+            alert(request.responseText);
+        }
+    };
+    request.open("GET", "/EMart/App/process/searchProcess.php?searchText=" + searchText + "&categoryID=" + category_id, true);
+    request.send();
+}

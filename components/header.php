@@ -23,7 +23,7 @@
 
 
             ?>
-  
+
             <div class="d-none col-lg-6 d-lg-block">
                 <div class="row">
                     <span class="col-4 fs-6 ">0761212065</span>
@@ -110,8 +110,14 @@
 
                             ?>
                         </ul>
-                        <input type="text" class="form-control" autocomplete="off" aria-label="Text input with dropdown button" id="search">
-                        <button class="btn btn-secondary" type="button" id="button-addon2">Search</button>
+                        <input type="text" class="form-control" autocomplete="off" aria-label="Text input with dropdown button" id="searchText">
+                        <button class="btn btn-secondary" type="button" id="button-addon2" onclick="searchProducts(<?php
+                                                                                                                    if (isset($_GET['id'])) {
+                                                                                                                        echo $category_id;
+                                                                                                                    } else {
+                                                                                                                        echo '0';
+                                                                                                                    }
+                                                                                                                    ?>)">Search</button>
                     </div>
                 </div>
             </div>
