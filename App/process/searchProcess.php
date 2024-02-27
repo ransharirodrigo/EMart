@@ -1,4 +1,47 @@
 <?php
-$searchText = $_GET["searchText"];
-$categoryID = $_GET["categoryID"];
-echo($searchText.$categoryID);
+
+include "../../libs/connection.php";
+
+if (isset($_GET["searchText"]) && isset($_GET["categoryID"])) {
+
+    $searchText = $_GET["searchText"];
+    $categoryID = $_GET["categoryID"];
+
+    $query = "SELECT * FROM `product` INNER JOIN `product_images` ON `product`.`product_id`=`product_images`.`product_product_id` WHERE `title` LIKE '%".$searchText."%' AND `status_status_id`='1'";
+
+    if ($categoryID != 0) {
+        $query .= " AND `product`.`category_category_id`='$categoryID'";
+    }
+
+    $search_product_resultset = Database::execute($query);
+
+    if ($search_product_resultset->num_rows != 0) {
+        for ($i = 0; $i < $search_product_resultset->num_rows; $i++) {
+
+?>
+            <div class="col-8 col-md-6 col-lg-3  mt-5 ">
+                <div class="row">
+                    <a href="" class="text-decoration-none text-reset  ">
+                        <img src="../../assets/img/product_images/default_product_icon.svg" class="category_page_product_image" alt="product image" />
+                        <div class="card-body">
+                            <span>Mobile</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="row">
+                    <div class="col-2 ">
+                        <i class="bi bi-bag-heart-fill wishlist_icon_for_product_card"></i>
+                    </div>
+                    <div class="col-2 ">
+                        <i class="bi  bi-cart-fill cart_icon_for_product_card"></i>
+                    </div>
+                </div>
+            </div>
+<?php
+        }
+    } else {
+        echo "No Products";
+    }
+} else {
+    echo ("Something Went Wrong");
+}

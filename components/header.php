@@ -116,6 +116,7 @@
                                                                                                                         echo $category_id;
                                                                                                                     } else {
                                                                                                                         echo '0';
+                                                                                                                    
                                                                                                                     }
                                                                                                                     ?>)">Search</button>
                     </div>
