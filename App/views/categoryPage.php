@@ -20,7 +20,7 @@ if (isset($_GET['id'])) {
 
     <body>
         <div class="container-fluid">
-            <div class="row ">
+            <div class="row " >
 
                 <?php
                 include "../../config.php";
@@ -47,7 +47,7 @@ if (isset($_GET['id'])) {
                 </div> -->
 
                 <div class="col-12 mb-5">
-                    <div class="row">
+                    <div class="row" >
 
                         <?php
 

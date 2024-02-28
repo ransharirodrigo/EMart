@@ -295,7 +295,7 @@ function addToCartFromPopup() {
 
 function searchProducts(category_id) {
     var searchText = document.getElementById("searchText").value;
-    var category_id = category_id;
+    var categoryid = category_id;
 
     var request = new XMLHttpRequest();
     request.onreadystatechange = function () {
@@ -303,17 +303,17 @@ function searchProducts(category_id) {
 
             var response = request.responseText;
 
-            window.location.href="/EMart/App/views/searchedProducts.php";
-
-            if (response == "No Products") {
-                alert(response);
-            } else if (response == "Something Went Wrong") {
+            if (response == "No Products" || response == "Something Went Wrong" || response == "Please enter the Name of the product you are looking for") {
                 alert(response);
             } else {
-                document.getElementById("productDiv").innerHTML = response;
+
+                localStorage.setItem("searchedProductsDesign",JSON.stringify(response));
+                window.location.href = "/EMart/App/views/searchedProducts.php";
+
+            
             }
         }
     };
-    request.open("GET", "/EMart/App/process/searchProcess.php?searchText=" + searchText + "&categoryID=" + category_id, true);
+    request.open("GET", "/EMart/App/process/searchProcess.php?searchText=" + searchText + "&categoryID=" + categoryid, true);
     request.send();
 }

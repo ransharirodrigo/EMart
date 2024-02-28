@@ -16,6 +16,11 @@
     <div class="container-fluid">
         <div class="row">
 
+            <?php
+            include("../../config.php");
+
+            include(BASE_PATH . '/components/header.php');
+            ?>
 
             <div class="col-12">
                 <div class="row" id="productDiv">
@@ -23,9 +28,25 @@
                 </div>
             </div>
 
+            <?php
+            include "../../components/footer.php";
+            ?>
+
+
         </div>
     </div>
 
+    <script>
+        document.addEventListener(
+            "DOMContentLoaded",
+            function() {
+                var searchedProductsDesignJSON = localStorage.getItem("searchedProductsDesign");
+                var searchedProductsDesign = JSON.parse(searchedProductsDesignJSON);
+               
+                document.getElementById("productDiv").innerHTML = searchedProductsDesign;
+            }
+        );
+    </script>
 </body>
 
 </html>

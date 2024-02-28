@@ -2,12 +2,15 @@
 
 include "../../libs/connection.php";
 
-if (isset($_GET["searchText"]) && isset($_GET["categoryID"])) {
+
+if (empty($_GET["searchText"])) {
+    echo "Please enter the Name of the product you are looking for";
+} else if (isset($_GET["searchText"]) && isset($_GET["categoryID"])) {
 
     $searchText = $_GET["searchText"];
     $categoryID = $_GET["categoryID"];
 
-    $query = "SELECT * FROM `product` INNER JOIN `product_images` ON `product`.`product_id`=`product_images`.`product_product_id` WHERE `title` LIKE '%".$searchText."%' AND `status_status_id`='1'";
+    $query = "SELECT * FROM `product` LEFT JOIN `product_images` ON `product`.`product_id`=`product_images`.`product_product_id` WHERE `title` LIKE '%" . $searchText . "%' AND `status_status_id`='1'";
 
     if ($categoryID != 0) {
         $query .= " AND `product`.`category_category_id`='$categoryID'";
