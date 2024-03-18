@@ -124,7 +124,7 @@ if (isset($_GET['id'])) {
                                             <i class="bi bi-bag-heart-fill wishlist_icon_for_product_card" onclick="addToWishList(<?php echo $selected_product_data['product_id'] ?>)"></i>
                                         </div>
                                         <div class="col-2 ">
-                                            <i class="bi  bi-cart-fill cart_icon_for_product_card" onclick="addToWishList(<?php echo $selected_product_data['product_id'] ?>)"></i>
+                                            <i class="bi  bi-cart-fill cart_icon_for_product_card" onclick="addToCart(<?php echo $selected_product_data['product_id'] ?>)"></i>
                                         </div>
                                     </div>
                                 </div>

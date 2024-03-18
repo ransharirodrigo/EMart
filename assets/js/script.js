@@ -239,11 +239,11 @@ function addToCart(product_id) {
             var responseText = request.responseText;
             alert(responseText);
             if (responseText == "Login First" || responseText == "Something went wrong. Try Sign In again") {
-                window.location.href = "App/views/signIn.php";
+                window.location.href = "/EMart/App/views/signIn.php";
             }
         }
     };
-    request.open("GET", "App/process/addToCart.php?product_id=" + product_id, true);
+    request.open("GET", "/EMart/App/process/addToCart.php?product_id=" + product_id, true);
     request.send();
 }
 
