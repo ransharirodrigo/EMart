@@ -307,7 +307,7 @@ function searchProducts(category_id) {
                 alert(response);
             } else {
 
-                localStorage.setItem("searchedProductsDesign",JSON.stringify(response));
+                localStorage.setItem("searchedProductsDesign", JSON.stringify(response));
                 window.location.href = "/EMart/App/views/searchedProducts.php";
 
             }
@@ -315,4 +315,9 @@ function searchProducts(category_id) {
     };
     request.open("GET", "/EMart/App/process/searchProcess.php?searchText=" + searchText + "&categoryID=" + categoryid, true);
     request.send();
+}
+
+function x() {
+
+    alert("done");
 }

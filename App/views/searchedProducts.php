@@ -46,11 +46,8 @@
                 document.getElementById("productDiv").innerHTML = searchedProductsDesign;
             }
         );
-
-        if (performance.navigation.type == performance.navigation.TYPE_RELOAD) {
-
-        }
     </script>
+    <script src="../../assets/js/script.js"></script>
 </body>
 
 </html>
