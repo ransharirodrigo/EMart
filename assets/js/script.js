@@ -156,7 +156,7 @@ function addToWishList(product_id) {
             }
         }
     };
-    request.open("GET", "App/process/addToWishlistProcess.php?product_id=" + product_id, true);
+    request.open("GET", "/EMart/App/process/addToWishlistProcess.php?product_id=" + product_id, true);
     request.send();
 
 }
@@ -310,7 +310,6 @@ function searchProducts(category_id) {
                 localStorage.setItem("searchedProductsDesign",JSON.stringify(response));
                 window.location.href = "/EMart/App/views/searchedProducts.php";
 
-            
             }
         }
     };

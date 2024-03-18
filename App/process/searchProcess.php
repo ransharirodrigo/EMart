@@ -20,14 +20,28 @@ if (empty($_GET["searchText"])) {
 
     if ($search_product_resultset->num_rows != 0) {
         for ($i = 0; $i < $search_product_resultset->num_rows; $i++) {
-
+            $search_product_data = $search_product_resultset->fetch_assoc();
 ?>
             <div class="col-8 col-md-6 col-lg-3  mt-5 ">
                 <div class="row">
                     <a href="" class="text-decoration-none text-reset  ">
-                        <img src="../../assets/img/product_images/default_product_icon.svg" class="category_page_product_image" alt="product image" />
+
+                        <?php
+                        if ($search_product_data["path"] == null) {
+                        ?>
+                            <img src="../../assets/img/product_images/default_product_icon.svg" class="category_page_product_image" alt="product image" />
+                        <?php
+                        } else {
+                        ?>
+                            <img src="../../<?php echo $search_product_data["path"] ?>" class="category_page_product_image" alt="product image" />
+                        <?php
+                        }
+
+                        ?>
+
+
                         <div class="card-body">
-                            <span>Mobile</span>
+                            <span><?php echo $search_product_data["title"] ?></span>
                         </div>
                     </a>
                 </div>

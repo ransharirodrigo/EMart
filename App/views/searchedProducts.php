@@ -42,10 +42,14 @@
             function() {
                 var searchedProductsDesignJSON = localStorage.getItem("searchedProductsDesign");
                 var searchedProductsDesign = JSON.parse(searchedProductsDesignJSON);
-               
+
                 document.getElementById("productDiv").innerHTML = searchedProductsDesign;
             }
         );
+
+        if (performance.navigation.type == performance.navigation.TYPE_RELOAD) {
+
+        }
     </script>
 </body>
 

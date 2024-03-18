@@ -1,9 +1,6 @@
 <?php
 
-
-// define("BASE_PATH",'C:\xampp\htdocs\EMart');
 define("BASE_PATH",realpath(dirname(__FILE__)));
-
 
 define('CSS_PATH', '/EMart/assets/css/');
 define('JS_PATH', '/EMart/assets/js/');
