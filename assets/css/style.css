@@ -53,6 +53,11 @@
   cursor: pointer;
 }
 
+.single_product_image{
+width: 65%;
+
+}
+
 .category_page_product_image{
   width: 300px;
 }
