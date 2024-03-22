@@ -24,7 +24,7 @@
             <div class="col-12 col-md-6 d-flex justify-content-center">
                 <img src="../../assets/img/product_images/default_product_icon.svg" alt="Single Product Image" class="single_product_image" />
             </div>
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-6 d-flex align-items-center">
                 <div class="row gy-3">
                     <div>
                         <h3>BELLA GREY</h3>
@@ -45,7 +45,6 @@
                     <div>
                         <button class="col-6 btn btn-secondary">Buy Now</button>
                     </div>
-
                 </div>
             </div>
 
@@ -55,8 +54,6 @@
 
         </div>
     </div>
-
-
 
 </body>
 
