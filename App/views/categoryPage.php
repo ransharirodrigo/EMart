@@ -96,12 +96,11 @@ if (isset($_GET['id'])) {
 
 
                                     <div class="row">
-                                        <a href="" class="text-decoration-none text-reset  ">
+                                        <a href="singleProductView.php?product_id=<?php echo( $selected_product_data['product_id']) ?>" class="text-decoration-none text-reset  ">
                                             <?php
 
                                             if ($selected_product_data["path"] == null) {
                                             ?>
-
                                                 <img src="../../assets/img/product_images/default_product_icon.svg" class="category_page_product_image" alt="product image" />
                                             <?php
                                             } else {
