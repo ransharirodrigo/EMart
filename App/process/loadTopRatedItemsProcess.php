@@ -19,7 +19,7 @@ if ($top_rated_items_resultset->num_rows > 0) {
         $top_rated_items_array =    $top_rated_items_resultset->fetch_assoc();
 ?>
         <div class="col-8 offset-2  col-md-4 offset-md-0 col-lg-3 mt-2">
-            <a href="#" class="text-decoration-none text-reset">
+            <a href="App/views/singleProductView.php?product_id=<?php echo( $top_rated_items_array["product_id"]) ?>" class="text-decoration-none text-reset">
                 <div class="card">
                     <?php
                     if (isset($top_rated_items_array["path"])) {
