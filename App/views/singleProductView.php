@@ -62,7 +62,7 @@ if (!empty($_GET["product_id"])) {
                             </div>
 
                             <div>
-                                <button class="col-6 btn btn-dark">Add To Cart</button>
+                                <button class="col-6 btn btn-dark" onclick="addToCart(<?php echo ($product_id) ?>)">Add To Cart</button>
                             </div>
                             <div>
                                 <button class="col-6 btn btn-secondary">Buy Now</button>
