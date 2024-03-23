@@ -24,7 +24,7 @@ if (empty($_GET["searchText"])) {
 ?>
             <div class="col-8 col-md-6 col-lg-3  mt-5 ">
                 <div class="row">
-                    <a href="" class="text-decoration-none text-reset  ">
+                    <a href="../views/singleProductView.php?product_id=<?php echo ($search_product_data['product_id']) ?>" class="text-decoration-none text-reset  ">
 
                         <?php
                         if ($search_product_data["path"] == null) {
