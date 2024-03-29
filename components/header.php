@@ -18,7 +18,7 @@
 
             <?php
             include(BASE_PATH . '/libs/connection.php');
-
+        
             $category_resultset = Database::execute("SELECT * FROM `category`");
 
 
@@ -81,6 +81,9 @@
                         ?>
 
 
+                    </div>
+                    <div class="col-3">
+                        <a href="<?php echo ROOT_PATH?>App/adminViews/signIn.php" class="text-decoration-none text-reset">Admin Login</a>
                     </div>
 
                 </div>

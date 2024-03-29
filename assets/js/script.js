@@ -321,3 +321,28 @@ function x() {
 
     alert("done");
 }
+
+
+function adminSignIn() {
+
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+
+    var formData = new FormData();
+    formData.append("email", email);
+    formData.append("password", password);
+
+    var r = new XMLHttpRequest();
+    r.onreadystatechange = function () {
+        if (r.readyState == 4 && r.status == 200) {
+            alert(r.responseText);
+            if (r.responseText == "success") {
+                window.location.href = "/EMart/App/adminViews/dashboard.php";
+            }
+
+        }
+    }
+    r.open("POST", "../../App/adminProcess/signInProcess.php", true);
+    r.send(formData);
+
+}
