@@ -335,11 +335,11 @@ function adminSignIn() {
     var r = new XMLHttpRequest();
     r.onreadystatechange = function () {
         if (r.readyState == 4 && r.status == 200) {
-            
+
             if (r.responseText == "success") {
                 alert("Admin logged successfully");
                 window.location.href = "/EMart/App/adminViews/dashboard.php";
-            }else{
+            } else {
                 alert(r.responseText);
             }
 
@@ -352,4 +352,16 @@ function adminSignIn() {
 
 function productViewPopUp() {
     alert("done");
+}
+
+function loadProductDetailsForAdmin() {
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 && request.status == 200) {
+        
+      document.getElementById("tableBody").innerHTML=request.responseText;
+        }
+    }
+    request.open('POST', '../adminProcess/loadAllProductDetails.php', true);
+    request.send();
 }

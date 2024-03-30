@@ -11,7 +11,7 @@
     <title>Product Management</title>
 </head>
 
-<body>
+<body onload="loadProductDetailsForAdmin()">
 
     <div class="container-fluid">
         <div class="row">
@@ -45,127 +45,8 @@
                                         <th>Price</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr onclick="productViewPopUp()" class="tableRow">
-                                        <td>1</td>
-                                        <td>Product 1</td>
-                                        <td>Active</td>
-                                        <td>10</td>
-                                        <td>$20.00</td>
-                                    </tr>
+                                <tbody id="tableBody">
 
-                                    <tr onclick="productViewPopUp()" class="tableRow">
-                                        <td>1</td>
-                                        <td>Product 1</td>
-                                        <td>Active</td>
-                                        <td>10</td>
-                                        <td>$20.00</td>
-                                    </tr>
-                                    <tr onclick="productViewPopUp()" class="tableRow">
-                                        <td>1</td>
-                                        <td>Product 1</td>
-                                        <td>Active</td>
-                                        <td>10</td>
-                                        <td>$20.00</td>
-                                    </tr>
-                                    <tr onclick="productViewPopUp()" class="tableRow">
-                                        <td>1</td>
-                                        <td>Product 1</td>
-                                        <td>Active</td>
-                                        <td>10</td>
-                                        <td>$20.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Product 1</td>
-                                        <td>Active</td>
-                                        <td>10</td>
-                                        <td>$20.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Product 1</td>
-                                        <td>Active</td>
-                                        <td>10</td>
-                                        <td>$20.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Product 1</td>
-                                        <td>Active</td>
-                                        <td>10</td>
-                                        <td>$20.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Product 1</td>
-                                        <td>Active</td>
-                                        <td>10</td>
-                                        <td>$20.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Product 1</td>
-                                        <td>Active</td>
-                                        <td>10</td>
-                                        <td>$20.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Product 1</td>
-                                        <td>Active</td>
-                                        <td>10</td>
-                                        <td>$20.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Product 1</td>
-                                        <td>Active</td>
-                                        <td>10</td>
-                                        <td>$20.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Product 1</td>
-                                        <td>Active</td>
-                                        <td>10</td>
-                                        <td>$20.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Product 1</td>
-                                        <td>Active</td>
-                                        <td>10</td>
-                                        <td>$20.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Product 1</td>
-                                        <td>Active</td>
-                                        <td>10</td>
-                                        <td>$20.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Product 1</td>
-                                        <td>Active</td>
-                                        <td>10</td>
-                                        <td>$20.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Product 1</td>
-                                        <td>Active</td>
-                                        <td>10</td>
-                                        <td>$20.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Product 1</td>
-                                        <td>Active</td>
-                                        <td>10</td>
-                                        <td>$20.00</td>
-                                    </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -173,6 +54,8 @@
                 </div>
 
             </div>
+
+
 
             <div class="col-md-10 offset-md-1">
                 <div class="row mt-3">
@@ -193,6 +76,8 @@
     </div>
 
     <script src="../../assets/js/script.js"></script>
+
+   
 </body>
 
 </html>
