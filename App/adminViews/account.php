@@ -11,7 +11,13 @@
 
 <body>
 
-    <div class="container mt-5">
+    <div class="container-fluid ">
+        <div class="row">
+            <?php
+            include("../../config.php");
+            include("../../components/adminHeader.php");
+            ?>
+        </div>
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <!-- Admin Name Section -->
