@@ -22,28 +22,28 @@
 
             <div class="col-lg-7 text-right d-none d-lg-block">
                 <div class="row">
-                    <a href="" class="col-2 d-flex flex-column align-items-center text-decoration-none" style="cursor: pointer;">
+                    <a href="dashboard.php" class="col-2 d-flex flex-column align-items-center text-decoration-none " style="cursor: pointer;">
                         <i class="bi bi-speedometer2 text-white bi-3x" style="font-size: xx-large;"></i>
                         <span class=" text-light"> Dashboard</span>
                     </a>
-                    <a href="" class="col-2 d-flex flex-column align-items-center text-decoration-none" style="cursor: pointer;">
+                    <a href="productManagement.php" class="col-2 d-flex flex-column align-items-center text-decoration-non" style="cursor: pointer;">
                         <i class="bi bi-box text-white bi-3x" style="font-size: xx-large;"></i>
                         <span class=" text-light "> Products</span>
                     </a>
-                    <a href="" class="col-2 d-flex flex-column align-items-center text-decoration-none" style="cursor: pointer;">
+                    <a href="categoryManagement.php" class="col-2 d-flex flex-column align-items-center text-decoration-none" style="cursor: pointer;">
                         <i class="bi bi-list-ul text-white bi-3x" style="font-size: xx-large;"></i>
                         <span class=" text-light "> Categories</span>
                     </a>
 
-                    <a href="" class="col-2 d-flex flex-column align-items-center text-decoration-none" style="cursor: pointer;">
+                    <a href="brandManagement.php" class="col-2 d-flex flex-column align-items-center text-decoration-none" style="cursor: pointer;">
                         <i class="bi bi-tags text-white bi-3x" style="font-size: xx-large;"></i>
                         <span class=" text-light "> Brands</span>
                     </a>
-                    <a href="" class="col-2 d-flex flex-column align-items-center text-decoration-none" style="cursor: pointer;">
+                    <a href="reports.php" class="col-2 d-flex flex-column align-items-center text-decoration-none" style="cursor: pointer;">
                         <i class="bi bi-file-earmark-bar-graph text-white bi-3x" style="font-size: xx-large;"></i>
                         <span class=" text-light "> Reports</span>
                     </a>
-                    <a class="col-2 d-flex flex-column align-items-center text-decoration-none" style="cursor: pointer;">
+                    <a href="account.php" class="col-2 d-flex flex-column align-items-center text-decoration-none" style="cursor: pointer;">
                         <i class="bi bi-person text-white" style="font-size: xx-large;"></i>
                         <span class=" text-light "> Account</span>
                     </a>
