@@ -335,9 +335,12 @@ function adminSignIn() {
     var r = new XMLHttpRequest();
     r.onreadystatechange = function () {
         if (r.readyState == 4 && r.status == 200) {
-            alert(r.responseText);
+            
             if (r.responseText == "success") {
+                alert("Admin logged successfully");
                 window.location.href = "/EMart/App/adminViews/dashboard.php";
+            }else{
+                alert(r.responseText);
             }
 
         }
