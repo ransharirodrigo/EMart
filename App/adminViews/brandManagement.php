@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brand Management</title>
+
+    <link rel="icon" href="../../assets/img/e_mart_logo.png" />
 </head>
 
 <body>
@@ -26,6 +28,133 @@
                         </div>
                     </div>
                
+                    <div class="col-md-10 offset-md-1 mt-5">
+                    <div class="row mt-3">
+                        <div class="col-md-12">
+                            <div class="table-container">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Category ID</th>
+                                            <th>Name</th>
+                                            <th>Category Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Category 1</td>
+                                            <td>Active</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Category 2</td>
+                                            <td>Inactive</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Category 1</td>
+                                            <td>Active</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Category 2</td>
+                                            <td>Inactive</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Category 1</td>
+                                            <td>Active</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Category 2</td>
+                                            <td>Inactive</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Category 1</td>
+                                            <td>Active</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Category 2</td>
+                                            <td>Inactive</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Category 1</td>
+                                            <td>Active</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Category 2</td>
+                                            <td>Inactive</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Category 1</td>
+                                            <td>Active</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Category 2</td>
+                                            <td>Inactive</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Category 1</td>
+                                            <td>Active</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Category 2</td>
+                                            <td>Inactive</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Category 1</td>
+                                            <td>Active</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Category 2</td>
+                                            <td>Inactive</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Category 1</td>
+                                            <td>Active</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Category 2</td>
+                                            <td>Inactive</td>
+                                        </tr>
+                                        <!-- Add more rows as needed -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-10 offset-md-1">
+                    <div class="row mt-3">
+                        <div class="col-10 col-md-4">
+                            <button class="btn btn-primary btn-lg btn-block mb-2">Add New Brand</button>
+                        </div>
+                        <div class="col-10 col-md-4">
+                            <button class="btn btn-success btn-lg btn-block mb-2">Update Brand</button>
+                        </div>
+                        <div class="col-10 col-md-4">
+                            <button class="btn btn-danger btn-lg btn-block mb-2">Disable Brand</button>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
