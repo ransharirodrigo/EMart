@@ -46,7 +46,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                    <tr onclick="productViewPopUp()" class="tableRow">
                                         <td>1</td>
                                         <td>Product 1</td>
                                         <td>Active</td>
@@ -54,21 +54,21 @@
                                         <td>$20.00</td>
                                     </tr>
 
-                                    <tr>
+                                    <tr onclick="productViewPopUp()" class="tableRow">
                                         <td>1</td>
                                         <td>Product 1</td>
                                         <td>Active</td>
                                         <td>10</td>
                                         <td>$20.00</td>
                                     </tr>
-                                    <tr>
+                                    <tr onclick="productViewPopUp()" class="tableRow">
                                         <td>1</td>
                                         <td>Product 1</td>
                                         <td>Active</td>
                                         <td>10</td>
                                         <td>$20.00</td>
                                     </tr>
-                                    <tr>
+                                    <tr onclick="productViewPopUp()" class="tableRow">
                                         <td>1</td>
                                         <td>Product 1</td>
                                         <td>Active</td>
@@ -192,7 +192,7 @@
 
     </div>
 
-
+    <script src="../../assets/js/script.js"></script>
 </body>
 
 </html>

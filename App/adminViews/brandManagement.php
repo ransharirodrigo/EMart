@@ -41,7 +41,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
+                                        <tr  class="tableRow">
                                             <td>1</td>
                                             <td>Category 1</td>
                                             <td>Active</td>

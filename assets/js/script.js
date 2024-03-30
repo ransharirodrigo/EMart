@@ -349,3 +349,7 @@ function adminSignIn() {
     r.send(formData);
 
 }
+
+function productViewPopUp() {
+    alert("done");
+}
