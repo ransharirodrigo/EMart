@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <title>Brand Management</title>
 </head>
 
 <body>
@@ -16,7 +16,18 @@
         include("../../components/adminHeader.php");
         ?>   
         </div>
-      
+        <div class="row mt-3">
+            <div class="col-md-6 offset-md-3">
+              
+                    <div class="input-group">
+                        <input type="text" class="form-control form-control-lg" name="query" placeholder="Search products..." style="width: 400px;">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-warning btn-lg" type="submit">Search</button>
+                        </div>
+                    </div>
+               
+            </div>
+        </div>
     </div>
 
 
