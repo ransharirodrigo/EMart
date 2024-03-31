@@ -62,18 +62,11 @@
                     <div class="col-10 col-md-4">
                         <button class="btn btn-primary btn-lg btn-block mb-2">Add New Product</button>
                     </div>
-                    <div class="col-10 col-md-4">
-                        <button class="btn btn-success btn-lg btn-block mb-2">Update Product</button>
-                    </div>
-                    <div class="col-10 col-md-4">
-                        <button class="btn btn-danger btn-lg btn-block mb-2">Disable Product</button>
-                    </div>
                 </div>
             </div>
         </div>
 
 
-        <!-- Modal -->
         <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                 <div class="modal-content bg-light">
@@ -86,57 +79,97 @@
                     <div class="modal-body">
                         <div class="container">
                             <div class="row">
-                                <div class="col-sm-6">
+                                <div class="col-md-6">
                                     <div class="details-item">
                                         <h6>Title</h6>
-                                        <p id="productTitle"></p>
+                                        <input type="text" class="form-control" id="productTitle">
                                     </div>
                                     <div class="details-item">
                                         <h6>Description</h6>
-                                        <p id="productDescription"></p>
+                                        <input type="text" class="form-control" id="productDescription">
                                     </div>
                                     <div class="details-item">
                                         <h6>Date Added</h6>
-                                        <p id="productDateAdded"></p>
+                                        <p id="productDateAdded" class="form-control-static"></p>
                                     </div>
                                     <div class="details-item">
                                         <h6>Points</h6>
-                                        <p id="productPoints"></p>
+                                        <p id="productPoints" class="form-control-static"></p>
                                     </div>
                                     <div class="details-item">
                                         <h6>Quantity</h6>
-                                        <p id="productQuantity"></p>
+                                        <input type="text" class="form-control" id="productQuantity">
                                     </div>
-                                </div>
-                                <div class="col-sm-6">
                                     <div class="details-item">
                                         <h6>Price</h6>
-                                        <p id="productPrice"></p>
+                                        <input type="text" class="form-control" id="productPrice">
                                     </div>
+                                </div>
+                                <div class="col-md-6">
                                     <div class="details-item">
                                         <h6>Delivery Fee (Colombo)</h6>
-                                        <p id="productDeliveryFeeColombo"></p>
+                                        <input type="text" class="form-control" id="productDeliveryFeeColombo">
                                     </div>
                                     <div class="details-item">
                                         <h6>Delivery Fee (Other)</h6>
-                                        <p id="productDeliveryFeeOther"></p>
+                                        <input type="text" class="form-control" id="productDeliveryFeeOther">
                                     </div>
                                     <div class="details-item">
                                         <h6>Color</h6>
-                                        <p id="productColor"></p>
+                                        <select class="form-select" id="productColor">
+                                            
+                                            <option value="Black">Black</option>
+                                            <option value="Dark Blue">Dark Blue</option>
+                                            <option value="White">White</option>
+                                            <option value="Grey">Grey</option>
+                                            <!-- Add more color options as needed -->
+                                        </select>
                                     </div>
+
                                     <div class="details-item">
                                         <h6>Category</h6>
-                                        <p id="productCategory"></p>
+                                        <select class="form-select" id="productCategory">
+                                            <option value="Laptops">Laptops</option>
+                                            <option value="Smartphones">Smartphones</option>
+                                            <option value="Headphones">Headphones</option>
+                                            <option value="Smart Watches">Smart Watches</option>
+                                            <option value="Tablets">Tablets</option>
+                                            <option value="Monitors">Monitors</option>
+                                            
+                                        </select>
                                     </div>
                                     <div class="details-item">
                                         <h6>Brand</h6>
-                                        <p id="productBrand"></p>
+                                        <select class="form-select" id="productBrand">
+                                            <option value="Apple">Apple</option>
+                                            <option value="Samsung">Samsung</option>
+                                            <option value="MSI">MSI</option>
+                                            <option value="HP">HP</option>
+                                            <option value="Lenovo">Lenovo</option>
+                                        </select>
                                     </div>
+
                                     <div class="details-item">
                                         <h6>Status</h6>
-                                        <p id="productStatus"></p>
+                                        <select class="form-select" id="productStatus">
+                                            <option value="Active" selected>Active</option>
+                                            <option value="Deactive">Deactive</option>
+                                        </select>
                                     </div>
+
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-10 col-md-4">
+                                    <button class="btn btn-success btn-lg btn-block mb-2">Update Product</button>
+                                </div>
+                                <div class="col-10 col-md-4">
+                                    <button class="btn btn-danger btn-lg btn-block mb-2">Disable Product</button>
                                 </div>
                             </div>
                         </div>
@@ -160,25 +193,27 @@
 
         function productViewPopUp(product_id, product_title, product_description, date_added, points, qty, price, delivery_fee_colombo, delivery_fee_other, product_color, category, brand, product_status) {
 
-            document.getElementById("productTitle").innerHTML = product_title;
-            document.getElementById("productDescription").innerHTML = product_description;
+            document.getElementById("productTitle").value = product_title;
+            document.getElementById("productDescription").value = product_description;
             document.getElementById("productDateAdded").innerHTML = date_added;
             document.getElementById("productPoints").innerHTML = points;
-            document.getElementById("productQuantity").innerHTML = qty;
-            document.getElementById("productPrice").innerHTML = price;
-            document.getElementById("productDeliveryFeeColombo").innerHTML = delivery_fee_colombo;
-            document.getElementById("productDeliveryFeeOther").innerHTML = delivery_fee_other;
-            document.getElementById("productColor").innerHTML = product_color;
-            document.getElementById("productCategory").innerHTML = category;
-            document.getElementById("productBrand").innerHTML = brand;
-            document.getElementById("productStatus").innerHTML = product_status;
-          
+            document.getElementById("productQuantity").value = qty;
+            document.getElementById("productPrice").value = price;
+            document.getElementById("productDeliveryFeeColombo").value = delivery_fee_colombo;
+            document.getElementById("productDeliveryFeeOther").value = delivery_fee_other;
+            document.getElementById("productColor").value = product_color;
+            document.getElementById("productCategory").value = category;
+            document.getElementById("productBrand").value = brand;
+            document.getElementById("productStatus").value = product_status;
+
             productModal.show();
         }
 
         function productViewPopupClose() {
             productModal.hide();
         }
+
+      
     </script>
 </body>
 
