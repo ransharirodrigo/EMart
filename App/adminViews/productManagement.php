@@ -73,24 +73,77 @@
         </div>
 
 
-        <div class="modal" tabindex="-1" id="productModal">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Modal title</h5>
-                        <button type="button" class="btn-close" aria-label="Close"  onclick="productViewPopupClose()"></button>
+        <!-- Modal -->
+        <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content bg-light">
+                    <div class="modal-header bg-primary text-white">
+                        <h5 class="modal-title" id="productModalLabel">Product Details</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="productViewPopupClose()">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
                     <div class="modal-body">
-                        <p>Modal body text goes here.</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" onclick="productViewPopupClose()">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="details-item">
+                                        <h6>Title</h6>
+                                        <p id="productTitle"></p>
+                                    </div>
+                                    <div class="details-item">
+                                        <h6>Description</h6>
+                                        <p id="productDescription"></p>
+                                    </div>
+                                    <div class="details-item">
+                                        <h6>Date Added</h6>
+                                        <p id="productDateAdded"></p>
+                                    </div>
+                                    <div class="details-item">
+                                        <h6>Points</h6>
+                                        <p id="productPoints"></p>
+                                    </div>
+                                    <div class="details-item">
+                                        <h6>Quantity</h6>
+                                        <p id="productQuantity"></p>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="details-item">
+                                        <h6>Price</h6>
+                                        <p id="productPrice"></p>
+                                    </div>
+                                    <div class="details-item">
+                                        <h6>Delivery Fee (Colombo)</h6>
+                                        <p id="productDeliveryFeeColombo"></p>
+                                    </div>
+                                    <div class="details-item">
+                                        <h6>Delivery Fee (Other)</h6>
+                                        <p id="productDeliveryFeeOther"></p>
+                                    </div>
+                                    <div class="details-item">
+                                        <h6>Color</h6>
+                                        <p id="productColor"></p>
+                                    </div>
+                                    <div class="details-item">
+                                        <h6>Category</h6>
+                                        <p id="productCategory"></p>
+                                    </div>
+                                    <div class="details-item">
+                                        <h6>Brand</h6>
+                                        <p id="productBrand"></p>
+                                    </div>
+                                    <div class="details-item">
+                                        <h6>Status</h6>
+                                        <p id="productStatus"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-
 
     </div>
 
@@ -102,17 +155,30 @@
 
     <script>
         var productModal = new bootstrap.Modal(document.getElementById('productModal'), {
-    backdrop: false
-});
+            backdrop: false
+        });
 
-function productViewPopUp() {
-    productModal.show();
-}
+        function productViewPopUp(product_id, product_title, product_description, date_added, points, qty, price, delivery_fee_colombo, delivery_fee_other, product_color, category, brand, product_status) {
 
-function productViewPopupClose() {
-    productModal.hide();
-}
+            document.getElementById("productTitle").innerHTML = product_title;
+            document.getElementById("productDescription").innerHTML = product_description;
+            document.getElementById("productDateAdded").innerHTML = date_added;
+            document.getElementById("productPoints").innerHTML = points;
+            document.getElementById("productQuantity").innerHTML = qty;
+            document.getElementById("productPrice").innerHTML = price;
+            document.getElementById("productDeliveryFeeColombo").innerHTML = delivery_fee_colombo;
+            document.getElementById("productDeliveryFeeOther").innerHTML = delivery_fee_other;
+            document.getElementById("productColor").innerHTML = product_color;
+            document.getElementById("productCategory").innerHTML = category;
+            document.getElementById("productBrand").innerHTML = brand;
+            document.getElementById("productStatus").innerHTML = product_status;
+          
+            productModal.show();
+        }
 
+        function productViewPopupClose() {
+            productModal.hide();
+        }
     </script>
 </body>
 
