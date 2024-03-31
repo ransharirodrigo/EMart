@@ -381,14 +381,5 @@ function loadBrandDetails() {
     request.send();
 }
 
-function productViewPopUp() {
-    alert("productViewPopUp");
-}
 
-function categoryViewPopUp() {
-    alert("categoryViewPopUp");
-}
 
-function brandViewPopUp() {
-    alert("brandViewPopUp");
-}

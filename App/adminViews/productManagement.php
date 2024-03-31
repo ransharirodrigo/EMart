@@ -73,11 +73,47 @@
         </div>
 
 
+        <div class="modal" tabindex="-1" id="productModal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Modal title</h5>
+                        <button type="button" class="btn-close" aria-label="Close"  onclick="productViewPopupClose()"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Modal body text goes here.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" onclick="productViewPopupClose()">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
     </div>
 
     <script src="../../assets/js/script.js"></script>
+    <script src="../../assets/js/bootstrap.bundle.min.js"></script>
+    <script src="../../assets/js/bootstrap.js"></script>
+    <script src="../../assets/js/bootstrap.min.js"></script>
 
-   
+
+    <script>
+        var productModal = new bootstrap.Modal(document.getElementById('productModal'), {
+    backdrop: false
+});
+
+function productViewPopUp() {
+    productModal.show();
+}
+
+function productViewPopupClose() {
+    productModal.hide();
+}
+
+    </script>
 </body>
 
 </html>
