@@ -358,10 +358,22 @@ function loadProductDetailsForAdmin() {
     var request = new XMLHttpRequest();
     request.onreadystatechange = function () {
         if (request.readyState == 4 && request.status == 200) {
-        
-      document.getElementById("tableBody").innerHTML=request.responseText;
+
+            document.getElementById("tableBody").innerHTML = request.responseText;
         }
     }
     request.open('POST', '../adminProcess/loadAllProductDetails.php', true);
+    request.send();
+}
+
+function loadCategories() {
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 && request.status == 200) {
+
+            document.getElementById("tableBody").innerHTML = request.responseText;
+        }
+    }
+    request.open('POST', '../adminProcess/loadAllCategoryDetails.php', true);
     request.send();
 }
