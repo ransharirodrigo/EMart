@@ -9,7 +9,7 @@
     <link rel="icon" href="../../assets/img/e_mart_logo.png" />
 </head>
 
-<body>
+<body onload="loadBrandDetails()">
 
     <div class="container-fluid">
         <div class="row">
@@ -40,100 +40,9 @@
                                             <th>Category Status</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr  class="tableRow">
-                                            <td>1</td>
-                                            <td>Category 1</td>
-                                            <td>Active</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Category 2</td>
-                                            <td>Inactive</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Category 1</td>
-                                            <td>Active</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Category 2</td>
-                                            <td>Inactive</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Category 1</td>
-                                            <td>Active</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Category 2</td>
-                                            <td>Inactive</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Category 1</td>
-                                            <td>Active</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Category 2</td>
-                                            <td>Inactive</td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Category 1</td>
-                                            <td>Active</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Category 2</td>
-                                            <td>Inactive</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Category 1</td>
-                                            <td>Active</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Category 2</td>
-                                            <td>Inactive</td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Category 1</td>
-                                            <td>Active</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Category 2</td>
-                                            <td>Inactive</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Category 1</td>
-                                            <td>Active</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Category 2</td>
-                                            <td>Inactive</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Category 1</td>
-                                            <td>Active</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Category 2</td>
-                                            <td>Inactive</td>
-                                        </tr>
-                                        <!-- Add more rows as needed -->
+                                    <tbody id="tableBody">
+                                       
+                                      
                                     </tbody>
                                 </table>
                             </div>
@@ -159,7 +68,7 @@
         </div>
     </div>
 
-
+    <script src="../../assets/js/script.js"></script> 
 </body>
 
 </html>

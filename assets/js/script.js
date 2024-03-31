@@ -317,12 +317,6 @@ function searchProducts(category_id) {
     request.send();
 }
 
-function x() {
-
-    alert("done");
-}
-
-
 function adminSignIn() {
 
     var email = document.getElementById("email").value;
@@ -350,9 +344,6 @@ function adminSignIn() {
 
 }
 
-function productViewPopUp() {
-    alert("done");
-}
 
 function loadProductDetailsForAdmin() {
     var request = new XMLHttpRequest();
@@ -376,4 +367,28 @@ function loadCategories() {
     }
     request.open('POST', '../adminProcess/loadAllCategoryDetails.php', true);
     request.send();
+}
+
+function loadBrandDetails() {
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 && request.status == 200) {
+
+            document.getElementById("tableBody").innerHTML = request.responseText;
+        }
+    }
+    request.open('POST', '../adminProcess/loadAllBrandDetails.php', true);
+    request.send();
+}
+
+function productViewPopUp() {
+    alert("productViewPopUp");
+}
+
+function categoryViewPopUp() {
+    alert("categoryViewPopUp");
+}
+
+function brandViewPopUp() {
+    alert("brandViewPopUp");
 }
