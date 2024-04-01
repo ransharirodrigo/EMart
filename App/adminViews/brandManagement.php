@@ -67,20 +67,34 @@
             </div>
         </div>
 
-
-        <div class="modal" tabindex="-1" id="brandModal">
-            <div class="modal-dialog modal-dialog-centered">
+        <div class="modal fade" id="brandModal" tabindex="-1" role="dialog" aria-labelledby="brandModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Modal title</h5>
-                        <button type="button" class="btn-close" aria-label="Close" onclick="brandViewPopupClose()"></button>
+                        <h5 class="modal-title" id="brandModalLabel">Brand Details</h5>
+                        <button type="button" class="close" onclick="brandViewPopupClose()" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
                     <div class="modal-body">
-                        <p>Modal body text goes here.</p>
+                        <div class="form-group">
+                            <label for="brandId">Brand ID:</label>
+                            <input type="text" class="form-control" id="brandId" >
+                        </div>
+                        <div class="form-group">
+                            <label for="brandName">Brand Name:</label>
+                            <input type="text" class="form-control" id="brandName" >
+                        </div>
+                        <div class="form-group">
+                            <label for="brandStatus">Status:</label>
+                            <select class="form-control" id="brandStatus" >
+                                <option value="Active">Active</option>
+                                <option value="Deactive">Deactive</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" onclick="brandViewPopupClose()">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-secondary" onclick="brandViewPopupClose()" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
@@ -100,7 +114,10 @@
         });
 
 
-        function brandViewPopUp() {
+        function brandViewPopUp(brand_id,brand_name,status) {
+            document.getElementById("brandId").value=brand_id;
+            document.getElementById("brandName").value=brand_name;
+            document.getElementById("brandStatus").value=status;
             brandModal.show();
         }
 

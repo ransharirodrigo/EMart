@@ -67,24 +67,39 @@
             </div>
         </div>
 
-        <div class="modal" tabindex="-1" id="categoryModal">
-            <div class="modal-dialog modal-dialog-centered">
+        <div class="modal fade" id="categoryModal" tabindex="-1" role="dialog" aria-labelledby="categoryModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Modal title</h5>
-                        <button type="button" class="btn-close" aria-label="Close" onclick="categoryViewPopupClose()"></button>
+                        <h5 class="modal-title" id="categoryModalLabel">Category Details</h5>
+                        <button type="button" class="close" onclick="categoryViewPopupClose()" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
                     <div class="modal-body">
-                        <p>Modal body text goes here.</p>
+                        <div class="form-group">
+                            <label for="categoryId">Category ID:</label>
+                            <input type="text" class="form-control" id="categoryId">
+                        </div>
+                        <div class="form-group">
+                            <label for="categoryName">Category Name:</label>
+                            <input type="text" class="form-control" id="categoryName">
+                        </div>
+                        <div class="form-group">
+                            <label for="categoryStatus">Status:</label>
+                            <select class="form-control" id="categoryStatus">
+                                <option value="Active">Active</option>
+                                <option value="Deactive">Deactive</option>
+                            </select>
+                        </div>
+
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" onclick="categoryViewPopupClose()">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
 
     <script src="../../assets/js/script.js"></script>
@@ -94,16 +109,20 @@
 
     <script>
         var categoryModal = new bootstrap.Modal(document.getElementById('categoryModal'), {
-    backdrop: false
-});
+            backdrop: false
+        });
 
-function categoryViewPopUp() {
-    categoryModal.show();
-}
+        function categoryViewPopUp(category_id, category_name, status) {
+            document.getElementById("categoryId").value = category_id;
+            document.getElementById("categoryName").value = category_name;
+            document.getElementById("categoryStatus").value = status;
 
-function categoryViewPopupClose() {
-    categoryModal.hide();
-}
+            categoryModal.show();
+        }
+
+        function categoryViewPopupClose() {
+            categoryModal.hide();
+        }
     </script>
 </body>
 
