@@ -55,12 +55,7 @@
                         <div class="col-10 col-md-4">
                             <button class="btn btn-primary btn-lg btn-block mb-2">Add New Brand</button>
                         </div>
-                        <div class="col-10 col-md-4">
-                            <button class="btn btn-success btn-lg btn-block mb-2">Update Brand</button>
-                        </div>
-                        <div class="col-10 col-md-4">
-                            <button class="btn btn-danger btn-lg btn-block mb-2">Disable Brand</button>
-                        </div>
+                      
                     </div>
                 </div>
 
@@ -68,37 +63,46 @@
         </div>
 
         <div class="modal fade" id="brandModal" tabindex="-1" role="dialog" aria-labelledby="brandModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="brandModalLabel">Brand Details</h5>
-                        <button type="button" class="close" onclick="brandViewPopupClose()" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="brandModalLabel">Brand Details</h5>
+                <button type="button" class="close" onclick="brandViewPopupClose()" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="brandId">Brand ID:</label>
+                    <input type="text" class="form-control" id="brandId" >
+                </div>
+                <div class="form-group">
+                    <label for="brandName">Brand Name:</label>
+                    <input type="text" class="form-control" id="brandName" >
+                </div>
+                <div class="form-group">
+                    <label for="brandStatus">Status:</label>
+                    <select class="form-control" id="brandStatus" >
+                        <option value="Active">Active</option>
+                        <option value="Deactive">Deactive</option>
+                    </select>
+                </div>
+                <div class="row">
+                    <div class="col-10 col-md-4">
+                        <button class="btn btn-success btn-lg btn-block mb-2">Update Brand</button>
                     </div>
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <label for="brandId">Brand ID:</label>
-                            <input type="text" class="form-control" id="brandId" >
-                        </div>
-                        <div class="form-group">
-                            <label for="brandName">Brand Name:</label>
-                            <input type="text" class="form-control" id="brandName" >
-                        </div>
-                        <div class="form-group">
-                            <label for="brandStatus">Status:</label>
-                            <select class="form-control" id="brandStatus" >
-                                <option value="Active">Active</option>
-                                <option value="Deactive">Deactive</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" onclick="brandViewPopupClose()" data-dismiss="modal">Close</button>
+                    <div class="col-10 col-md-4">
+                        <button class="btn btn-danger btn-lg btn-block mb-2">Disable Brand</button>
                     </div>
                 </div>
             </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="brandViewPopupClose()" data-dismiss="modal">Close</button>
+            </div>
         </div>
+    </div>
+</div>
+
 
     </div>
 
