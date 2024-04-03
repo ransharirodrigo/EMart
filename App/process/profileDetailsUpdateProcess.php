@@ -82,6 +82,13 @@ if (empty($first_name)) {
                 echo (".jpeg , .png , .svg images are only allowed");
             }
         } else {
+
+            $new_user_details_resultset = Database::execute("SELECT * FROM `user` WHERE `email`='$email'");
+            $new_user_details_array = $new_user_details_resultset->fetch_assoc();
+
+            session_start();
+            $_SESSION["user"] = $new_user_details_array;
+            
             echo ("success");
         }
     } else {
