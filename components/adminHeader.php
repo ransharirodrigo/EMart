@@ -26,7 +26,7 @@
                         <i class="bi bi-speedometer2 text-white bi-3x" style="font-size: xx-large;"></i>
                         <span class=" text-light"> Dashboard</span>
                     </a>
-                    <a href="productManagement.php" class="col-2 d-flex flex-column align-items-center text-decoration-non" style="cursor: pointer;">
+                    <a href="productManagement.php" class="col-2 d-flex flex-column align-items-center text-decoration-none" style="cursor: pointer;">
                         <i class="bi bi-box text-white bi-3x" style="font-size: xx-large;"></i>
                         <span class=" text-light "> Products</span>
                     </a>
