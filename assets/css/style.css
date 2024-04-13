@@ -75,12 +75,17 @@
   cursor: pointer;
 }
 
-.adminDashboardBackground{
+.adminDashboardBackground {
   background-color: rgba(102, 98, 98, 1);
 }
 
-.adminDashboardCustomerReviewDiv{
+.adminDashboardCustomerReviewDiv,
+.adminPagePendingOrderTable {
   height: 250px
+}
+
+.pendingOrdertableRow {
+  height: 25px;
 }
 
 @media (min-width: 768px) {
