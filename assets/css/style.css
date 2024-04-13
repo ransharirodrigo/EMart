@@ -75,6 +75,14 @@
   cursor: pointer;
 }
 
+.adminDashboardBackground{
+  background-color: rgba(102, 98, 98, 1);
+}
+
+.adminDashboardCustomerReviewDiv{
+  height: 250px
+}
+
 @media (min-width: 768px) {
   .logo {
     /* width: 75% !important; */
