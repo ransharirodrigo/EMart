@@ -89,8 +89,10 @@
         </div>
 
         <div class="row mt-4 d-flex justify-content-center">
-            <div class="col-10 col-md-11 bg-white rounded-4 ">
-                <table class="table adminPagePendingOrderTable">
+            <div class="col-10 col-md-11 bg-white rounded-4 adminPagePendingOrderTable  overflow-y-scroll py-2">
+                <h5 class="fw-bold">Pending Orders</h5>
+
+                <table class="table ">
                     <thead>
                         <tr>
                             <th scope="col">Order ID</th>
@@ -98,7 +100,7 @@
                             <th scope="col">User Email</th>
                         </tr>
                     </thead>
-                    <tbody >
+                    <tbody class="">
                         <tr class="pendingOrdertableRow">
                             <td>1</td>
                             <td>2024-04-12</td>
@@ -109,8 +111,98 @@
                             <td>2024-04-11</td>
                             <td>user2@example.com</td>
                         </tr>
-                        
-                        <!-- Add more rows as needed -->
+
+                        <tr class="pendingOrdertableRow">
+                            <td>1</td>
+                            <td>2024-04-12</td>
+                            <td>user1@example.com</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>2024-04-11</td>
+                            <td>user2@example.com</td>
+                        </tr>
+                        <tr class="pendingOrdertableRow">
+                            <td>1</td>
+                            <td>2024-04-12</td>
+                            <td>user1@example.com</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>2024-04-11</td>
+                            <td>user2@example.com</td>
+                        </tr>
+                        <tr class="pendingOrdertableRow">
+                            <td>1</td>
+                            <td>2024-04-12</td>
+                            <td>user1@example.com</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>2024-04-11</td>
+                            <td>user2@example.com</td>
+                        </tr>
+                        <tr class="pendingOrdertableRow">
+                            <td>1</td>
+                            <td>2024-04-12</td>
+                            <td>user1@example.com</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>2024-04-11</td>
+                            <td>user2@example.com</td>
+                        </tr>
+                        <tr class="pendingOrdertableRow">
+                            <td>1</td>
+                            <td>2024-04-12</td>
+                            <td>user1@example.com</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>2024-04-11</td>
+                            <td>user2@example.com</td>
+                        </tr>
+
+                        <tr class="pendingOrdertableRow">
+                            <td>1</td>
+                            <td>2024-04-12</td>
+                            <td>user1@example.com</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>2024-04-11</td>
+                            <td>user2@example.com</td>
+                        </tr>
+                        <tr class="pendingOrdertableRow">
+                            <td>1</td>
+                            <td>2024-04-12</td>
+                            <td>user1@example.com</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>2024-04-11</td>
+                            <td>user2@example.com</td>
+                        </tr>
+                        <tr class="pendingOrdertableRow">
+                            <td>1</td>
+                            <td>2024-04-12</td>
+                            <td>user1@example.com</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>2024-04-11</td>
+                            <td>user2@example.com</td>
+                        </tr>
+                        <tr class="pendingOrdertableRow">
+                            <td>1</td>
+                            <td>2024-04-12</td>
+                            <td>user1@example.com</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>2024-04-11</td>
+                            <td>user2@example.com</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -118,6 +210,128 @@
 
         </div>
 
+
+        <div class="row my-4 d-flex justify-content-center">
+            <div class="col-10 col-md-11 bg-white rounded-4 adminPagePendingOrderTable  overflow-y-scroll py-2">
+                <h5 class="fw-bold">Top Selling Items</h5>
+
+                <table class="table ">
+                    <thead>
+                        <tr>
+                            <th scope="col">Product ID</th>
+                            <th scope="col">Product Name</th>
+                            <th scope="col">Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody class="">
+                        <tr class="pendingOrdertableRow">
+                            <td>1</td>
+                            <td>2024-04-12</td>
+                            <td>user1@example.com</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>2024-04-11</td>
+                            <td>user2@example.com</td>
+                        </tr>
+
+                        <tr class="pendingOrdertableRow">
+                            <td>1</td>
+                            <td>2024-04-12</td>
+                            <td>user1@example.com</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>2024-04-11</td>
+                            <td>user2@example.com</td>
+                        </tr>
+                        <tr class="pendingOrdertableRow">
+                            <td>1</td>
+                            <td>2024-04-12</td>
+                            <td>user1@example.com</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>2024-04-11</td>
+                            <td>user2@example.com</td>
+                        </tr>
+                        <tr class="pendingOrdertableRow">
+                            <td>1</td>
+                            <td>2024-04-12</td>
+                            <td>user1@example.com</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>2024-04-11</td>
+                            <td>user2@example.com</td>
+                        </tr>
+                        <tr class="pendingOrdertableRow">
+                            <td>1</td>
+                            <td>2024-04-12</td>
+                            <td>user1@example.com</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>2024-04-11</td>
+                            <td>user2@example.com</td>
+                        </tr>
+                        <tr class="pendingOrdertableRow">
+                            <td>1</td>
+                            <td>2024-04-12</td>
+                            <td>user1@example.com</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>2024-04-11</td>
+                            <td>user2@example.com</td>
+                        </tr>
+
+                        <tr class="pendingOrdertableRow">
+                            <td>1</td>
+                            <td>2024-04-12</td>
+                            <td>user1@example.com</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>2024-04-11</td>
+                            <td>user2@example.com</td>
+                        </tr>
+                        <tr class="pendingOrdertableRow">
+                            <td>1</td>
+                            <td>2024-04-12</td>
+                            <td>user1@example.com</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>2024-04-11</td>
+                            <td>user2@example.com</td>
+                        </tr>
+                        <tr class="pendingOrdertableRow">
+                            <td>1</td>
+                            <td>2024-04-12</td>
+                            <td>user1@example.com</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>2024-04-11</td>
+                            <td>user2@example.com</td>
+                        </tr>
+                        <tr class="pendingOrdertableRow">
+                            <td>1</td>
+                            <td>2024-04-12</td>
+                            <td>user1@example.com</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>2024-04-11</td>
+                            <td>user2@example.com</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
 
     </div>
 
