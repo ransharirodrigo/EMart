@@ -1,3 +1,9 @@
+<script>
+    import * as am5 from "@amcharts/amcharts5";
+    import * as am5xy from "@amcharts/amcharts5/xy";
+</script>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,6 +36,9 @@
                         <h5 class="fw-bold">Today Income</h5>
                     </div>
                 </div>
+                <div class="row text-center">
+                    <h5 class="fw-fw-bolder fs-3 text-success">Rs.150,000.00</h5>
+                </div>
             </div>
             <div class="col-10  col-md-3 mb-2 mb-md-0 bg-white offset-md-1 py-4  rounded-4">
                 <div class="row align-items-center">
@@ -40,6 +49,9 @@
                         <h5 class="fw-bold">Today Invoices</h5>
                     </div>
                 </div>
+                <div class="row text-center">
+                    <h5 class="fw-fw-bolder fs-3 text-success">25</h5>
+                </div>
             </div>
             <div class="col-10 col-md-3 mb-2 mb-md-0 bg-white offset-md-1 py-4  rounded-4">
                 <div class="row align-items-center">
@@ -49,6 +61,9 @@
                     <div class="col-9">
                         <h5 class="fw-bold">Happy Customer</h5>
                     </div>
+                </div>
+                <div class="row text-center">
+                    <h5 class="fw-fw-bolder fs-3 text-success">25</h5>
                 </div>
             </div>
         </div>
@@ -210,7 +225,6 @@
 
         </div>
 
-
         <div class="row my-4 d-flex justify-content-center">
             <div class="col-10 col-md-11 bg-white rounded-4 adminPagePendingOrderTable  overflow-y-scroll py-2">
                 <h5 class="fw-bold">Top Selling Items</h5>
@@ -335,7 +349,12 @@
 
     </div>
 
-
+    <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/locales/de_DE.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/geodata/germanyLow.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/fonts/notosans-sc.js"></script>
 </body>
 
 </html>

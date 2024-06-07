@@ -1,3 +1,12 @@
+:root {
+  --yellow-color1: #CFC58D;
+  --grey-color1: #D1CEBD;
+  --grey-color2: #ACACAC;
+  --grey-color3: #898989;
+  --black-color1: #473F3F;
+}
+
+
 .header_top_icon {
   color: #000000;
   font-size: 30px;
@@ -75,7 +84,8 @@
   cursor: pointer;
 }
 
-.adminDashboardBackground {
+.adminDashboardBackground,
+.reportPage {
   background-color: rgba(102, 98, 98, 1);
 }
 
@@ -86,6 +96,44 @@
 
 .pendingOrdertableRow {
   height: 25px;
+}
+
+.reportsTable {
+  height: 400px;
+}
+
+.advancedSearchPageThreeDivs {
+  border-radius: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+
+}
+
+.advancedSearchPageThreeDivsHeading {
+  color: var(--yellow-color1);
+
+}
+
+.advancedSearchPageThreeDivsText {
+  color: var(--grey-color1);
+  margin-bottom: 0;
+}
+
+.advancedSearchPageThreeDivsImage {
+  width: 30px;
+}
+
+.menuSectionInAdvancedSearchPage {
+  border-right: 1px solid #ddd;
+}
+
+.productItemInAdvancedSearchPage {
+  margin-bottom: 20px;
+}
+
+.productImageInAdvancedSearchPage {
+  width: 100%;
+  height: auto;
 }
 
 @media (min-width: 768px) {

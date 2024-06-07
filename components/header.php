@@ -127,7 +127,7 @@
             </div>
 
             <div class="col-5 offset-4 col-lg-2  offset-lg-1">
-                <button class="btn btn-warning">Advanced Search</button>
+               <a href="<?php echo ROOT_PATH ?>App/views/advancedSearch.php" class="text-decoration-none"><button class="btn btn-warning">Advanced Search</button></a> 
             </div>
 
         </div>
