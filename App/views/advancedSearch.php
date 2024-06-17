@@ -76,10 +76,8 @@
                                     Sort
                                 </button>
                                 <ul class="dropdown-menu col-11" aria-labelledby="sortDropdown">
-                                    <li><a class="dropdown-item" href="#">Option 1</a></li>
-                                    <li><a class="dropdown-item" href="#">Option 2</a></li>
-                                    <li><a class="dropdown-item" href="#">Option 3</a></li>
-
+                                    <li><a class="dropdown-item" href="#">Price Ascending</a></li>
+                                    <li><a class="dropdown-item" href="#">Price Descending</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -96,11 +94,19 @@
                         <!-- Category dropdown -->
                         <div class="mb-4">
                             <label for="categoryDropdown" class="form-label">Category</label>
+
+                            <?php
+                            $category_resultset = Database::execute("SELECT category_id, category_name FROM category WHERE status_status_id = 1");
+                            ?>
+
+
                             <select class="form-select" id="categoryDropdown">
                                 <option selected>Choose...</option>
-                                <option value="1">Category 1</option>
-                                <option value="2">Category 2</option>
-                                <option value="3">Category 3</option>
+                                <?php while ($category = $category_resultset->fetch_assoc()) : ?>
+                                    <option value="<?php echo $category['category_id']; ?>">
+                                        <?php echo htmlspecialchars($category['category_name']); ?>
+                                    </option>
+                                <?php endwhile; ?>
                             </select>
                         </div>
 
