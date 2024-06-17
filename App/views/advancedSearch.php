@@ -119,11 +119,18 @@
                         <!-- Brand dropdown -->
                         <div class="mb-4">
                             <label for="brandDropdown" class="form-label">Brand</label>
+
+                            <?php
+                            $brand_resultset = Database::execute("SELECT brand_id, brand_name FROM brand WHERE status_status_id = 1");
+                            ?>
+
                             <select class="form-select" id="brandDropdown">
                                 <option selected>Choose...</option>
-                                <option value="1">Brand 1</option>
-                                <option value="2">Brand 2</option>
-                                <option value="3">Brand 3</option>
+                                <?php while ($brand = $brand_resultset->fetch_assoc()) : ?>
+                                    <option value="<?php echo $brand['brand_id']; ?>">
+                                        <?php echo htmlspecialchars($brand['brand_name']); ?>
+                                    </option>
+                                <?php endwhile; ?>
                             </select>
                         </div>
 
@@ -131,10 +138,17 @@
                         <div class="mb-4">
                             <label for="colorDropdown" class="form-label">Color</label>
                             <select class="form-select" id="colorDropdown">
+
+                                <?php
+                                $color_resultset = Database::execute("SELECT color_id, color_name FROM color WHERE status_status_id = 1");
+                                ?>
+
                                 <option selected>Choose...</option>
-                                <option value="1">Red</option>
-                                <option value="2">Blue</option>
-                                <option value="3">Green</option>
+                                <?php while ($color = $color_resultset->fetch_assoc()) : ?>
+                                    <option value="<?php echo $color['color_id']; ?>">
+                                        <?php echo htmlspecialchars($color['color_name']); ?>
+                                    </option>
+                                <?php endwhile; ?>
                             </select>
                         </div>
                     </div>
