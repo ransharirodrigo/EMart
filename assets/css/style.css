@@ -136,6 +136,24 @@
   height: auto;
 }
 
+.priceRangeContainer {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.priceRangeLabel {
+  display: block;
+  margin-top: 10px;
+}
+
+.priceRangeLabel span {
+  display: inline-block;
+  width: 60px;
+}
+
 @media (min-width: 768px) {
   .logo {
     /* width: 75% !important; */
