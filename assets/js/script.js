@@ -383,3 +383,32 @@ function loadBrandDetails() {
 
 
 
+function advancedSearchRequest() {
+    var searchText = document.getElementById('searchTextInAdvancedSearchPage').value;
+    var sortOption = document.getElementById('sortOption').value;
+    var category = document.getElementById('categoryDropdown').value;
+    var minPrice = document.getElementById('minPrice').value;
+    var maxPrice = document.getElementById('maxPrice').value;
+    var brand = document.getElementById('brandDropdown').value;
+    var color = document.getElementById('colorDropdown').value;
+
+    var formData = new FormData();
+    formData.append('searchText', searchText);
+    formData.append('sortOption', sortOption);
+    formData.append('category', category);
+    formData.append('minPrice', minPrice);
+    formData.append('maxPrice', maxPrice);
+    formData.append('brand', brand);
+    formData.append('color', color);
+
+
+
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            // alert(xhr.responseText);
+        }
+    };
+    xhr.open('POST', "../process/advancedSearchProcess.php", true);
+    xhr.send(formData);
+}

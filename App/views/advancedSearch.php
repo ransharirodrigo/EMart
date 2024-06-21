@@ -72,20 +72,20 @@ $pageno;
 
                     <!-- Search bar -->
                     <div class="col-12 col-sm-7">
-                        <input type="text" class="form-control rounded-5" placeholder="Search">
+                        <input type="text" class="form-control rounded-4" placeholder="Search" id="searchTextInAdvancedSearchPage">
                     </div>
 
                     <!-- Dropdown for sorting -->
                     <div class="col-12 col-sm-3 ">
                         <div class="row">
-                            <div class="dropdown ">
-                                <button class="btn btn-secondary dropdown-toggle col-12 text-center rounded-5" type="button" id="sortDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Sort
-                                </button>
-                                <ul class="dropdown-menu col-11" aria-labelledby="sortDropdown">
-                                    <li><a class="dropdown-item" href="#">Price Ascending</a></li>
-                                    <li><a class="dropdown-item" href="#">Price Descending</a></li>
-                                </ul>
+                            <div class=" ">
+                                <select id="sortOption" class="form-select bg-secondary text-white">
+                                    <option value="0">SORT BY</option>
+                                    <option value="1">PRICE LOW TO HIGH</option>
+                                    <option value="2">PRICE HIGH TO LOW</option>
+                                    <option value="3">Newly Added</option>
+
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -108,7 +108,7 @@ $pageno;
 
 
                             <select class="form-select" id="categoryDropdown">
-                                <option selected>Choose...</option>
+                                <option selected value="0">Choose...</option>
                                 <?php while ($category = $category_resultset->fetch_assoc()) : ?>
                                     <option value="<?php echo $category['category_id']; ?>">
                                         <?php echo htmlspecialchars($category['category_name']); ?>
@@ -125,11 +125,11 @@ $pageno;
                             <div class="row">
                                 <div class="col-6 d-flex flex-column">
                                     <label for="price-min">Min Price:</label>
-                                    <input type="text" name="price-min" id="minPrice" class="form-control" value="200" min="0" max="1000" oninput="checkMinPriceInput()">
+                                    <input type="text" name="price-min" id="minPrice" class="form-control" value="" oninput="checkMinPriceInput()">
                                 </div>
                                 <div class="col-6 d-flex flex-column">
                                     <label for="price-max">Max Price:</label>
-                                    <input type="text" name="price-max" id="maxPrice" class="form-control" value="800" min="0" max="1000" oninput="checkMaxPriceInput()">
+                                    <input type="text" name="price-max" id="maxPrice" class="form-control" value="" oninput="checkMaxPriceInput()">
                                 </div>
 
                             </div>
@@ -145,7 +145,7 @@ $pageno;
                             ?>
 
                             <select class="form-select" id="brandDropdown">
-                                <option selected>Choose...</option>
+                                <option selected value="0">Choose...</option>
                                 <?php while ($brand = $brand_resultset->fetch_assoc()) : ?>
                                     <option value="<?php echo $brand['brand_id']; ?>">
                                         <?php echo htmlspecialchars($brand['brand_name']); ?>
@@ -163,13 +163,21 @@ $pageno;
                                 $color_resultset = Database::execute("SELECT color_id, color_name FROM color WHERE status_status_id = 1");
                                 ?>
 
-                                <option selected>Choose...</option>
+                                <option selected value="0">Choose...</option>
                                 <?php while ($color = $color_resultset->fetch_assoc()) : ?>
                                     <option value="<?php echo $color['color_id']; ?>">
                                         <?php echo htmlspecialchars($color['color_name']); ?>
                                     </option>
                                 <?php endwhile; ?>
                             </select>
+                        </div>
+
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-8">
+                                <div class="row">
+                                    <button class=" btn btn-success" onclick="advancedSearchRequest()">Search</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -201,7 +209,7 @@ $pageno;
                                 $page_results = ($pageno - 1) * $results_per_page;
 
                                 $select_query = "SELECT * FROM `product`
-                                 LEFT JOIN `product_images` ON `product`.`product_id`=`product_images`.`product_product_id`
+                                 LEFT JOIN `product_images` ON `product`.`product_id`=`product_images`.`product_product_id` WHERE `status_status_id`='1'
                                  LIMIT " . $results_per_page . " OFFSET " . $page_results . "";
 
                                 $selected_product_resultset = Database::execute($select_query);
@@ -403,6 +411,7 @@ $pageno;
         }
         // validate price inputs
     </script>
+    <script src="<?php echo ROOT_PATH ?>assets/js/script.js"></script>
 </body>
 
 </html>
