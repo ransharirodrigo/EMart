@@ -392,25 +392,32 @@ function advancedSearchRequest() {
     var brand = document.getElementById('brandDropdown').value;
     var color = document.getElementById('colorDropdown').value;
 
-    var formData = new FormData();
-    formData.append('searchText', searchText);
-    formData.append('sortOption', sortOption);
-    formData.append('category', category);
-    formData.append('minPrice', minPrice);
-    formData.append('maxPrice', maxPrice);
-    formData.append('brand', brand);
-    formData.append('color', color);
+    var minValue = parseInt(document.getElementById('minPrice').value);
+    var maxValue = parseInt(document.getElementById('maxPrice').value);
 
+    if (minValue > maxValue) {
+        alert("Minimum price should be less than the maximum price");
+    } else {
+        var formData = new FormData();
+        formData.append('searchText', searchText);
+        formData.append('sortOption', sortOption);
+        formData.append('category', category);
+        formData.append('minPrice', minPrice);
+        formData.append('maxPrice', maxPrice);
+        formData.append('brand', brand);
+        formData.append('color', color);
 
-
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            if (xhr.responseText != "Default") {
-                document.getElementById("productDiv").innerHTML = xhr.responseText;
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                if (xhr.responseText != "Default") {
+                    document.getElementById("productDiv").innerHTML = xhr.responseText;
+                    console.log(xhr.responseText);
+                }
             }
-        }
-    };
-    xhr.open('POST', "../process/advancedSearchProcess.php", true);
-    xhr.send(formData);
+        };
+        xhr.open('POST', "../process/advancedSearchProcess.php", true);
+        xhr.send(formData);
+    }
+
 }

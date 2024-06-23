@@ -18,6 +18,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $query = "SELECT * FROM `product` LEFT JOIN `product_images` ON `product`.`product_id`=`product_images`.`product_product_id` ";
 
+        $searchTextStatus = 0;
+        $categoryStatus = 0;
+        $brandStatus = 0;
+        $colorStatus = 0;
+
         if ($searchText == "" && $category == 0 && $brand == 0 && $color == 0 && $minPrice == "" && $maxPrice == "") {
 
 
@@ -31,12 +36,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else {
 
             $query .= "WHERE ";
-
-            $searchTextStatus = 0;
-            $categoryStatus = 0;
-            $brandStatus = 0;
-            $colorStatus = 0;
-
 
             if ($searchText != "") {
                 $query .= "`title` LIKE '%$searchText%'";
@@ -84,19 +83,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 }
 
                 if ($minPrice == "") {
-                    // less than - max price
+                    $query .= "`price` <'$maxPrice'";
                 } else {
 
                     if ($maxPrice != "") {
-                        $query .= "`price` BETWEEN ‘$min_price’ AND ‘$max_price’";
+                        $query .= "`price` BETWEEN '$minPrice' AND '$maxPrice'";
                     } else {
-                        $query .= "`price` >'$min_price'";
+                        $query .= "`price` >'$minPrice'";
                     }
                 }
             }
 
-
-            $query .= " AND `status_status_id`='1' ";
+            $query .= " AND `status_status_id`='1'";
 
             if ($sortOption != 0) {
 
@@ -162,8 +160,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 </div>
 
                             </div>
-
-
                     <?php
                         }
                     }
