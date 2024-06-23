@@ -181,81 +181,85 @@ $pageno;
                         </div>
                     </div>
 
+
+
                     <!-- Right side filtered products -->
-                    <div class="col-12 col-lg-9">
+                    <div class="col-12 col-lg-9" id="productDiv">
 
-                        <!-- Content -->
-                        <div class="row" id="productContainer">
+                        <div class="row">
+                            <div class="col-12">
+                                <!-- Content -->
+                                <div class="row" id="productContainer">
 
-                            <?php
-                            if ($product_resultset->num_rows == 0) {
-                            ?>
-                                <div>
-                                    <span>No Products</span>
-                                </div>
-                                <?php
-                            } else {
+                                    <?php
+                                    if ($product_resultset->num_rows == 0) {
+                                    ?>
+                                        <div>
+                                            <span>No Products</span>
+                                        </div>
+                                        <?php
+                                    } else {
 
-                                if (isset($_GET["page"])) {
-                                    $pageno = $_GET["page"];
-                                } else {
-                                    $pageno = 1;
-                                }
+                                        if (isset($_GET["page"])) {
+                                            $pageno = $_GET["page"];
+                                        } else {
+                                            $pageno = 1;
+                                        }
 
-                                $product_num = 18;
-                                $results_per_page = 6;
-                                $number_of_pages = ceil($product_num / $results_per_page);
+                                        $product_num = 18;
+                                        $results_per_page = 6;
+                                        $number_of_pages = ceil($product_num / $results_per_page);
 
-                                $page_results = ($pageno - 1) * $results_per_page;
+                                        $page_results = ($pageno - 1) * $results_per_page;
 
-                                $select_query = "SELECT * FROM `product`
+                                        $select_query = "SELECT * FROM `product`
                                  LEFT JOIN `product_images` ON `product`.`product_id`=`product_images`.`product_product_id` WHERE `status_status_id`='1'
                                  LIMIT " . $results_per_page . " OFFSET " . $page_results . "";
 
-                                $selected_product_resultset = Database::execute($select_query);
+                                        $selected_product_resultset = Database::execute($select_query);
 
-                                for ($i = 0; $i < $selected_product_resultset->num_rows; $i++) {
-                                    $selected_product_data =   $selected_product_resultset->fetch_assoc();
+                                        for ($i = 0; $i < $selected_product_resultset->num_rows; $i++) {
+                                            $selected_product_data =   $selected_product_resultset->fetch_assoc();
 
-                                ?>
-                                    <div class="col-12 col-sm-6 col-md-4 productItemInAdvancedSearchPage ">
+                                        ?>
+                                            <div class="col-12 col-sm-6 col-md-4 productItemInAdvancedSearchPage ">
 
-                                        <div class="row">
-                                            <a href="singleProductView.php?product_id=<?php echo ($selected_product_data['product_id']) ?>" class="text-decoration-none text-reset">
-                                                <?php
-                                                if ($selected_product_data["path"] == null) {
-                                                ?>
-                                                    <img src="../../assets/img/product_images/default_product_icon.svg" class="productImageInAdvancedSearchPage" alt="product image" />
-                                                <?php
-                                                } else {
-                                                ?>
-                                                    <img src="../../<?php echo $selected_product_data['path'] ?>" class="productImageInAdvancedSearchPage" alt="product image" />
-                                                <?php
-                                                }
+                                                <div class="row">
+                                                    <a href="singleProductView.php?product_id=<?php echo ($selected_product_data['product_id']) ?>" class="text-decoration-none text-reset">
+                                                        <?php
+                                                        if ($selected_product_data["path"] == null) {
+                                                        ?>
+                                                            <img src="../../assets/img/product_images/default_product_icon.svg" class="productImageInAdvancedSearchPage" alt="product image" />
+                                                        <?php
+                                                        } else {
+                                                        ?>
+                                                            <img src="../../<?php echo $selected_product_data['path'] ?>" class="productImageInAdvancedSearchPage" alt="product image" />
+                                                        <?php
+                                                        }
 
-                                                ?>
+                                                        ?>
 
-                                                <h5 class="mt-2"><?php echo $selected_product_data["title"] ?></h5>
-                                            </a>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-2 ">
-                                                <i class="bi bi-bag-heart-fill wishlist_icon_for_product_card" onclick="addToWishList(<?php echo $selected_product_data['product_id'] ?>)"></i>
+                                                        <h5 class="mt-2"><?php echo $selected_product_data["title"] ?></h5>
+                                                    </a>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-2 ">
+                                                        <i class="bi bi-bag-heart-fill wishlist_icon_for_product_card" onclick="addToWishList(<?php echo $selected_product_data['product_id'] ?>)"></i>
+                                                    </div>
+                                                    <div class="col-2 ">
+                                                        <i class="bi  bi-cart-fill cart_icon_for_product_card" onclick="addToCart(<?php echo $selected_product_data['product_id'] ?>)"></i>
+                                                    </div>
+                                                </div>
+
                                             </div>
-                                            <div class="col-2 ">
-                                                <i class="bi  bi-cart-fill cart_icon_for_product_card" onclick="addToCart(<?php echo $selected_product_data['product_id'] ?>)"></i>
-                                            </div>
-                                        </div>
-
-                                    </div>
 
 
-                            <?php
-                                }
-                            }
+                                    <?php
+                                        }
+                                    }
 
-                            ?>
-                            <!-- <div class="col-12 col-sm-6 col-md-4 productItemInAdvancedSearchPage ">
+                                    ?>
+                                    <!-- <div class="col-12 col-sm-6 col-md-4 productItemInAdvancedSearchPage ">
                                 <img src="https://via.placeholder.com/150" alt="Product 1" class="productImageInAdvancedSearchPage">
                                 <h5 class="mt-2">Product 1</h5>
                             </div>
@@ -279,14 +283,14 @@ $pageno;
                                 <img src="https://via.placeholder.com/150" alt="Product 3" class="productImageInAdvancedSearchPage">
                                 <h5 class="mt-2">Product 3</h5>
                             </div> -->
-                        </div>
+                                </div>
 
-                        <!-- Pagination -->
-                        <div class="row mt-3">
-                            <nav aria-label="Page navigation example">
-                                <ul class="pagination justify-content-center">
+                                <!-- Pagination -->
+                                <div class="row mt-3">
+                                    <nav aria-label="Page navigation example">
+                                        <ul class="pagination justify-content-center">
 
-                                    <li class="page-item"><a class="page-link" href="
+                                            <li class="page-item"><a class="page-link" href="
                                                 <?php if ($pageno <= 1) {
                                                     echo ("#");
                                                 } else {
@@ -294,46 +298,46 @@ $pageno;
                                                     echo "advancedSearch.php?page=" . ($pageno - 1);
                                                 } ?>
                                                 " aria-label="Previous">
-                                            <span aria-hidden="true">&laquo;</span>
-                                        </a></li>
+                                                    <span aria-hidden="true">&laquo;</span>
+                                                </a></li>
 
 
-                                    <?php
-                                    for ($x = 1; $x <= $number_of_pages; $x++) {
-                                        if ($x == $pageno) {
-                                    ?>
-                                            <li class="page-item active">
-                                                <a class="page-link" href="<?php echo "advancedSearch.php?page=" . ($x); ?>"><?php echo $x; ?></a>
-                                            </li>
-                                        <?php
-                                        } else {
-                                        ?>
+                                            <?php
+                                            for ($x = 1; $x <= $number_of_pages; $x++) {
+                                                if ($x == $pageno) {
+                                            ?>
+                                                    <li class="page-item active">
+                                                        <a class="page-link" href="<?php echo "advancedSearch.php?page=" . ($x); ?>"><?php echo $x; ?></a>
+                                                    </li>
+                                                <?php
+                                                } else {
+                                                ?>
+                                                    <li class="page-item">
+                                                        <a class="page-link" href="<?php echo "advancedSearch.php?page=" . ($x); ?>"><?php echo $x; ?></a>
+                                                    </li>
+                                            <?php
+                                                }
+                                            }
+                                            ?>
+
                                             <li class="page-item">
-                                                <a class="page-link" href="<?php echo "advancedSearch.php?page=" . ($x); ?>"><?php echo $x; ?></a>
-                                            </li>
-                                    <?php
-                                        }
-                                    }
-                                    ?>
-
-                                    <li class="page-item">
-                                        <a class="page-link" href="
+                                                <a class="page-link" href="
                                                 <?php if ($pageno >= $number_of_pages) {
                                                     echo ("#");
                                                 } else {
                                                     echo "advancedSearch.php?page=" . ($pageno + 1);
                                                 } ?>
                                                 " aria-label="Next">
-                                            <span aria-hidden="true">&raquo;</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
+                                                    <span aria-hidden="true">&raquo;</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
                         </div>
 
                     </div>
-
-
 
                 </div>
             </div>
@@ -346,43 +350,6 @@ $pageno;
     </div>
 
     <script>
-        const priceRange = document.getElementById('priceRange');
-        const minPriceDisplay = document.getElementById('minPriceDisplay');
-        const maxPriceDisplay = document.getElementById('maxPriceDisplay');
-
-        minPriceDisplay.textContent = '$0';
-        maxPriceDisplay.textContent = '$1000';
-
-        function updatePrices() {
-            const minPrice = parseInt(priceRange.value);
-            const maxPrice = parseInt(priceRange.dataset.upperValue);
-            minPriceDisplay.textContent = '$' + minPrice;
-            maxPriceDisplay.textContent = '$' + maxPrice;
-        }
-
-        updatePrices();
-
-        priceRange.addEventListener('input', function() {
-
-            this.dataset.lowerValue = this.value;
-            if (parseInt(this.dataset.lowerValue) >= parseInt(this.dataset.upperValue)) {
-                this.value = this.dataset.upperValue;
-                this.dataset.lowerValue = this.value;
-            }
-            updatePrices();
-        });
-
-
-        priceRange.addEventListener('mouseup', function() {
-
-            this.dataset.upperValue = this.value;
-
-            if (parseInt(this.dataset.upperValue) <= parseInt(this.dataset.lowerValue)) {
-                this.value = this.dataset.lowerValue;
-                this.dataset.upperValue = this.value;
-            }
-            updatePrices();
-        });
 
 
         // validate price inputs

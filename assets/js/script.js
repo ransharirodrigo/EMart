@@ -406,7 +406,9 @@ function advancedSearchRequest() {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
-            // alert(xhr.responseText);
+            if (xhr.responseText != "Default") {
+                document.getElementById("productDiv").innerHTML = xhr.responseText;
+            }
         }
     };
     xhr.open('POST', "../process/advancedSearchProcess.php", true);
