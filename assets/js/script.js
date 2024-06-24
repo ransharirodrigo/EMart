@@ -416,6 +416,17 @@ function loadCategoriesForAdminProductManagementModal() {
     request.send();
 }
 
+function loadBrandForAdminProductManagementModal() {
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 && request.status == 200) {
+            document.getElementById("productBrand").innerHTML = request.responseText;
+        }
+    }
+    request.open('POST', '../adminProcess/loadProductBrandsForAdminProductManagementModal.php', true);
+    request.send();
+}
+
 function advancedSearchRequest() {
     var searchText = document.getElementById('searchTextInAdvancedSearchPage').value;
     var sortOption = document.getElementById('sortOption').value;

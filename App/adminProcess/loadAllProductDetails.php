@@ -13,7 +13,7 @@ product.delivery_fee_other AS delivery_fee_other,
 color.color_id AS product_color_id,
 color.color_name AS product_color,
 category.category_id AS category_id,
-brand.brand_name AS brand,
+brand.brand_id AS brand_id,
 `status`.`status` AS product_status,
 model.model_id AS product_model_id,
 model.model_name AS product_model_name FROM emart_db.product
@@ -42,7 +42,7 @@ if ($products_resultset->num_rows > 0) {
             '<?php echo $product_data['product_color_id'] ?>',
             '<?php echo $product_data['product_color'] ?>',
             '<?php echo $product_data['category_id'] ?>',
-            '<?php echo $product_data['brand'] ?>',
+            '<?php echo $product_data['brand_id'] ?>',
             '<?php echo $product_data['product_status'] ?>',
             '<?php echo $product_data['product_model_id'] ?>',
             

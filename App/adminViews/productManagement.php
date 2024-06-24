@@ -11,7 +11,7 @@
     <title>Product Management</title>
 </head>
 
-<body onload="loadProductDetailsForAdmin(); loadColorsForAdminProductManagementModal(); loadProductModelsForAdminProductManagementModal(); loadCategoriesForAdminProductManagementModal();">
+<body onload="loadProductDetailsForAdmin(); loadColorsForAdminProductManagementModal(); loadProductModelsForAdminProductManagementModal(); loadCategoriesForAdminProductManagementModal(); loadBrandForAdminProductManagementModal();">
 
     <div class="container-fluid">
         <div class="row">
@@ -130,23 +130,14 @@
                                     <div class="details-item">
                                         <h6>Category</h6>
                                         <select class="form-select" id="productCategory">
-                                            <option value="Laptops">Laptops</option>
-                                            <option value="Smartphones">Smartphones</option>
-                                            <option value="Headphones">Headphones</option>
-                                            <option value="Smart Watches">Smart Watches</option>
-                                            <option value="Tablets">Tablets</option>
-                                            <option value="Monitors">Monitors</option>
+                                           
 
                                         </select>
                                     </div>
                                     <div class="details-item">
                                         <h6>Brand</h6>
                                         <select class="form-select" id="productBrand">
-                                            <option value="Apple">Apple</option>
-                                            <option value="Samsung">Samsung</option>
-                                            <option value="MSI">MSI</option>
-                                            <option value="HP">HP</option>
-                                            <option value="Lenovo">Lenovo</option>
+                                            
                                         </select>
                                     </div>
 
@@ -192,7 +183,7 @@
             backdrop: false
         });
 
-        function productViewPopUp(product_id, product_title, product_description, date_added, points, qty, price, delivery_fee_colombo, delivery_fee_other, product_color_id, product_color, category_id, brand, product_status, product_model_id) {
+        function productViewPopUp(product_id, product_title, product_description, date_added, points, qty, price, delivery_fee_colombo, delivery_fee_other, product_color_id, product_color, category_id, brand_id, product_status, product_model_id) {
 
             document.getElementById("productTitle").value = product_title;
             document.getElementById("productDescription").value = product_description;
@@ -204,7 +195,7 @@
             document.getElementById("productDeliveryFeeOther").value = delivery_fee_other;
             document.getElementById("productColor").value = product_color_id;
             document.getElementById("productCategory").value = category_id;
-            document.getElementById("productBrand").value = brand;
+            document.getElementById("productBrand").value = brand_id;
             document.getElementById("productStatus").value = product_status;
             document.getElementById("productModel").value = product_model_id;
 
