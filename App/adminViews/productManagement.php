@@ -11,7 +11,7 @@
     <title>Product Management</title>
 </head>
 
-<body onload="loadProductDetailsForAdmin()">
+<body onload="loadProductDetailsForAdmin(); loadColorsForAdminProductManagementModal(); loadProductModelsForAdminProductManagementModal(); loadCategoriesForAdminProductManagementModal();">
 
     <div class="container-fluid">
         <div class="row">
@@ -67,13 +67,13 @@
         </div>
 
 
-        <div class="modal fade" id="productModal" tabindex="-1" >
+        <div class="modal fade" id="productModal" tabindex="-1">
             <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content bg-light">
                     <div class="modal-header bg-success bg-opacity-50 text-white">
                         <h5 class="modal-title" id="productModalLabel">Product Details</h5>
                         <button type="button" class="btn-close btn-close-white" data-dismiss="modal" aria-label="Close" onclick="productViewPopupClose()">
-                           
+
                         </button>
                     </div>
                     <div class="modal-body">
@@ -83,6 +83,12 @@
                                     <div class="details-item">
                                         <h6>Title</h6>
                                         <input type="text" class="form-control" id="productTitle">
+                                    </div>
+                                    <div class="details-item">
+                                        <h6>Model</h6>
+                                        <select class="form-select" id="productModel">
+
+                                        </select>
                                     </div>
                                     <div class="details-item">
                                         <h6>Description</h6>
@@ -117,12 +123,7 @@
                                     <div class="details-item">
                                         <h6>Color</h6>
                                         <select class="form-select" id="productColor">
-                                            
-                                            <option value="Black">Black</option>
-                                            <option value="Dark Blue">Dark Blue</option>
-                                            <option value="White">White</option>
-                                            <option value="Grey">Grey</option>
-                                            <!-- Add more color options as needed -->
+
                                         </select>
                                     </div>
 
@@ -135,7 +136,7 @@
                                             <option value="Smart Watches">Smart Watches</option>
                                             <option value="Tablets">Tablets</option>
                                             <option value="Monitors">Monitors</option>
-                                            
+
                                         </select>
                                     </div>
                                     <div class="details-item">
@@ -157,7 +158,7 @@
                                         </select>
                                     </div>
 
-                                   
+
                                 </div>
                             </div>
                         </div>
@@ -191,7 +192,7 @@
             backdrop: false
         });
 
-        function productViewPopUp(product_id, product_title, product_description, date_added, points, qty, price, delivery_fee_colombo, delivery_fee_other, product_color, category, brand, product_status) {
+        function productViewPopUp(product_id, product_title, product_description, date_added, points, qty, price, delivery_fee_colombo, delivery_fee_other, product_color_id, product_color, category_id, brand, product_status, product_model_id) {
 
             document.getElementById("productTitle").value = product_title;
             document.getElementById("productDescription").value = product_description;
@@ -201,19 +202,19 @@
             document.getElementById("productPrice").value = price;
             document.getElementById("productDeliveryFeeColombo").value = delivery_fee_colombo;
             document.getElementById("productDeliveryFeeOther").value = delivery_fee_other;
-            document.getElementById("productColor").value = product_color;
-            document.getElementById("productCategory").value = category;
+            document.getElementById("productColor").value = product_color_id;
+            document.getElementById("productCategory").value = category_id;
             document.getElementById("productBrand").value = brand;
             document.getElementById("productStatus").value = product_status;
+            document.getElementById("productModel").value = product_model_id;
 
             productModal.show();
+
         }
 
         function productViewPopupClose() {
             productModal.hide();
         }
-
-      
     </script>
 </body>
 

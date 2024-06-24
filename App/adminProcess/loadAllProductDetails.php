@@ -10,14 +10,18 @@ product.qty AS qty,
 product.price AS price,
 product.delivery_fee_colombo AS delivery_fee_colombo,
 product.delivery_fee_other AS delivery_fee_other,
+color.color_id AS product_color_id,
 color.color_name AS product_color,
-category.category_name AS category,
+category.category_id AS category_id,
 brand.brand_name AS brand,
-`status`.`status` AS product_status FROM emart_db.product
+`status`.`status` AS product_status,
+model.model_id AS product_model_id,
+model.model_name AS product_model_name FROM emart_db.product
 INNER JOIN emart_db.color ON product.color_color_id=color.color_id 
 INNER JOIN emart_db.category ON category.category_id=product.category_category_id
 INNER JOIN emart_db.brand ON product.brand_brand_id=brand.brand_id 
-INNER JOIN `status` ON product.status_status_id=`status`.status_id");
+INNER JOIN `status` ON product.status_status_id=`status`.status_id 
+INNER JOIN model ON model.model_id=product.model_model_id;");
 
 if ($products_resultset->num_rows > 0) {
 
@@ -35,10 +39,12 @@ if ($products_resultset->num_rows > 0) {
             '<?php echo $product_data['price'] ?>',
             '<?php echo $product_data['delivery_fee_colombo'] ?>',
             '<?php echo $product_data['delivery_fee_other'] ?>',
+            '<?php echo $product_data['product_color_id'] ?>',
             '<?php echo $product_data['product_color'] ?>',
-            '<?php echo $product_data['category'] ?>',
+            '<?php echo $product_data['category_id'] ?>',
             '<?php echo $product_data['brand'] ?>',
             '<?php echo $product_data['product_status'] ?>',
+            '<?php echo $product_data['product_model_id'] ?>',
             
             )" class="tableRow">
             <td><?php echo $product_data['product_id'] ?></td>

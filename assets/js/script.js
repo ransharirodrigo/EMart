@@ -382,6 +382,39 @@ function loadBrandDetails() {
 }
 
 
+function loadColorsForAdminProductManagementModal() {
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 && request.status == 200) {
+            document.getElementById("productColor").innerHTML = request.responseText;
+        }
+    }
+    request.open('POST', '../adminProcess/loadColorsForAdminProductManagementModal.php', true);
+    request.send();
+}
+
+
+function loadProductModelsForAdminProductManagementModal() {
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 && request.status == 200) {
+            document.getElementById("productModel").innerHTML = request.responseText;
+        }
+    }
+    request.open('POST', '../adminProcess/loadProductModelsForAdminProductManagementModal.php', true);
+    request.send();
+}
+
+function loadCategoriesForAdminProductManagementModal() {
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 && request.status == 200) {
+            document.getElementById("productCategory").innerHTML = request.responseText;
+        }
+    }
+    request.open('POST', '../adminProcess/loadProductCategoriesForAdminProductManagementModal.php', true);
+    request.send();
+}
 
 function advancedSearchRequest() {
     var searchText = document.getElementById('searchTextInAdvancedSearchPage').value;
