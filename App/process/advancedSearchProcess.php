@@ -83,13 +83,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 }
 
                 if ($minPrice == "") {
-                    $query .= "`price` <'$maxPrice'";
+                    $query .= "`price` <='$maxPrice'";
                 } else {
 
                     if ($maxPrice != "") {
                         $query .= "`price` BETWEEN '$minPrice' AND '$maxPrice'";
                     } else {
-                        $query .= "`price` >'$minPrice'";
+                        $query .= "`price` >='$minPrice'";
                     }
                 }
             }

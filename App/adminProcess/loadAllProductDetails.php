@@ -14,7 +14,7 @@ color.color_name AS product_color,
 category.category_name AS category,
 brand.brand_name AS brand,
 `status`.`status` AS product_status FROM emart_db.product
-INNER JOIN emart_db.color ON product.color_color=color.color_id 
+INNER JOIN emart_db.color ON product.color_color_id=color.color_id 
 INNER JOIN emart_db.category ON category.category_id=product.category_category_id
 INNER JOIN emart_db.brand ON product.brand_brand_id=brand.brand_id 
 INNER JOIN `status` ON product.status_status_id=`status`.status_id");
