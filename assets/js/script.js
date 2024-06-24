@@ -465,3 +465,28 @@ function advancedSearchRequest() {
     }
 
 }
+
+
+function validatePriceInputsInProductManagementModal(input) {
+    var inputField = input;
+    const enteredValue = inputField.value;
+
+    const convertedValue = enteredValue.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');
+
+    if (convertedValue !== enteredValue) {
+        input.value = convertedValue;
+    }
+}
+
+function validateQuantityInputInProductManagementModal(input) {
+
+    const quantityInputValue = input.value;
+
+    const convertedValue = quantityInputValue.replace(/\D/g, '');
+
+    if (convertedValue !== quantityInputValue) {
+        input.value = convertedValue;
+    }
+
+}
+

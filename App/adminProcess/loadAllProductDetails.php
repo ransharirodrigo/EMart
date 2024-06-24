@@ -14,14 +14,14 @@ color.color_id AS product_color_id,
 color.color_name AS product_color,
 category.category_id AS category_id,
 brand.brand_id AS brand_id,
-`status`.`status` AS product_status,
+`status`.`status_id` AS product_status_id,
 model.model_id AS product_model_id,
 model.model_name AS product_model_name FROM emart_db.product
 INNER JOIN emart_db.color ON product.color_color_id=color.color_id 
 INNER JOIN emart_db.category ON category.category_id=product.category_category_id
 INNER JOIN emart_db.brand ON product.brand_brand_id=brand.brand_id 
 INNER JOIN `status` ON product.status_status_id=`status`.status_id 
-INNER JOIN model ON model.model_id=product.model_model_id;");
+INNER JOIN model ON model.model_id=product.model_model_id ORDER BY `product`.`product_id` ASC");
 
 if ($products_resultset->num_rows > 0) {
 
@@ -43,13 +43,13 @@ if ($products_resultset->num_rows > 0) {
             '<?php echo $product_data['product_color'] ?>',
             '<?php echo $product_data['category_id'] ?>',
             '<?php echo $product_data['brand_id'] ?>',
-            '<?php echo $product_data['product_status'] ?>',
+            '<?php echo $product_data['product_status_id'] ?>',
             '<?php echo $product_data['product_model_id'] ?>',
             
             )" class="tableRow">
             <td><?php echo $product_data['product_id'] ?></td>
             <td><?php echo $product_data['product_title'] ?></td>
-            <td><?php echo $product_data['product_status'] ?></td>
+            <td><?php echo $product_data['product_status_id'] ?></td>
             <td><?php echo $product_data['qty'] ?></td>
             <td>RS <?php echo $product_data['price'] ?></td>
         </tr>

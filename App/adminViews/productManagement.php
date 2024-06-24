@@ -80,72 +80,76 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <div class="details-item">
+                                    <div class="mt-3">
+                                        <h6>Product ID</h6>
+                                        <input type="text" class="form-control" id="productId" readonly>
+                                    </div>
+                                    <div class="mt-3">
                                         <h6>Title</h6>
                                         <input type="text" class="form-control" id="productTitle">
                                     </div>
-                                    <div class="details-item">
+                                    <div class="mt-3">
                                         <h6>Model</h6>
                                         <select class="form-select" id="productModel">
 
                                         </select>
                                     </div>
-                                    <div class="details-item">
+                                    <div class="mt-3">
                                         <h6>Description</h6>
                                         <input type="text" class="form-control" id="productDescription">
                                     </div>
-                                    <div class="details-item">
+                                    <div class="mt-3">
                                         <h6>Date Added</h6>
-                                        <p id="productDateAdded" class="form-control-static"></p>
+                                        <input id="productDateAdded" class="form-control" readonly />
                                     </div>
-                                    <div class="details-item">
+                                    <div class="mt-3">
                                         <h6>Points</h6>
-                                        <p id="productPoints" class="form-control-static"></p>
+                                        <input id="productPoints" class="form-control" readonly />
                                     </div>
-                                    <div class="details-item">
+                                    <div class="mt-3">
                                         <h6>Quantity</h6>
-                                        <input type="text" class="form-control" id="productQuantity">
+                                        <input type="text" class="form-control" id="productQuantity" oninput="validateQuantityInputInProductManagementModal(this)">
                                     </div>
-                                    <div class="details-item">
+                                    <div class="mt-3">
                                         <h6>Price</h6>
-                                        <input type="text" class="form-control" id="productPrice">
+                                        <input type="text" class="form-control" id="productPrice" oninput="validatePriceInputsInProductManagementModal(this)">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="details-item">
+                                    <div class="mt-3">
                                         <h6>Delivery Fee (Colombo)</h6>
-                                        <input type="text" class="form-control" id="productDeliveryFeeColombo">
+                                        <input type="text" class="form-control" id="productDeliveryFeeColombo" oninput="validatePriceInputsInProductManagementModal(this)">
                                     </div>
-                                    <div class="details-item">
+                                    <div class="mt-3">
                                         <h6>Delivery Fee (Other)</h6>
-                                        <input type="text" class="form-control" id="productDeliveryFeeOther">
+                                        <input type="text" class="form-control" id="productDeliveryFeeOther" oninput="validatePriceInputsInProductManagementModal(this)">
                                     </div>
-                                    <div class="details-item">
+                                    <div class="mt-3">
                                         <h6>Color</h6>
                                         <select class="form-select" id="productColor">
 
                                         </select>
                                     </div>
 
-                                    <div class="details-item">
+                                    <div class="mt-3">
                                         <h6>Category</h6>
                                         <select class="form-select" id="productCategory">
-                                           
+
 
                                         </select>
                                     </div>
-                                    <div class="details-item">
+                                    <div class="mt-3">
                                         <h6>Brand</h6>
                                         <select class="form-select" id="productBrand">
-                                            
+
                                         </select>
                                     </div>
 
-                                    <div class="details-item">
+                                    <div class="mt-3">
                                         <h6>Status</h6>
                                         <select class="form-select" id="productStatus">
-                                            <option value="Active" selected>Active</option>
-                                            <option value="Deactive">Deactive</option>
+                                            <option value="1" selected>Active</option>
+                                            <option value="2">Deactive</option>
                                         </select>
                                     </div>
 
@@ -158,7 +162,7 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-10 col-md-4">
-                                    <button class="btn btn-outline-secondary mb-2">Update Product</button>
+                                    <button class="btn btn-outline-secondary mb-2" onclick="updateProductDetails()">Update Product</button>
                                 </div>
                                 <div class="col-10 col-md-4">
                                     <button class="btn btn-danger mb-2">Disable Product</button>
@@ -183,12 +187,12 @@
             backdrop: false
         });
 
-        function productViewPopUp(product_id, product_title, product_description, date_added, points, qty, price, delivery_fee_colombo, delivery_fee_other, product_color_id, product_color, category_id, brand_id, product_status, product_model_id) {
-
+        function productViewPopUp(product_id, product_title, product_description, date_added, points, qty, price, delivery_fee_colombo, delivery_fee_other, product_color_id, product_color, category_id, brand_id, product_status_id, product_model_id) {
+            document.getElementById("productId").value = product_id;
             document.getElementById("productTitle").value = product_title;
             document.getElementById("productDescription").value = product_description;
-            document.getElementById("productDateAdded").innerHTML = date_added;
-            document.getElementById("productPoints").innerHTML = points;
+            document.getElementById("productDateAdded").value = date_added;
+            document.getElementById("productPoints").value = points;
             document.getElementById("productQuantity").value = qty;
             document.getElementById("productPrice").value = price;
             document.getElementById("productDeliveryFeeColombo").value = delivery_fee_colombo;
@@ -196,7 +200,7 @@
             document.getElementById("productColor").value = product_color_id;
             document.getElementById("productCategory").value = category_id;
             document.getElementById("productBrand").value = brand_id;
-            document.getElementById("productStatus").value = product_status;
+            document.getElementById("productStatus").value = product_status_id;
             document.getElementById("productModel").value = product_model_id;
 
             productModal.show();
@@ -205,6 +209,50 @@
 
         function productViewPopupClose() {
             productModal.hide();
+        }
+
+
+        function updateProductDetails() {
+            var product_id = document.getElementById("productId").value;
+            var delivery_fee_colombo = document.getElementById("productDeliveryFeeColombo").value;
+            var delivery_fee_other = document.getElementById("productDeliveryFeeOther").value;
+            var product_title = document.getElementById("productTitle").value;
+            var product_description = document.getElementById("productDescription").value;
+            var qty = document.getElementById("productQuantity").value;
+            var price = document.getElementById("productPrice").value;
+            var product_color_id = document.getElementById("productColor").value;
+            var category_id = document.getElementById("productCategory").value;
+            var brand_id = document.getElementById("productBrand").value;
+            var product_status = document.getElementById("productStatus").value;
+            var product_model_id = document.getElementById("productModel").value;
+            var form = new FormData();
+
+            form.append('product_id', product_id);
+            form.append('delivery_fee_colombo', delivery_fee_colombo);
+            form.append('delivery_fee_other', delivery_fee_other);
+            form.append('product_title', product_title);
+            form.append('product_description', product_description);
+            form.append('qty', qty);
+            form.append('price', price);
+            form.append('product_color_id', product_color_id);
+            form.append('category_id', category_id);
+            form.append('brand_id', brand_id);
+            form.append('product_status', product_status);
+            form.append('product_model_id', product_model_id);
+
+
+            var request = new XMLHttpRequest();
+            request.onreadystatechange = function() {
+
+                if (request.readyState == 4 && request.status == 200) {
+                    alert(request.responseText)
+                    productViewPopupClose();
+                    loadProductDetailsForAdmin();
+                }
+            };
+            request.open('POST', '../adminProcess/updateProductDetailsProcess.php', true);
+            request.send(form);
+
         }
     </script>
 </body>
