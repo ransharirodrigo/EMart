@@ -60,20 +60,20 @@
             <div class="col-md-10 offset-md-1">
                 <div class="row mt-3">
                     <div class="col-10 col-md-4">
-                        <button class="btn btn-primary btn-lg btn-block mb-2">Add New Product</button>
+                        <button class="btn btn-success mb-2">Add New Product</button>
                     </div>
                 </div>
             </div>
         </div>
 
 
-        <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal fade" id="productModal" tabindex="-1" >
+            <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content bg-light">
-                    <div class="modal-header bg-primary text-white">
+                    <div class="modal-header bg-success bg-opacity-50 text-white">
                         <h5 class="modal-title" id="productModalLabel">Product Details</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="productViewPopupClose()">
-                            <span aria-hidden="true">&times;</span>
+                        <button type="button" class="btn-close btn-close-white" data-dismiss="modal" aria-label="Close" onclick="productViewPopupClose()">
+                           
                         </button>
                     </div>
                     <div class="modal-body">
@@ -166,10 +166,10 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-10 col-md-4">
-                                    <button class="btn btn-success btn-lg btn-block mb-2">Update Product</button>
+                                    <button class="btn btn-outline-secondary mb-2">Update Product</button>
                                 </div>
                                 <div class="col-10 col-md-4">
-                                    <button class="btn btn-danger btn-lg btn-block mb-2">Disable Product</button>
+                                    <button class="btn btn-danger mb-2">Disable Product</button>
                                 </div>
                             </div>
                         </div>
