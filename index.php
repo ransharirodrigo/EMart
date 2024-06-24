@@ -25,7 +25,7 @@
             
             include(BASE_PATH . '/components/header.php');
 
-            $category_resultset = Database::execute("SELECT * FROM `category`");
+            $category_resultset = Database::execute("SELECT * FROM `category` WHERE `status_status_id`='1' LIMIT 6");
             ?>
 
             <div class=" col-12 d-flex justify-content-center">
