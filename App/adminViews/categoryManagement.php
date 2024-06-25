@@ -53,7 +53,7 @@
                 <div class="col-md-10 offset-md-1">
                     <div class="row mt-3">
                         <div class="col-10 col-md-4">
-                            <button class="btn btn-success mb-2">Add New Category</button>
+                            <button class="btn btn-success mb-2" onclick="addCategoryModalOpen()">Add New Category</button>
                         </div>
                     </div>
                 </div>
@@ -61,6 +61,7 @@
             </div>
         </div>
 
+        <!-- Category details and update modal  -->
         <div class="modal fade" id="categoryModal" tabindex="-1" role="dialog" aria-labelledby="categoryModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
@@ -98,6 +99,30 @@
             </div>
         </div>
 
+        <!-- Add new category modal  -->
+        <div class="modal fade" id="addCategoryModal" tabindex="-1" aria-labelledby="addCategoryModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header bg-success bg-opacity-50">
+                        <h5 class="modal-title text-white" id="addCategoryModalLabel">Add New Category</h5>
+                        <button type="button" class="btn-close btn-close-white" onclick="addCategoryModalClose()"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="addCategoryForm">
+                            <div class="mb-3">
+                                <label for="categoryName" class="form-label">Category Name</label>
+                                <input type="text" class="form-control" id="newCategoryName" required>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" onclick="addNewCategory()">Add Category</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
     </div>
 
     <script src="../../assets/js/script.js"></script>
@@ -108,6 +133,11 @@
     <script>
         // Category details update modal initiate
         var categoryModal = new bootstrap.Modal(document.getElementById('categoryModal'), {
+            backdrop: false
+        });
+
+        // Add new category modal initiate
+        var addCategoryModal = new bootstrap.Modal(document.getElementById('addCategoryModal'), {
             backdrop: false
         });
 
@@ -123,6 +153,16 @@
         // Update category modal close
         function categoryViewPopupClose() {
             categoryModal.hide();
+        }
+
+        // Add new category modal opne
+        function addCategoryModalOpen() {
+            addCategoryModal.show();
+        }
+
+        // Add new category modal close
+        function addCategoryModalClose() {
+            addCategoryModal.hide();
         }
 
         // Update category details process function 
@@ -150,6 +190,32 @@
             request.open('POST', '../adminProcess/updateCategoryDetails.php', true);
             request.send(form);
 
+        }
+
+        // Add new category process function 
+        function addNewCategory() {
+            var newCategoryName = document.getElementById('newCategoryName').value;
+
+            var request = new XMLHttpRequest();
+            request.onreadystatechange = function() {
+                if (request.readyState == 4 && request.status == 200) {
+                    alert(request.responseText);
+
+                    if (request.responseText == "Category added successfully.") {
+                        addCategoryModalClose();
+                        clearTextFieldsInAddNewCategoryModal();
+                        loadCategories();
+                    }
+                }
+            };
+            request.open('GET', "../adminProcess/addNewCategoryProcess.php?categoryName=" + newCategoryName, true);
+            request.send();
+        }
+
+
+        // Clear text fields in add new category modal
+        function clearTextFieldsInAddNewCategoryModal() {
+            document.getElementById('newCategoryName').value = "";
         }
     </script>
 </body>
