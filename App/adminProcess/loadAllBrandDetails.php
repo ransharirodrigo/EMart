@@ -11,7 +11,7 @@ if ($brand_resultset->num_rows > 0) {
         <tr  class="tableRow" onclick="brandViewPopUp(
             '<?php echo $brand_data['brand_id']?>',
             '<?php echo $brand_data['brand_name']?>',
-            '<?php echo $brand_data['status']?>'
+            '<?php echo $brand_data['status_id']?>'
         )">
             <td>  <?php echo $brand_data["brand_id"]?></td>
             <td><?php echo $brand_data["brand_name"]?></td>
