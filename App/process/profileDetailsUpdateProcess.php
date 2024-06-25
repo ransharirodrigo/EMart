@@ -88,7 +88,6 @@ if (empty($first_name)) {
 
             session_start();
             $_SESSION["user"] = $new_user_details_array;
-            
             echo ("success");
         }
     } else {

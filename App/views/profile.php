@@ -23,7 +23,7 @@ if (isset($_SESSION["user"])) {
     <body>
         <div class="container-fluid vh-100 pt-3">
 
-            <div class="row mb-5">
+            <div class="row mb-3">
 
                 <div class="col-3 col-sm-2 col-md-1">
                     <a href="../../index.php" class="text-decoration-none text-reset">Home</a>
@@ -110,7 +110,7 @@ if (isset($_SESSION["user"])) {
                         </div>
                     </div>
 
-                    <div class="row mt-4 ">
+                    <div class="row mt-4">
                         <div class="col-10 offset-1  col-md-5 offset-md-0 ">
                             <div class="row">
                                 <span>Mobile</span>
@@ -129,9 +129,62 @@ if (isset($_SESSION["user"])) {
                         </div>
                     </div>
 
-                    <div class="row justify-content-center my-5 ">
+
+                    <div class="row justify-content-center my-3 ">
                         <button class="btn btn-outline-success col-4" onclick="updateProfileDetails()">Save Changes</button>
                     </div>
+
+                    <div class="row mt-2">
+
+                        <?php
+                        $user_address_resultset =  Database::execute("SELECT * FROM `user_has_address` WHERE `user_email`='" . $user['email'] . "'");
+
+                        $no;
+                        $line1;
+                        $line2;
+
+                        if ($user_address_resultset->num_rows == 1) {
+                            $user_address_data = $user_address_resultset->fetch_assoc();
+
+                            $no = $user_address_data["no"];
+                            $line1 = $user_address_data["line1"];
+                            $line2 = $user_address_data["line2"];
+                        } else {
+                            $no = "";
+                            $line1 = "";
+                            $line2 = "";
+                        }
+                        ?>
+                        <div class="col-10  offset-1 col-md-11 offset-md-0">
+                            <div class="row">
+                                <span>No</span>
+                            </div>
+                            <div class="row mt-2">
+                                <input type="text" class="form-control" id="address_no" value="<?php echo $no ?>" oninput="validateNoInputInUserProfile(this)" />
+                            </div>
+                        </div>
+                        <div class="col-10  offset-1 col-md-11 offset-md-0">
+                            <div class="row">
+                                <span>Line 1</span>
+                            </div>
+                            <div class="row mt-2">
+                                <input type="text" class="form-control" id="address_line1" value="<?php echo $line1 ?>" />
+                            </div>
+                        </div>
+                        <div class="col-10 offset-1 col-md-11 offset-md-0">
+                            <div class="row">
+                                <span>Line 2</span>
+                            </div>
+                            <div class="row mt-2">
+                                <input type="text" class="form-control" id="address_line2" value="<?php echo $line2 ?>" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center my-3 ">
+                        <button class="btn btn-outline-success col-4" onclick="updateAddressDetails()">Save Address Details</button>
+                    </div>
+
                 </div>
             </div>
         </div>

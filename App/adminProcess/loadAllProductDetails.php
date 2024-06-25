@@ -9,6 +9,7 @@ product.points AS points,
 product.price AS price,
 product.delivery_fee_colombo AS delivery_fee_colombo,
 product.delivery_fee_other AS delivery_fee_other,
+product.qty AS product_qty,
 color.color_id AS product_color_id,
 color.color_name AS product_color,
 category.category_id AS category_id,
@@ -44,7 +45,7 @@ if ($products_resultset->num_rows > 0) {
             '<?php echo $product_data['brand_id'] ?>',
             '<?php echo $product_data['product_status_id'] ?>',
             '<?php echo $product_data['product_model_id'] ?>',
-            
+                  '<?php echo $product_data['product_qty'] ?>'
             )" class="tableRow">
             <td><?php echo $product_data['product_id'] ?></td>
             <td><?php echo $product_data['product_title'] ?></td>

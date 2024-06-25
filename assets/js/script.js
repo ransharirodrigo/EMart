@@ -101,6 +101,7 @@ function updateProfileDetails() {
     form.append("password", password);
     form.append("image_file", image_file);
 
+
     var request = new XMLHttpRequest();
     request.onreadystatechange = function () {
         if (request.readyState == 4 && request.status == 200) {
@@ -484,14 +485,53 @@ function validatePriceInputsInProductManagementPanel(input) {
     }
 }
 
-// function validateQuantityInputInProductManagementModal(input) {
+function validateQuantityInputInProductManagementModal(input) {
 
-//     const quantityInputValue = input.value;
+    const quantityInputValue = input.value;
 
-//     const convertedValue = quantityInputValue.replace(/\D/g, '');
+    const convertedValue = quantityInputValue.replace(/\D/g, '');
 
-//     if (convertedValue !== quantityInputValue) {
-//         input.value = convertedValue;
-//     }
+    if (convertedValue !== quantityInputValue) {
+        input.value = convertedValue;
+    }
 
-// }
+}
+
+function validateNoInputInUserProfile(input) {
+    const quantityInputValue = input.value;
+
+    const convertedValue = quantityInputValue.replace(/\D/g, '');
+
+    if (convertedValue !== quantityInputValue) {
+        input.value = convertedValue;
+    }
+}
+
+function updateAddressDetails() {
+    var email = document.getElementById("email").value;
+    var addressNo = document.getElementById("address_no").value;
+    var addressLine1 = document.getElementById("address_line1").value;
+    var addressLine2 = document.getElementById("address_line2").value;
+
+    var form = new FormData();
+
+    form.append("email", email);
+    form.append("addressNo", addressNo);
+    form.append("addressLine1", addressLine1);
+    form.append("addressLine2", addressLine2);
+
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 && request.status == 200) {
+            alert(request.responseText)
+
+            if (request.responseText == "Address details updated successfully.") {
+                window.location.reload();
+            }
+        }
+    }
+    request.open('POST', '../process/updateUserAddressDetails.php', true);
+    request.send(form);
+
+
+}

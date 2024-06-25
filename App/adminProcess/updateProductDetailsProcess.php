@@ -15,7 +15,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         isset($_POST["category_id"]) &&
         isset($_POST["brand_id"]) &&
         isset($_POST["product_status"]) &&
-        isset($_POST["product_model_id"])
+        isset($_POST["product_model_id"]) &&
+        isset($_POST["productQuantity"])
     ) {
         if (empty($_POST["product_title"])) {
             echo "Please enter product title.";
@@ -31,6 +32,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             echo "Please enter delivery fee for Colombo.";
         } elseif (empty($_POST["delivery_fee_other"])) {
             echo "Please enter delivery fee for Other areas.";
+        } elseif (empty($_POST["productQuantity"])) {
+            echo "Please enter product quantity.";
         } else {
             $product_id = $_POST["product_id"];
             $delivery_fee_colombo = $_POST["delivery_fee_colombo"];
@@ -43,6 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $brand_id = $_POST["brand_id"];
             $product_status = $_POST["product_status"];
             $product_model_id = $_POST["product_model_id"];
+            $productQuantity = $_POST["productQuantity"];
 
 
             $result = Database::execute("UPDATE `product` SET
@@ -55,7 +59,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 `category_category_id` = '$category_id',
                 `brand_brand_id` = '$brand_id',
                 `status_status_id` = '$product_status',
-                `model_model_id` = '$product_model_id'
+                `model_model_id` = '$product_model_id',
+                `qty`='$productQuantity'
             WHERE `product_id` = '$product_id'");
 
 

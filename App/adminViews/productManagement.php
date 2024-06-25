@@ -91,6 +91,10 @@
                                         <input type="text" class="form-control" id="productTitle">
                                     </div>
                                     <div class="mt-3">
+                                        <h6>Quantity</h6>
+                                        <input type="text" class="form-control" id="productQuantity" oninput="validateQuantityInputInProductManagementModal(this)">
+                                    </div>
+                                    <div class="mt-3">
                                         <h6>Model</h6>
                                         <select class="form-select" id="productModel">
 
@@ -205,6 +209,10 @@
                                 <input type="text" step="0.01" class="form-control" id="productDeliveryFeeOtherInAddProductModal" required oninput="validatePriceInputsInProductManagementPanel(this)">
                             </div>
                             <div class="mb-3">
+                                <label for="quantity" class="form-label">Quantity</label>
+                                <input type="text" class="form-control" id="productQuantityInAddProductModal" required oninput="validateQuantityInputInProductManagementModal(this)">
+                            </div>
+                            <div class="mb-3">
                                 <label for="productColor" class="form-label">Color</label>
                                 <select class="form-select" id="productColorInAddProductModal" required>
 
@@ -273,7 +281,7 @@
         }
 
         // Open product update modal
-        function productViewPopUp(product_id, product_title, product_description, date_added, points, price, delivery_fee_colombo, delivery_fee_other, product_color_id, product_color, category_id, brand_id, product_status_id, product_model_id) {
+        function productViewPopUp(product_id, product_title, product_description, date_added, points, price, delivery_fee_colombo, delivery_fee_other, product_color_id, product_color, category_id, brand_id, product_status_id, product_model_id, product_qty) {
             document.getElementById("productId").value = product_id;
             document.getElementById("productTitle").value = product_title;
             document.getElementById("productDescription").value = product_description;
@@ -287,6 +295,7 @@
             document.getElementById("productBrand").value = brand_id;
             document.getElementById("productStatus").value = product_status_id;
             document.getElementById("productModel").value = product_model_id;
+            document.getElementById("productQuantity").value = product_qty;
 
             productModal.show();
         }
@@ -304,6 +313,8 @@
             var brand_id = document.getElementById("productBrand").value;
             var product_status = document.getElementById("productStatus").value;
             var product_model_id = document.getElementById("productModel").value;
+            var productQuantity = document.getElementById("productQuantity").value;
+
             var form = new FormData();
 
             form.append('product_id', product_id);
@@ -317,6 +328,7 @@
             form.append('brand_id', brand_id);
             form.append('product_status', product_status);
             form.append('product_model_id', product_model_id);
+            form.append('productQuantity', productQuantity);
 
 
             var request = new XMLHttpRequest();
@@ -346,6 +358,7 @@
             var productColorId = document.getElementById("productColorInAddProductModal").value;
             var productCategoryId = document.getElementById("productCategoryInAddProductModal").value;
             var productBrandId = document.getElementById("productBrandInAddProductModal").value;
+            var productQuantity = document.getElementById("productQuantityInAddProductModal").value;
             var productModelId = document.getElementById("productModelInAddProductModal").value;
 
             var form = new FormData();
@@ -358,6 +371,7 @@
             form.append('category_id', productCategoryId);
             form.append('brand_id', productBrandId);
             form.append('product_model_id', productModelId);
+            form.append('productQuantity', productQuantity);
 
             var request = new XMLHttpRequest();
             request.onreadystatechange = function() {
