@@ -11,7 +11,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         isset($_POST["delivery_fee_other"]) &&
         isset($_POST["product_title"]) &&
         isset($_POST["product_description"]) &&
-        isset($_POST["qty"]) &&
         isset($_POST["price"]) &&
         isset($_POST["product_color_id"]) &&
         isset($_POST["category_id"]) &&
@@ -25,7 +24,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $delivery_fee_other = $_POST["delivery_fee_other"];
         $product_title = $_POST["product_title"];
         $product_description = $_POST["product_description"];
-        $qty = $_POST["qty"];
         $price = $_POST["price"];
         $product_color_id = $_POST["product_color_id"];
         $category_id = $_POST["category_id"];
@@ -33,10 +31,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $product_status = $_POST["product_status"];
         $product_model_id = $_POST["product_model_id"];
 
-        $result = Database::execute("UPDATE `product` SET
+        Database::execute("UPDATE `product` SET
             `title` = '$product_title',
             `description` = '$product_description',
-            `qty` = '$qty',
             `price` = '$price',
             `delivery_fee_colombo` = '$delivery_fee_colombo',
             `delivery_fee_other` = '$delivery_fee_other',

@@ -224,11 +224,13 @@ function open_cart_single_item_popup_view_modal(title, description, price, point
 
 function validateQuantity(inputElement) {
 
-
-    // var quantityInput = document.getElementById('quantityInput');
     var quantityInput = inputElement;
-    if (quantityInput.value < 1 || isNaN(quantityInput.value) || !Number.isInteger(Number(quantityInput.value))) {
-        quantityInput.value = 1;
+    var value = quantityInput.value;
+
+    value = value.replace(/\D/g, '');
+
+    if (value === '' || value < 1) {
+        quantityInput.value = '';
     }
 }
 
@@ -387,6 +389,7 @@ function loadColorsForAdminProductManagementModal() {
     request.onreadystatechange = function () {
         if (request.readyState == 4 && request.status == 200) {
             document.getElementById("productColor").innerHTML = request.responseText;
+            document.getElementById("productColorInAddProductModal").innerHTML = request.responseText;
         }
     }
     request.open('POST', '../adminProcess/loadColorsForAdminProductManagementModal.php', true);
@@ -399,6 +402,7 @@ function loadProductModelsForAdminProductManagementModal() {
     request.onreadystatechange = function () {
         if (request.readyState == 4 && request.status == 200) {
             document.getElementById("productModel").innerHTML = request.responseText;
+            document.getElementById("productModelInAddProductModal").innerHTML = request.responseText;
         }
     }
     request.open('POST', '../adminProcess/loadProductModelsForAdminProductManagementModal.php', true);
@@ -410,6 +414,7 @@ function loadCategoriesForAdminProductManagementModal() {
     request.onreadystatechange = function () {
         if (request.readyState == 4 && request.status == 200) {
             document.getElementById("productCategory").innerHTML = request.responseText;
+            document.getElementById("productCategoryInAddProductModal").innerHTML = request.responseText;
         }
     }
     request.open('POST', '../adminProcess/loadProductCategoriesForAdminProductManagementModal.php', true);
@@ -421,6 +426,7 @@ function loadBrandForAdminProductManagementModal() {
     request.onreadystatechange = function () {
         if (request.readyState == 4 && request.status == 200) {
             document.getElementById("productBrand").innerHTML = request.responseText;
+            document.getElementById("productBrandInAddProductModal").innerHTML = request.responseText;
         }
     }
     request.open('POST', '../adminProcess/loadProductBrandsForAdminProductManagementModal.php', true);
@@ -467,7 +473,7 @@ function advancedSearchRequest() {
 }
 
 
-function validatePriceInputsInProductManagementModal(input) {
+function validatePriceInputsInProductManagementPanel(input) {
     var inputField = input;
     const enteredValue = inputField.value;
 
@@ -478,15 +484,14 @@ function validatePriceInputsInProductManagementModal(input) {
     }
 }
 
-function validateQuantityInputInProductManagementModal(input) {
+// function validateQuantityInputInProductManagementModal(input) {
 
-    const quantityInputValue = input.value;
+//     const quantityInputValue = input.value;
 
-    const convertedValue = quantityInputValue.replace(/\D/g, '');
+//     const convertedValue = quantityInputValue.replace(/\D/g, '');
 
-    if (convertedValue !== quantityInputValue) {
-        input.value = convertedValue;
-    }
+//     if (convertedValue !== quantityInputValue) {
+//         input.value = convertedValue;
+//     }
 
-}
-
+// }

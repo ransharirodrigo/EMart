@@ -6,7 +6,6 @@ $products_resultset = Database::execute("SELECT `product`.`product_id` AS produc
 product.description AS product_description,
 product.date_added AS date_added,
 product.points AS points,
-product.qty AS qty,
 product.price AS price,
 product.delivery_fee_colombo AS delivery_fee_colombo,
 product.delivery_fee_other AS delivery_fee_other,
@@ -15,6 +14,7 @@ color.color_name AS product_color,
 category.category_id AS category_id,
 brand.brand_id AS brand_id,
 `status`.`status_id` AS product_status_id,
+`status`.`status` AS product_status,
 model.model_id AS product_model_id,
 model.model_name AS product_model_name FROM emart_db.product
 INNER JOIN emart_db.color ON product.color_color_id=color.color_id 
@@ -35,7 +35,6 @@ if ($products_resultset->num_rows > 0) {
             '<?php echo $product_data['product_description'] ?>',
             '<?php echo $product_data['date_added'] ?>',
             '<?php echo $product_data['points'] ?>',
-            '<?php echo $product_data['qty'] ?>',
             '<?php echo $product_data['price'] ?>',
             '<?php echo $product_data['delivery_fee_colombo'] ?>',
             '<?php echo $product_data['delivery_fee_other'] ?>',
@@ -49,8 +48,7 @@ if ($products_resultset->num_rows > 0) {
             )" class="tableRow">
             <td><?php echo $product_data['product_id'] ?></td>
             <td><?php echo $product_data['product_title'] ?></td>
-            <td><?php echo $product_data['product_status_id'] ?></td>
-            <td><?php echo $product_data['qty'] ?></td>
+            <td><?php echo $product_data['product_status'] ?></td>
             <td>RS <?php echo $product_data['price'] ?></td>
         </tr>
 <?php
