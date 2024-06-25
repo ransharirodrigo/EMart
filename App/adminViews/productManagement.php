@@ -323,15 +323,20 @@
             request.onreadystatechange = function() {
 
                 if (request.readyState == 4 && request.status == 200) {
-                    alert(request.responseText)
-                    productViewPopupClose();
-                    loadProductDetailsForAdmin();
+                    alert(request.responseText);
+
+                    if (request.responseText == "Product Details Updated Successfully") {
+                        productViewPopupClose();
+                        loadProductDetailsForAdmin();
+                    }
+
                 }
             };
             request.open('POST', '../adminProcess/updateProductDetailsProcess.php', true);
             request.send(form);
         }
 
+        // Add product process function 
         function addProductProcess() {
             var productTitle = document.getElementById("productTitleInAddProductModal").value;
             var productDescription = document.getElementById("productDescriptionInAddProductModal").value;
@@ -370,6 +375,8 @@
             request.send(form);
         }
 
+
+        // Clear text fields in product add modal 
         function clearAddProductModalTextFields() {
             document.getElementById("productTitleInAddProductModal").value = "";
             document.getElementById("productDescriptionInAddProductModal").value = "";
