@@ -30,14 +30,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             echo "Please enter delivery fee for Colombo.";
         } elseif (empty($_POST["delivery_fee_other"])) {
             echo "Please enter delivery fee for Other areas.";
-        } elseif (empty($_POST["product_color_id"])) {
-            echo "Please select product color.";
-        } elseif (empty($_POST["category_id"])) {
-            echo "Please select product category.";
-        } elseif (empty($_POST["brand_id"])) {
-            echo "Please select product brand.";
-        } elseif (empty($_POST["product_model_id"])) {
-            echo "Please select product model.";
         } else {
 
             $delivery_fee_colombo = $_POST["delivery_fee_colombo"];
