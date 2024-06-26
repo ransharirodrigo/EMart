@@ -680,10 +680,20 @@ function previewNewCategoryImage(event) {
     var file = inputElement.files[0];
 
     if (file) {
-        var url = URL.createObjectURL(file);
-        var imgPreview = document.getElementById('newCategoryImagePreview');
-        imgPreview.src = url;
-        imgPreview.classList.remove('d-none');
-        imgPreview.classList.add('d-block');
+        var fileType = file.type;
+        if (fileType.startsWith('image/')) {
+            var url = URL.createObjectURL(file);
+            var imgPreview = document.getElementById('newCategoryImagePreview');
+            imgPreview.src = url;
+            imgPreview.classList.remove('d-none');
+            imgPreview.classList.add('d-block');
+        } else {
+            alert('Please upload only image files (JPEG, PNG, SVG).');
+            inputElement.value = '';
+            document.getElementById('newCategoryImagePreview').src = '';
+            document.getElementById('newCategoryImagePreview').classList.add('d-none');
+        }
+
+
     }
 }

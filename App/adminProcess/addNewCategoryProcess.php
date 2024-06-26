@@ -1,44 +1,52 @@
 <?php
 include "../../libs/connection.php";
 
-if ($_SERVER["REQUEST_METHOD"] === "GET") {
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-    // Check if category_name is set
-    if (isset($_GET["categoryName"])) {
-
-        // Retrieve and trim category_name
-        $category_name = trim($_GET["categoryName"]);
-
-        // Check if category_name is not empty after trimming
-        if (!empty($category_name)) {
-
-            // Check if category_name does not exceed 45 characters
-            if (strlen($category_name) <= 45) {
-
-                // Check if category with the same name already exists
-                $check_query = "SELECT * FROM category WHERE `category_name` = '$category_name'";
-                $result = Database::execute($check_query);
-
-                if ($result->num_rows > 0) {
-                    // Category already exists
-                    echo "Category already exists.";
-                } else {
-                    // Insert new category
-                    $insert_query = "INSERT INTO category (`category_name`, `status_status_id`) VALUES ('$category_name', '1')";
-
-                    Database::execute($insert_query);
-
-                    echo "Category added successfully.";
-                }
-            } else {
-                echo "Category name should not exceed 45 characters.";
-            }
-        } else {
-            echo "Please enter category name";
-        }
-    } else {
+    if (!isset($_POST["categoryName"])) {
         echo "Please enter category name.";
+    } elseif (empty(trim($_POST["categoryName"]))) {
+        echo "Category name should not be empty.";
+    } elseif (strlen($_POST["categoryName"]) > 45) {
+        echo "Category name should not exceed 45 characters.";
+    } elseif (!isset($_FILES["categoryImage"])) {
+        echo "Please upload category image.";
+    } else {
+
+        $image_path = '';
+
+        // Allowed types
+        $allowed_types = array("image/jpeg", "image/png", "image/svg+xml");
+
+        $file_type = $_FILES["categoryImage"]["type"];
+
+        if (in_array($file_type, $allowed_types)) {
+
+            $new_img_extension;
+
+            if ($file_type == "image/jpeg") {
+                $new_img_extension = ".jpeg";
+            } else if ($file_type == "image/png") {
+                $new_img_extension = ".png";
+            } else if ($file_type == "image/svg+xml") {
+                $new_img_extension = ".svg";
+            }
+
+            $imageName;
+
+            $file_name =  "../../assets/img/category_images//" . $category_name . "_category_image" . $new_img_extension;
+            $image_path = "assets/img/category_images/" . $category_name . "_category_image" . $new_img_extension;
+
+            move_uploaded_file($_FILES["category_image"]["tmp_name"], $file_name);
+        } else {
+            echo "Only JPEG, PNG, and SVG files are allowed.";
+            exit;
+        }
+
+        $insertQuery = "INSERT INTO category (`category_name`, `image`, `status_status_id`) VALUES ('$categoryName', '$targetFilePath', '1')";
+        Database::execute($insertQuery);
+        echo "Category added successfully.";
     }
 } else {
-    echo "Something went wrong";
+    echo "Invalid request method.";
 }

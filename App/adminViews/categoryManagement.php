@@ -118,7 +118,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="newCategoryImage" class="form-label">Category Image</label>
-                                <input type="file" class="form-control" id="newCategoryImage" accept="image/*" onchange="previewNewCategoryImage(event)" required>
+                                <input type="file" class="form-control" id="newCategoryImage" accept="image/jpeg, image/png, image/svg+xml" onchange="previewNewCategoryImage(event)" required>
                             </div>
                             <div class="mb-3">
                                 <img id="newCategoryImagePreview" src="" alt="" class="img-fluid d-none">
@@ -172,6 +172,7 @@
             // Add new category modal close
             function addCategoryModalClose() {
                 addCategoryModal.hide();
+                clearTextFieldsInAddNewCategoryModal();
             }
 
             // Update category details process function 
@@ -205,6 +206,11 @@
             // Add new category process function 
             function addNewCategory() {
                 var newCategoryName = document.getElementById('newCategoryName').value;
+                var newCategoryImage = document.getElementById('newCategoryImage').files[0];
+
+                var form = new FormData();
+                form.append('categoryName', newCategoryName);
+                form.append('categoryImage', newCategoryImage);
 
                 var request = new XMLHttpRequest();
                 request.onreadystatechange = function() {
@@ -218,14 +224,23 @@
                         }
                     }
                 };
-                request.open('GET', "../adminProcess/addNewCategoryProcess.php?categoryName=" + newCategoryName, true);
-                request.send();
+                request.open('POST', '../adminProcess/addNewCategoryProcess.php', true);
+                request.send(form);
             }
 
 
             // Clear text fields in add new category modal
             function clearTextFieldsInAddNewCategoryModal() {
                 document.getElementById('newCategoryName').value = "";
+
+                var previewElement = document.getElementById('newCategoryImagePreview');
+                previewElement.src = "";
+                previewElement.classList.add('d-none');
+
+
+                document.getElementById('newCategoryImage').value = "";
+
+
             }
         </script>
 </body>
