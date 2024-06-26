@@ -663,3 +663,27 @@ function saveInvoice(orderId, product_id, userEmail, total, quantity) {
     request.send(form);
 
 }
+
+function previewCategoryImage(event) {
+
+    var inputElement = event.target;
+    var file = inputElement.files[0];
+
+    if (file) {
+        var url = URL.createObjectURL(file);
+        document.getElementById('categoryImagePreview').src = url;
+    }
+}
+
+function previewNewCategoryImage(event) {
+    var inputElement = event.target;
+    var file = inputElement.files[0];
+
+    if (file) {
+        var url = URL.createObjectURL(file);
+        var imgPreview = document.getElementById('newCategoryImagePreview');
+        imgPreview.src = url;
+        imgPreview.classList.remove('d-none');
+        imgPreview.classList.add('d-block');
+    }
+}

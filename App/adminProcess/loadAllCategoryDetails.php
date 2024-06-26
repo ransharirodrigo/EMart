@@ -9,9 +9,10 @@ if ($category_resultset->num_rows > 0) {
         $category_data = $category_resultset->fetch_assoc();
 ?>
         <tr class="tableRow" onclick="categoryViewPopUp(
-            '<?php echo $category_data['category_id'] ?>',
+           '<?php echo $category_data['category_id'] ?>',
            ' <?php echo $category_data['category_name'] ?>',
-           '<?php echo $category_data['status_status_id'] ?>'
+           '<?php echo $category_data['status_status_id'] ?>',
+           '<?php echo $category_data['category_img'] ?>'
         )">
             <td> <?php echo $category_data["category_id"] ?></td>
             <td><?php echo $category_data["category_name"] ?></td>

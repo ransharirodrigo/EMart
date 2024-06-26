@@ -67,9 +67,7 @@
                 <div class="modal-content">
                     <div class="modal-header bg-success bg-opacity-50">
                         <h5 class="modal-title text-white" id="categoryModalLabel">Category Details</h5>
-                        <button type="button" class="btn-close btn-close-white" onclick="categoryViewPopupClose()" aria-label="Close">
-
-                        </button>
+                        <button type="button" class="btn-close btn-close-white" onclick="categoryViewPopupClose()" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <div class="form-group mt-3">
@@ -87,14 +85,19 @@
                                 <option value="2">Deactive</option>
                             </select>
                         </div>
+                        <div class="form-group mt-3">
+                            <label for="categoryImage">Category Image:</label>
+                            <input type="file" class="form-control mt-1" id="categoryImage" accept="image/*" onchange="previewCategoryImage(event)">
+                        </div>
+                        <div class="form-group mt-3">
+                            <img id="categoryImagePreview" src="" alt="Category Image" class="img-fluid">
+                        </div>
                         <div class="row mt-3">
                             <div class="col-10 col-md-6">
                                 <button class="btn btn-outline-success mb-2" onclick="updateCategoryDetails()">Update Category</button>
                             </div>
-
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -110,8 +113,15 @@
                     <div class="modal-body">
                         <form id="addCategoryForm">
                             <div class="mb-3">
-                                <label for="categoryName" class="form-label">Category Name</label>
+                                <label for="newCategoryName" class="form-label">Category Name</label>
                                 <input type="text" class="form-control" id="newCategoryName" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="newCategoryImage" class="form-label">Category Image</label>
+                                <input type="file" class="form-control" id="newCategoryImage" accept="image/*" onchange="previewNewCategoryImage(event)" required>
+                            </div>
+                            <div class="mb-3">
+                                <img id="newCategoryImagePreview" src="" alt="" class="img-fluid d-none">
                             </div>
                         </form>
                     </div>
@@ -123,101 +133,101 @@
         </div>
 
 
-    </div>
+        <script src="../../assets/js/script.js"></script>
+        <script src="../../assets/js/bootstrap.bundle.min.js"></script>
+        <script src="../../assets/js/bootstrap.js"></script>
+        <script src="../../assets/js/bootstrap.min.js"></script>
 
-    <script src="../../assets/js/script.js"></script>
-    <script src="../../assets/js/bootstrap.bundle.min.js"></script>
-    <script src="../../assets/js/bootstrap.js"></script>
-    <script src="../../assets/js/bootstrap.min.js"></script>
+        <script>
+            // Category details update modal initiate
+            var categoryModal = new bootstrap.Modal(document.getElementById('categoryModal'), {
+                backdrop: false
+            });
 
-    <script>
-        // Category details update modal initiate
-        var categoryModal = new bootstrap.Modal(document.getElementById('categoryModal'), {
-            backdrop: false
-        });
+            // Add new category modal initiate
+            var addCategoryModal = new bootstrap.Modal(document.getElementById('addCategoryModal'), {
+                backdrop: false
+            });
 
-        // Add new category modal initiate
-        var addCategoryModal = new bootstrap.Modal(document.getElementById('addCategoryModal'), {
-            backdrop: false
-        });
+            // Load details to update category modal 
+            function categoryViewPopUp(category_id, category_name, status_id, category_image) {
+                document.getElementById("categoryId").value = category_id;
+                document.getElementById("categoryName").value = category_name;
+                document.getElementById("categoryStatus").value = status_id;
+                document.getElementById("categoryImagePreview").src = "../../" + category_image;
 
-        // Load details to update category modal 
-        function categoryViewPopUp(category_id, category_name, status_id) {
-            document.getElementById("categoryId").value = category_id;
-            document.getElementById("categoryName").value = category_name;
-            document.getElementById("categoryStatus").value = status_id;
+                categoryModal.show();
+            }
 
-            categoryModal.show();
-        }
+            // Update category modal close
+            function categoryViewPopupClose() {
+                categoryModal.hide();
+            }
 
-        // Update category modal close
-        function categoryViewPopupClose() {
-            categoryModal.hide();
-        }
+            // Add new category modal opne
+            function addCategoryModalOpen() {
+                addCategoryModal.show();
+            }
 
-        // Add new category modal opne
-        function addCategoryModalOpen() {
-            addCategoryModal.show();
-        }
+            // Add new category modal close
+            function addCategoryModalClose() {
+                addCategoryModal.hide();
+            }
 
-        // Add new category modal close
-        function addCategoryModalClose() {
-            addCategoryModal.hide();
-        }
+            // Update category details process function 
+            function updateCategoryDetails() {
+                var category_id = document.getElementById("categoryId").value;
+                var category_name = document.getElementById("categoryName").value;
+                var status_id = document.getElementById("categoryStatus").value;
+                var category_image = document.getElementById("categoryImage").files[0];
 
-        // Update category details process function 
-        function updateCategoryDetails() {
-            var category_id = document.getElementById("categoryId").value;
-            var category_name = document.getElementById("categoryName").value;
-            var status_id = document.getElementById("categoryStatus").value;
+                var form = new FormData();
+                form.append('category_id', category_id);
+                form.append('category_name', category_name);
+                form.append('status_id', status_id);
+                form.append('category_image', category_image);
 
-            var form = new FormData();
-            form.append('category_id', category_id);
-            form.append('category_name', category_name);
-            form.append('status_id', status_id);
-
-
-            var request = new XMLHttpRequest();
-            request.onreadystatechange = function() {
-                if (request.readyState == 4 && request.status == 200) {
-                    alert(request.responseText);
-                    if (request.responseText == "Category details updated successfully.") {
-                        categoryViewPopupClose();
-                        loadCategories();
+                var request = new XMLHttpRequest();
+                request.onreadystatechange = function() {
+                    if (request.readyState == 4 && request.status == 200) {
+                        alert(request.responseText);
+                        if (request.responseText == "Category details updated successfully.") {
+                            categoryViewPopupClose();
+                            loadCategories();
+                        }
                     }
-                }
-            };
-            request.open('POST', '../adminProcess/updateCategoryDetails.php', true);
-            request.send(form);
+                };
+                request.open('POST', '../adminProcess/updateCategoryDetails.php', true);
+                request.send(form);
 
-        }
+            }
 
-        // Add new category process function 
-        function addNewCategory() {
-            var newCategoryName = document.getElementById('newCategoryName').value;
+            // Add new category process function 
+            function addNewCategory() {
+                var newCategoryName = document.getElementById('newCategoryName').value;
 
-            var request = new XMLHttpRequest();
-            request.onreadystatechange = function() {
-                if (request.readyState == 4 && request.status == 200) {
-                    alert(request.responseText);
+                var request = new XMLHttpRequest();
+                request.onreadystatechange = function() {
+                    if (request.readyState == 4 && request.status == 200) {
+                        alert(request.responseText);
 
-                    if (request.responseText == "Category added successfully.") {
-                        addCategoryModalClose();
-                        clearTextFieldsInAddNewCategoryModal();
-                        loadCategories();
+                        if (request.responseText == "Category added successfully.") {
+                            addCategoryModalClose();
+                            clearTextFieldsInAddNewCategoryModal();
+                            loadCategories();
+                        }
                     }
-                }
-            };
-            request.open('GET', "../adminProcess/addNewCategoryProcess.php?categoryName=" + newCategoryName, true);
-            request.send();
-        }
+                };
+                request.open('GET', "../adminProcess/addNewCategoryProcess.php?categoryName=" + newCategoryName, true);
+                request.send();
+            }
 
 
-        // Clear text fields in add new category modal
-        function clearTextFieldsInAddNewCategoryModal() {
-            document.getElementById('newCategoryName').value = "";
-        }
-    </script>
+            // Clear text fields in add new category modal
+            function clearTextFieldsInAddNewCategoryModal() {
+                document.getElementById('newCategoryName').value = "";
+            }
+        </script>
 </body>
 
 </html>
