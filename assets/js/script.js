@@ -484,12 +484,22 @@ function advancedSearchRequest() {
 
 function validatePriceInputsInProductManagementPanel(input) {
     var inputField = input;
-    const enteredValue = inputField.value;
+    var enteredValue = inputField.value;
 
-    const convertedValue = enteredValue.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');
+    // Replace non-numeric characters except the dot
+    var convertedValue = enteredValue.replace(/[^0-9.]/g, '');
 
+    // Avoid multiple dots
+    convertedValue = convertedValue.replace(/(\..*)\./g, '$1');
+
+    // If the first character is a dot, prepend zero
+    if (convertedValue.startsWith('.')) {
+        convertedValue = '0' + convertedValue;
+    }
+
+    // Update the input field if the value has changed
     if (convertedValue !== enteredValue) {
-        input.value = convertedValue;
+        inputField.value = convertedValue;
     }
 }
 

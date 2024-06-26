@@ -17,21 +17,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         isset($_POST["product_model_id"]) &&
         isset($_POST["productQuantity"])
     ) {
-        if (empty($_POST["product_title"])) {
+        if (empty(trim($_POST["product_title"]))) {
             echo "Please enter product title.";
         } elseif (strlen($_POST["product_title"]) > 50) {
             echo "Product title should not exceed 50 characters.";
-        } elseif (empty($_POST["product_description"])) {
+        } elseif (empty(trim($_POST["product_description"]))) {
             echo "Please enter product description.";
         } elseif (strlen($_POST["product_description"]) > 100) {
             echo "Product description should not exceed 100 characters.";
-        } elseif (empty($_POST["price"])) {
+        } elseif (empty(trim($_POST["price"]))) {
             echo "Please enter product price.";
-        } elseif (empty($_POST["delivery_fee_colombo"])) {
+        } elseif (empty(trim($_POST["delivery_fee_colombo"]))) {
             echo "Please enter delivery fee for Colombo.";
-        } elseif (empty($_POST["delivery_fee_other"])) {
+        } elseif (empty(trim($_POST["delivery_fee_other"]))) {
             echo "Please enter delivery fee for Other areas.";
-        } elseif (empty($_POST["productQuantity"])) {
+        } elseif (empty(trim($_POST["productQuantity"]))) {
             echo "Please enter product quantity.";
         } else {
 

@@ -278,6 +278,7 @@
         // Close add product modal
         function closeAddProductModal() {
             addProductModal.hide();
+            clearAddProductModalTextFields();
         }
 
         // Open product update modal
@@ -401,6 +402,7 @@
             document.getElementById("productCategoryInAddProductModal").value = "";
             document.getElementById("productBrandInAddProductModal").value = "";
             document.getElementById("productModelInAddProductModal").value = "";
+            document.getElementById("productQuantityInAddProductModal").value = "";
         }
     </script>
 </body>
