@@ -58,14 +58,14 @@ if (!empty($_GET["product_id"])) {
                                 <p class="col-10"><?php echo $product_data['description'] ?></p>
                             </div>
                             <div>
-                                <input type="number" class="text-center col-6" value="1" oninput="validateQuantity(this)" />
+                                <input type="number" class="text-center col-6" value="1" id="quantity" oninput="validateQuantity(this)" onkeydown="validateKeyPressOfQuantityInput(event)" onchange="validateQuantity(this)" />
                             </div>
 
                             <div>
                                 <button class="col-6 btn btn-dark" onclick="addToCart(<?php echo ($product_id) ?>)">Add To Cart</button>
                             </div>
                             <div>
-                                <button class="col-6 btn btn-secondary">Buy Now</button>
+                                <button class="col-6 btn btn-secondary" id="payhere-payment" onclick="payNow(<?php echo ($product_id) ?>)">Buy Now</button>
                             </div>
                         </div>
                     </div>
@@ -89,6 +89,8 @@ if (!empty($_GET["product_id"])) {
             </div>
         </div>
 
+
+        <script type="text/javascript" src="https://www.payhere.lk/lib/payhere.js"></script>
     </body>
 
     </html>

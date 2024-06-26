@@ -224,14 +224,22 @@ function open_cart_single_item_popup_view_modal(title, description, price, point
 }
 
 function validateQuantity(inputElement) {
-
     var quantityInput = inputElement;
     var value = quantityInput.value;
 
+    // Ensure the value is a positive integer
     value = value.replace(/\D/g, '');
-
     if (value === '' || value < 1) {
-        quantityInput.value = '';
+        quantityInput.value = 1; // Set a minimum value of 1
+    } else {
+        quantityInput.value = parseInt(value);
+    }
+}
+
+function validateKeyPressOfQuantityInput(event) {
+    // Prevent user from typing negative sign
+    if (event.key === '-' || event.key === '+') {
+        event.preventDefault();
     }
 }
 
@@ -512,6 +520,7 @@ function updateAddressDetails() {
     var addressNo = document.getElementById("address_no").value;
     var addressLine1 = document.getElementById("address_line1").value;
     var addressLine2 = document.getElementById("address_line2").value;
+    var district = document.getElementById("district").value;
 
     var form = new FormData();
 
@@ -519,6 +528,7 @@ function updateAddressDetails() {
     form.append("addressNo", addressNo);
     form.append("addressLine1", addressLine1);
     form.append("addressLine2", addressLine2);
+    form.append("district", district);
 
     var request = new XMLHttpRequest();
     request.onreadystatechange = function () {
@@ -533,5 +543,113 @@ function updateAddressDetails() {
     request.open('POST', '../process/updateUserAddressDetails.php', true);
     request.send(form);
 
+
+}
+
+
+function payNow(product_id) {
+    var quantity = document.getElementById("quantity").value;
+
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 && request.status == 200) {
+
+            var response = request.responseText;
+
+            if (response == "Login First") {
+                window.location.href = "/EMart/App/views/signIn.php";
+                alert(response);
+            } else if (response == "Please update your address details.") {
+                window.location.href = "/EMart/App/views/profile.php";
+                alert(response);
+            } else {
+
+                var responseObject = JSON.parse(response);
+
+                var userEmail = responseObject["userEmail"];
+                var total = responseObject["total"];
+
+
+                // Payment completed. It can be a successful failure.
+                payhere.onCompleted = function onCompleted(orderId) {
+                    console.log("Payment completed. OrderID:" + orderId);
+                    // Note: validate the payment and show success or failure page to the customer
+
+                    saveInvoice(orderId, product_id, userEmail, total, quantity);
+                };
+
+                // Payment window closed
+                payhere.onDismissed = function onDismissed() {
+                    // Note: Prompt user to pay again or show an error page
+                    console.log("Payment dismissed");
+                };
+
+                // Error occurred
+                payhere.onError = function onError(error) {
+                    // Note: show an error page
+                    console.log("Error:" + error);
+                };
+
+                // Put the payment variables here
+                var payment = {
+                    "sandbox": true,
+                    "merchant_id": responseObject["merchant_id"],    // Replace your Merchant ID
+                    "return_url": "http://localhost/EMart/App/views/singleProductView.php?product_id=" + product_id,     // Important
+                    "cancel_url": "http://localhost/EMart/App/views/singleProductView.php?product_id=" + product_id,      // Important
+                    "notify_url": "http://sample.com/notify",
+                    "order_id": responseObject["order_id"],
+                    "items": responseObject["product_title"],
+                    "amount": responseObject["total"] + ".00",
+                    "currency": "LKR",
+                    "hash": responseObject["hash"], // *Replace with generated hash retrieved from backend
+                    "first_name": responseObject["first_name"],
+                    "last_name": responseObject["last_name"],
+                    "email": userEmail,
+                    "phone": responseObject["mobile"],
+                    "address": responseObject["address"],
+                    "city": responseObject["district"],
+                    "country": "Sri Lanka",
+                    "delivery_address": responseObject["address"],
+                    "delivery_city": responseObject["district"],
+                    "delivery_country": "Sri Lanka",
+                    "custom_1": "",
+                    "custom_2": ""
+                };
+
+                // Show the payhere.js popup, when "PayHere Pay" is clicked
+                // document.getElementById('payhere-payment').onclick = function (e) {
+                payhere.startPayment(payment);
+                // };
+            }
+
+
+        }
+    }
+    request.open('GET', '../process/buyNowProcess.php?product_id=' + product_id + "&quantity=" + quantity, true);
+    request.send();
+}
+
+
+function saveInvoice(orderId, product_id, userEmail, total, quantity) {
+    var form = new FormData();
+
+    form.append("orderId", orderId);
+    form.append("product_id", product_id);
+    form.append("userEmail", userEmail);
+    form.append("total", total);
+    form.append("quantity", quantity);
+
+
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 && request.status == 200) {
+            alert(request.responseText);
+            // if (request.responseText == "success") {
+
+            // }
+        }
+    }
+    request.open('POST', '../process/saveInvoiceProcess.php', true);
+    request.send(form);
 
 }

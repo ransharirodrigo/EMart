@@ -137,11 +137,12 @@ if (isset($_SESSION["user"])) {
                     <div class="row mt-2">
 
                         <?php
-                        $user_address_resultset =  Database::execute("SELECT * FROM `user_has_address` WHERE `user_email`='" . $user['email'] . "'");
+                        $user_address_resultset =  Database::execute("SELECT * FROM `user_has_address` INNER JOIN `district` ON `district`.`id`=`user_has_address`.`district_id` WHERE `user_email`='" . $user['email'] . "'");
 
                         $no;
                         $line1;
                         $line2;
+                        $district_id;
 
                         if ($user_address_resultset->num_rows == 1) {
                             $user_address_data = $user_address_resultset->fetch_assoc();
@@ -149,10 +150,12 @@ if (isset($_SESSION["user"])) {
                             $no = $user_address_data["no"];
                             $line1 = $user_address_data["line1"];
                             $line2 = $user_address_data["line2"];
+                            $district_id = $user_address_data['id'];
                         } else {
                             $no = "";
                             $line1 = "";
-                            $line2 = "";
+                            $line2  = "";
+                            $district_id = "0";
                         }
                         ?>
                         <div class="col-10  offset-1 col-md-11 offset-md-0">
@@ -178,6 +181,28 @@ if (isset($_SESSION["user"])) {
                             <div class="row mt-2">
                                 <input type="text" class="form-control" id="address_line2" value="<?php echo $line2 ?>" />
                             </div>
+                        </div>
+
+                        <div class="col-4">
+                            <div class="row">
+                                <span>District</span>
+                            </div>
+
+                            <select class="form-select" id="district">
+                                <option value="0" <?php echo ($district_id == 0) ? 'selected' : ''; ?>>Choose</option>
+                                <?php
+                                $district_resultset = Database::execute("SELECT * FROM `district`");
+                                if ($district_resultset->num_rows > 0) {
+                                    while ($district_data = $district_resultset->fetch_assoc()) {
+                                ?>
+                                        <option value="<?php echo $district_data['id']; ?>" <?php echo ($district_data['id'] == $district_id) ? 'selected' : ''; ?>>
+                                            <?php echo $district_data['district']; ?>
+                                        </option>
+                                <?php
+                                    }
+                                }
+                                ?>
+                            </select>
                         </div>
                     </div>
 
