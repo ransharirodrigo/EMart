@@ -159,6 +159,16 @@
                                         </select>
                                     </div>
 
+                                    <div>
+                                        <div class="form-group mt-3">
+                                            <label for="productImage">product Image:</label>
+                                            <input type="file" class="form-control mt-1" id="productImage" accept="image/*" onchange="previewproductImage(event)">
+                                        </div>
+                                        <div class="form-group mt-3">
+                                            <img id="productImagePreview" src="" alt="product Image" class="img-fluid">
+                                        </div>
+                                    </div>
+
 
                                 </div>
                             </div>
@@ -237,6 +247,17 @@
 
                                 </select>
                             </div>
+
+                            <div>
+                                <div class="mb-3">
+                                    <label for="newProductImage" class="form-label">Product Image</label>
+                                    <input type="file" class="form-control" id="newProductImage" accept="image/jpeg, image/png, image/svg+xml" onchange="previewNewProductImage(event)" required>
+                                </div>
+                                <div class="mb-3">
+                                    <img id="newProductImagePreview" src="" alt="" class="img-fluid d-none">
+                                </div>
+                            </div>
+
                         </form>
                     </div>
                     <div class="modal-footer">
@@ -268,6 +289,7 @@
         // Close product update modal 
         function productViewPopupClose() {
             productModal.hide();
+            document.getElementById("productImagePreview").src = "";
         }
 
         // Open add product modal
@@ -282,7 +304,7 @@
         }
 
         // Open product update modal
-        function productViewPopUp(product_id, product_title, product_description, date_added, points, price, delivery_fee_colombo, delivery_fee_other, product_color_id, product_color, category_id, brand_id, product_status_id, product_model_id, product_qty) {
+        function productViewPopUp(product_id, product_title, product_description, date_added, points, price, delivery_fee_colombo, delivery_fee_other, product_color_id, product_color, category_id, brand_id, product_status_id, product_model_id, product_qty, image_path) {
             document.getElementById("productId").value = product_id;
             document.getElementById("productTitle").value = product_title;
             document.getElementById("productDescription").value = product_description;
@@ -297,6 +319,20 @@
             document.getElementById("productStatus").value = product_status_id;
             document.getElementById("productModel").value = product_model_id;
             document.getElementById("productQuantity").value = product_qty;
+
+            document.getElementById('productImage').value = "";
+
+            var productImagePreviewElement = document.getElementById("productImagePreview");
+            if (image_path != "") {
+
+                productImagePreviewElement.src = "../../" + image_path;
+
+
+            } else {
+
+                productImagePreviewElement.src = "";
+                productImagePreviewElement.classList.add('d-none');
+            }
 
             productModal.show();
         }
@@ -315,6 +351,7 @@
             var product_status = document.getElementById("productStatus").value;
             var product_model_id = document.getElementById("productModel").value;
             var productQuantity = document.getElementById("productQuantity").value;
+            var product_image = document.getElementById("productImage").files[0];
 
             var form = new FormData();
 
@@ -330,6 +367,7 @@
             form.append('product_status', product_status);
             form.append('product_model_id', product_model_id);
             form.append('productQuantity', productQuantity);
+            form.append('product_image', product_image);
 
 
             var request = new XMLHttpRequest();
@@ -361,6 +399,7 @@
             var productBrandId = document.getElementById("productBrandInAddProductModal").value;
             var productQuantity = document.getElementById("productQuantityInAddProductModal").value;
             var productModelId = document.getElementById("productModelInAddProductModal").value;
+            var newProductImage = document.getElementById('newProductImage').files[0];
 
             var form = new FormData();
             form.append('product_title', productTitle);
@@ -373,6 +412,7 @@
             form.append('brand_id', productBrandId);
             form.append('product_model_id', productModelId);
             form.append('productQuantity', productQuantity);
+            form.append('newProductImage', newProductImage);
 
             var request = new XMLHttpRequest();
             request.onreadystatechange = function() {
@@ -403,6 +443,10 @@
             document.getElementById("productBrandInAddProductModal").value = "";
             document.getElementById("productModelInAddProductModal").value = "";
             document.getElementById("productQuantityInAddProductModal").value = "";
+            document.getElementById('newProductImage').value = '';
+            document.getElementById('newProductImagePreview').src = '';
+            document.getElementById('newProductImagePreview').classList.add('d-none');
+
         }
     </script>
 </body>

@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="../../assets/css/style.css" />
 </head>
 
-<body class="adminDashboardBackground">
+<body class="adminDashboardBackground" onload="loadTodayIncomeInAdminDashboard()">
 
     <div class="container-fluid">
         <div class="row">
@@ -103,7 +103,7 @@
             </div>
         </div>
 
-        <div class="row mt-4 d-flex justify-content-center">
+        <!-- <div class="row mt-4 d-flex justify-content-center">
             <div class="col-10 col-md-11 bg-white rounded-4 adminPagePendingOrderTable  overflow-y-scroll py-2">
                 <h5 class="fw-bold">Pending Orders</h5>
 
@@ -221,9 +221,7 @@
                     </tbody>
                 </table>
             </div>
-
-
-        </div>
+        </div> -->
 
         <div class="row my-4 d-flex justify-content-center">
             <div class="col-10 col-md-11 bg-white rounded-4 adminPagePendingOrderTable  overflow-y-scroll py-2">

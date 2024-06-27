@@ -357,6 +357,7 @@ function adminSignIn() {
 
 
 function loadProductDetailsForAdmin() {
+
     var request = new XMLHttpRequest();
     request.onreadystatechange = function () {
         if (request.readyState == 4 && request.status == 200) {
@@ -692,6 +693,45 @@ function previewNewCategoryImage(event) {
             inputElement.value = '';
             document.getElementById('newCategoryImagePreview').src = '';
             document.getElementById('newCategoryImagePreview').classList.add('d-none');
+        }
+
+
+    }
+}
+
+
+function previewproductImage(event) {
+    var inputElement = event.target;
+    var file = inputElement.files[0];
+
+    if (file) {
+        var url = URL.createObjectURL(file);
+
+        var productImagePreviewElement = document.getElementById('productImagePreview');
+        productImagePreviewElement.classList.remove('d-none');
+        productImagePreviewElement.classList.add('d-block');
+        productImagePreviewElement.src = url;
+    }
+}
+
+
+function previewNewProductImage(event) {
+    var inputElement = event.target;
+    var file = inputElement.files[0];
+
+    if (file) {
+        var fileType = file.type;
+        if (fileType.startsWith('image/')) {
+            var url = URL.createObjectURL(file);
+            var imgPreview = document.getElementById('newProductImagePreview');
+            imgPreview.src = url;
+            imgPreview.classList.remove('d-none');
+            imgPreview.classList.add('d-block');
+        } else {
+            alert('Please upload only image files (JPEG, PNG, SVG).');
+            inputElement.value = '';
+            document.getElementById('newProductImagePreview').src = '';
+            document.getElementById('newProductImagePreview').classList.add('d-none');
         }
 
 
