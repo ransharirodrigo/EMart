@@ -737,3 +737,47 @@ function previewNewProductImage(event) {
 
     }
 }
+
+function loadTodayIncomeInAdminDashboard() {
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 && request.status == 200) {
+            document.getElementById("todayIncome").innerHTML = "Rs " + request.responseText + ".00";
+        }
+    }
+    request.open('GET', '../adminProcess/getTodayIncome.php', true);
+    request.send();
+}
+
+function loadTodayInvoiceCount() {
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 && request.status == 200) {
+            document.getElementById("todayInvoices").innerHTML = request.responseText;
+        }
+    }
+    request.open('GET', '../adminProcess/getTodayInvoiceCount.php', true);
+    request.send();
+}
+
+function loadHappyCustomerCount() {
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 && request.status == 200) {
+            document.getElementById("happyCustomerCount").innerHTML = request.responseText;
+        }
+    }
+    request.open('GET', '../adminProcess/getHappyCustomerCount.php', true);
+    request.send();
+}
+
+function loadTopSellingItemDetailsToTheTable() {
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 && request.status == 200) {
+            document.getElementById("topSellingItemsTableBody").innerHTML = request.responseText;
+        }
+    }
+    request.open('GET', '../adminProcess/getTopSellingItemDetailsProcess.php', true);
+    request.send();
+}

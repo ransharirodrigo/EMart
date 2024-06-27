@@ -1,6 +1,6 @@
 <script>
-    import * as am5 from "@amcharts/amcharts5";
-    import * as am5xy from "@amcharts/amcharts5/xy";
+    // import * as am5 from "@amcharts/amcharts5";
+    // import * as am5xy from "@amcharts/amcharts5/xy";
 </script>
 
 
@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="../../assets/css/style.css" />
 </head>
 
-<body class="adminDashboardBackground" onload="loadTodayIncomeInAdminDashboard()">
+<body class="adminDashboardBackground" onload="loadTodayIncomeInAdminDashboard(); loadTodayInvoiceCount(); loadHappyCustomerCount(); loadTopSellingItemDetailsToTheTable()">
 
     <div class="container-fluid">
         <div class="row">
@@ -37,7 +37,7 @@
                     </div>
                 </div>
                 <div class="row text-center">
-                    <h5 class="fw-fw-bolder fs-3 text-success">Rs.150,000.00</h5>
+                    <h5 class="fw-fw-bolder fs-3 text-success" id="todayIncome"></h5>
                 </div>
             </div>
             <div class="col-10  col-md-3 mb-2 mb-md-0 bg-white offset-md-1 py-4  rounded-4">
@@ -50,7 +50,7 @@
                     </div>
                 </div>
                 <div class="row text-center">
-                    <h5 class="fw-fw-bolder fs-3 text-success">25</h5>
+                    <h5 class="fw-fw-bolder fs-3 text-success" id="todayInvoices"></h5>
                 </div>
             </div>
             <div class="col-10 col-md-3 mb-2 mb-md-0 bg-white offset-md-1 py-4  rounded-4">
@@ -63,7 +63,7 @@
                     </div>
                 </div>
                 <div class="row text-center">
-                    <h5 class="fw-fw-bolder fs-3 text-success">25</h5>
+                    <h5 class="fw-fw-bolder fs-3 text-success" id="happyCustomerCount"></h5>
                 </div>
             </div>
         </div>
@@ -235,109 +235,9 @@
                             <th scope="col">Quantity</th>
                         </tr>
                     </thead>
-                    <tbody class="">
-                        <tr class="pendingOrdertableRow">
-                            <td>1</td>
-                            <td>2024-04-12</td>
-                            <td>user1@example.com</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>2024-04-11</td>
-                            <td>user2@example.com</td>
-                        </tr>
+                    <tbody class="" id="topSellingItemsTableBody">
 
-                        <tr class="pendingOrdertableRow">
-                            <td>1</td>
-                            <td>2024-04-12</td>
-                            <td>user1@example.com</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>2024-04-11</td>
-                            <td>user2@example.com</td>
-                        </tr>
-                        <tr class="pendingOrdertableRow">
-                            <td>1</td>
-                            <td>2024-04-12</td>
-                            <td>user1@example.com</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>2024-04-11</td>
-                            <td>user2@example.com</td>
-                        </tr>
-                        <tr class="pendingOrdertableRow">
-                            <td>1</td>
-                            <td>2024-04-12</td>
-                            <td>user1@example.com</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>2024-04-11</td>
-                            <td>user2@example.com</td>
-                        </tr>
-                        <tr class="pendingOrdertableRow">
-                            <td>1</td>
-                            <td>2024-04-12</td>
-                            <td>user1@example.com</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>2024-04-11</td>
-                            <td>user2@example.com</td>
-                        </tr>
-                        <tr class="pendingOrdertableRow">
-                            <td>1</td>
-                            <td>2024-04-12</td>
-                            <td>user1@example.com</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>2024-04-11</td>
-                            <td>user2@example.com</td>
-                        </tr>
 
-                        <tr class="pendingOrdertableRow">
-                            <td>1</td>
-                            <td>2024-04-12</td>
-                            <td>user1@example.com</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>2024-04-11</td>
-                            <td>user2@example.com</td>
-                        </tr>
-                        <tr class="pendingOrdertableRow">
-                            <td>1</td>
-                            <td>2024-04-12</td>
-                            <td>user1@example.com</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>2024-04-11</td>
-                            <td>user2@example.com</td>
-                        </tr>
-                        <tr class="pendingOrdertableRow">
-                            <td>1</td>
-                            <td>2024-04-12</td>
-                            <td>user1@example.com</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>2024-04-11</td>
-                            <td>user2@example.com</td>
-                        </tr>
-                        <tr class="pendingOrdertableRow">
-                            <td>1</td>
-                            <td>2024-04-12</td>
-                            <td>user1@example.com</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>2024-04-11</td>
-                            <td>user2@example.com</td>
-                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -347,6 +247,7 @@
 
     </div>
 
+    <script src="../../assets/js/script.js"></script>
     <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
     <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
     <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
