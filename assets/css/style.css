@@ -154,6 +154,10 @@
   width: 60px;
 }
 
+.imageInCategoryCard {
+  height: 82%;
+}
+
 @media (min-width: 768px) {
   .logo {
     /* width: 75% !important; */

@@ -101,7 +101,7 @@ include "../../libs/connection.php";
 
                                 <div class="col-4 ">
                                     <div class="row justify-content-center">
-                                        <button class="btn btn-warning col-12 col-md-5">Add to cart</button>
+                                        <button class="btn btn-warning col-12 col-md-5" onclick="addToCart(<?php echo $wishlist_array['product_id'] ?>)">Add to cart</button>
                                     </div>
                                 </div>
                             </div>
@@ -129,7 +129,7 @@ include "../../libs/connection.php";
         </div>
 
 
-       
+
 
         <?php
         include "../../components/product_modal.php"

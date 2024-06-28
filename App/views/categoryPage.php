@@ -19,8 +19,8 @@ if (isset($_GET['id'])) {
     </head>
 
     <body>
-        <div class="container-fluid">
-            <div class="row " >
+        <div class="container-fluid h-100">
+            <div class="row h-100">
 
                 <?php
                 include "../../config.php";
@@ -47,14 +47,14 @@ if (isset($_GET['id'])) {
                 </div> -->
 
                 <div class="col-12 mb-5">
-                    <div class="row" >
+                    <div class="row">
 
                         <?php
 
                         if ($product_resultset->num_rows == 0) {
                         ?>
-                            <div>
-                                <span>No Products</span>
+                            <div class="text-center">
+                                <span class="fs-4 text-secondary">No Products</span>
                             </div>
 
                             <?php
@@ -92,11 +92,9 @@ if (isset($_GET['id'])) {
                                 $selected_product_data =   $selected_product_resultset->fetch_assoc();
                             ?>
                                 <div class="col-8 col-md-6 col-lg-3  mt-5 ">
-                                    <!-- <img src="../../assets/img/product_images/iphone_11.jpeg" class="category_page_product_image" alt="product image" /> -->
-
 
                                     <div class="row">
-                                        <a href="singleProductView.php?product_id=<?php echo( $selected_product_data['product_id']) ?>" class="text-decoration-none text-reset  ">
+                                        <a href="singleProductView.php?product_id=<?php echo ($selected_product_data['product_id']) ?>" class="text-decoration-none text-reset  ">
                                             <?php
 
                                             if ($selected_product_data["path"] == null) {
@@ -139,52 +137,89 @@ if (isset($_GET['id'])) {
                 <nav aria-label="Page navigation example">
                     <ul class="pagination justify-content-center">
 
-                        <li class="page-item"><a class="page-link" href="
+
+
+
+                        <?php
+                        if (isset($number_of_pages)) {
+
+                        ?>
+                            <li class="page-item"><a class="page-link" href="
                                                 <?php if ($pageno <= 1) {
                                                     echo ("#");
                                                 } else {
                                                     // echo "&page=" . ($pageno - 1);
-                                                    echo "categoryPage.php?id=".$_GET['id']."&name=". $_GET["name"] ."&page=" . ($pageno - 1);
+                                                    echo "categoryPage.php?id=" . $_GET['id'] . "&name=" . $_GET["name"] . "&page=" . ($pageno - 1);
                                                 } ?>
                                                 " aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a></li>
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a></li>
 
-
-                        <?php
-                        for ($x = 1; $x <= $number_of_pages; $x++) {
-                            if ($x == $pageno) {
-                        ?>
-                                <li class="page-item active">
-                                    <a class="page-link" href="<?php echo "categoryPage.php?id=".$_GET['id']."&name=". $_GET["name"] ."&page=" . ($x); ?>"><?php echo $x; ?></a>
-                                </li>
                             <?php
-                            } else {
-                            ?>
-                                <li class="page-item">
-                                    <a class="page-link" href="<?php echo "categoryPage.php?id=".$_GET['id']."&name=". $_GET["name"] ."&page=" . ($x); ?>"><?php echo $x; ?></a>
-                                </li>
-                        <?php
-                            }
-                        }
-                        ?>
 
-                        <li class="page-item">
-                            <a class="page-link" href="
+
+                            for ($x = 1; $x <= $number_of_pages; $x++) {
+                                if ($x == $pageno) {
+                            ?>
+                                    <li class="page-item active">
+                                        <a class="page-link" href="<?php echo "categoryPage.php?id=" . $_GET['id'] . "&name=" . $_GET["name"] . "&page=" . ($x); ?>"><?php echo $x; ?></a>
+                                    </li>
+                                <?php
+                                } else {
+                                ?>
+                                    <li class="page-item">
+                                        <a class="page-link" href="<?php echo "categoryPage.php?id=" . $_GET['id'] . "&name=" . $_GET["name"] . "&page=" . ($x); ?>"><?php echo $x; ?></a>
+                                    </li>
+                            <?php
+                                }
+                            }
+
+                            ?>
+
+
+                            <li class="page-item">
+                                <a class="page-link" href="
                                                 <?php if ($pageno >= $number_of_pages) {
                                                     echo ("#");
                                                 } else {
-                                                    echo "categoryPage.php?id=".$_GET['id']."&name=". $_GET["name"] ."&page=" . ($pageno + 1);
+                                                    echo "categoryPage.php?id=" . $_GET['id'] . "&name=" . $_GET["name"] . "&page=" . ($pageno + 1);
                                                 } ?>
                                                 " aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+
+                        <?php
+
+                        }
+                        ?>
+
+
+
+
                     </ul>
                 </nav>
 
                 <?php
-                include "../../components/footer.php";
+
+                if (!isset($number_of_pages)) {
+                ?>
+                    <div class="fixed-bottom p-0">
+                        <?php
+                        include "../../components/footer.php";
+                        ?>
+                    </div>
+                <?php
+                } else {
+                ?>
+
+                    <?php
+                    include "../../components/footer.php";
+                    ?>
+
+                <?php
+                }
+
                 ?>
 
             </div>

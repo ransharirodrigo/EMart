@@ -781,3 +781,52 @@ function loadTopSellingItemDetailsToTheTable() {
     request.open('GET', '../adminProcess/getTopSellingItemDetailsProcess.php', true);
     request.send();
 }
+
+function loadInvoiceDetails(type, start_date, end_date) {
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 && request.status == 200) {
+            document.getElementById("invoiceDetailsTableBody").innerHTML = request.responseText;
+        }
+    }
+    request.open('GET', '../adminProcess/getInvoiceDetailsProcess.php?type=' + type + "&start_date=" + start_date + "&end_date=" + end_date, true);
+    request.send();
+}
+
+function handleDateChange() {
+    const startDate = document.getElementById('startDate').value;
+    const endDate = document.getElementById('endDate').value;
+
+
+    if (startDate && endDate) {
+        loadInvoiceDetails('all', startDate, endDate);
+    } else if (startDate) {
+        loadInvoiceDetails('all', startDate, 0);
+    } else if (endDate) {
+        loadInvoiceDetails('all', 0, endDate);
+    } else {
+        loadInvoiceDetails('all', 0, 0);
+    }
+}
+
+function changeAdminPassword() {
+    var form = new FormData();
+
+    form.append('currentPassword', document.getElementById('currentPassword').value);
+    form.append('newPassword', document.getElementById('newPassword').value);
+    form.append('confirmPassword', document.getElementById('confirmPassword').value);
+
+
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 && request.status == 200) {
+            alert(request.responseText);
+
+            if (request.responseText == "Password changed successfully.") {
+                window.location.reload();
+            }
+        }
+    }
+    request.open('POST', '../adminProcess/changePassword.php', true);
+    request.send(form);
+}

@@ -166,7 +166,7 @@ if (isset($_SESSION["user"])) {
                                 <input type="text" class="form-control" id="address_no" value="<?php echo $no ?>" oninput="validateNoInputInUserProfile(this)" />
                             </div>
                         </div>
-                        <div class="col-10  offset-1 col-md-11 offset-md-0">
+                        <div class="col-10  offset-1 col-md-11 offset-md-0 mt-3">
                             <div class="row">
                                 <span>Line 1</span>
                             </div>
@@ -174,7 +174,7 @@ if (isset($_SESSION["user"])) {
                                 <input type="text" class="form-control" id="address_line1" value="<?php echo $line1 ?>" />
                             </div>
                         </div>
-                        <div class="col-10 offset-1 col-md-11 offset-md-0">
+                        <div class="col-10 offset-1 col-md-11 offset-md-0 mt-3">
                             <div class="row">
                                 <span>Line 2</span>
                             </div>
@@ -183,12 +183,12 @@ if (isset($_SESSION["user"])) {
                             </div>
                         </div>
 
-                        <div class="col-4">
-                            <div class="row">
+                        <div class="col-4 mt-3 ps-0">
+                            <div class="row ps-2">
                                 <span>District</span>
                             </div>
 
-                            <select class="form-select" id="district">
+                            <select class="form-select mt-2" id="district">
                                 <option value="0" <?php echo ($district_id == 0) ? 'selected' : ''; ?>>Choose</option>
                                 <?php
                                 $district_resultset = Database::execute("SELECT * FROM `district`");

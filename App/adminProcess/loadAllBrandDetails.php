@@ -1,7 +1,7 @@
 <?php
 include "../../libs/connection.php";
 
-$brand_resultset = Database::execute("SELECT * FROM `brand` INNER JOIN `status` ON `brand`.`status_status_id`=`status`.`status_id`");
+$brand_resultset = Database::execute("SELECT * FROM `brand` INNER JOIN `status` ON `brand`.`status_status_id`=`status`.`status_id` ORDER BY `brand_id` ASC");
 
 if ($brand_resultset->num_rows > 0) {
 

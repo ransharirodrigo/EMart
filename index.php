@@ -21,8 +21,8 @@
     <div class="container-fluid m-0 ">
         <div class="row">
             <?php
-            include ("config.php");
-            
+            include("config.php");
+
             include(BASE_PATH . '/components/header.php');
 
             $category_resultset = Database::execute("SELECT * FROM `category` WHERE `status_status_id`='1' LIMIT 6");
@@ -39,8 +39,8 @@
                         $category_data = $category_resultset->fetch_assoc();
                     ?>
                         <div class="d-none d-md-block col-md-3 col-lg-2 mt-2">
-                            <div class="card bg-success bg-opacity-50 ">
-                                <img src="<?php echo $category_data['category_img'] ?>" class="card-img-top" alt="<?php echo $category_data['category_name'] . " " . "Image" ?>">
+                            <div class="card bg-success bg-opacity-50" style="height: 280px;">
+                                <img src="<?php echo $category_data['category_img'] ?>" class="card-img-top imageInCategoryCard" alt="<?php echo $category_data['category_name'] . " " . "Image" ?>">
                                 <div class="card-footer text-center text-white">
                                     <a href="App/views/categoryPage.php?id=<?php echo $category_data['category_id'] ?>&name=<?php echo $category_data['category_name'] ?>" class="text-decoration-none text-reset"><?php echo $category_data['category_name'] ?></a>
                                 </div>

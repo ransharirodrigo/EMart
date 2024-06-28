@@ -19,6 +19,13 @@ if (empty($email)) {
         $user_data = $user_resultset->fetch_assoc();
 
         if (password_verify($password, $user_data['password'])) {
+
+            session_start();
+            $_SESSION["admin"] = [
+                "name" => $user_data["first_name"] . " " . $user_data["last_name"],
+                "email" => $user_data["email"]
+            ];
+
             echo ("success");
         } else {
             echo ("Invalid credentials");

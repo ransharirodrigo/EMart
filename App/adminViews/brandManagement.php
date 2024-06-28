@@ -35,9 +35,9 @@
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th>Category ID</th>
+                                            <th>Brand ID</th>
                                             <th>Name</th>
-                                            <th>Category Status</th>
+                                            <th>Brand Status</th>
                                         </tr>
                                     </thead>
                                     <tbody id="tableBody">
