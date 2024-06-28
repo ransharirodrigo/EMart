@@ -83,7 +83,7 @@ if (isset($_SESSION["admin"])) {
 
                     <!-- Logout Button -->
                     <div class="text-center mt-4">
-                        <a href="#" class="btn btn-danger" onclick="adminLogout()">Logout</a>
+                        <button class="btn btn-danger" onclick="adminLogout()">Logout</button>
                     </div>
                 </div>
             </div>
@@ -94,7 +94,7 @@ if (isset($_SESSION["admin"])) {
 
     </html>
 <?php
-} else {
+ }else {
     header("Location:signIn.php");
 }
 ?>

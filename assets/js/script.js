@@ -889,14 +889,16 @@ function clearInAdminReports() {
 }
 
 function adminLogout() {
+ 
     var request = new XMLHttpRequest();
     request.onreadystatechange = function () {
         if (request.readyState == 4 && request.status == 200) {
+            alert(request.responseText)
             if ("success") {
-                // window.location.href = "../../index.php";
+                window.location.href = "signIn.php";
             }
         }
     };
-    request.open("GET", "../../adminProcess/signOutProcess.php", true);
+    request.open("GET", "../adminProcess/signOutProcess.php", true);
     request.send();
 }
