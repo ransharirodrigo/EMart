@@ -793,10 +793,25 @@ function loadInvoiceDetails(type, start_date, end_date) {
     request.send();
 }
 
+// function handleDateChange() {
+//     const startDate = document.getElementById('startDate').value;
+//     const endDate = document.getElementById('endDate').value;
+
+
+//     if (startDate && endDate) {
+//         loadInvoiceDetails('all', startDate, endDate);
+//     } else if (startDate) {
+//         loadInvoiceDetails('all', startDate, 0);
+//     } else if (endDate) {
+//         loadInvoiceDetails('all', 0, endDate);
+//     } else {
+//         loadInvoiceDetails('all', 0, 0);
+//     }
+// }
+
 function handleDateChange() {
     const startDate = document.getElementById('startDate').value;
     const endDate = document.getElementById('endDate').value;
-
 
     if (startDate && endDate) {
         loadInvoiceDetails('all', startDate, endDate);
@@ -807,6 +822,40 @@ function handleDateChange() {
     } else {
         loadInvoiceDetails('all', 0, 0);
     }
+}
+
+function handleStartDateChange() {
+    const startDate = document.getElementById('startDate').value;
+    const endDate = document.getElementById('endDate').value;
+
+    if (startDate) {
+        document.getElementById('endDate').min = startDate;
+    } else {
+        document.getElementById('endDate').min = '';
+    }
+
+    if (endDate && startDate > endDate) {
+        document.getElementById('startDate').value = endDate;
+    }
+
+    handleDateChange();
+}
+
+function handleEndDateChange() {
+    const startDate = document.getElementById('startDate').value;
+    const endDate = document.getElementById('endDate').value;
+
+    if (endDate) {
+        document.getElementById('startDate').max = endDate;
+    } else {
+        document.getElementById('startDate').max = '';
+    }
+
+    if (startDate && endDate < startDate) {
+        document.getElementById('endDate').value = startDate;
+    }
+
+    handleDateChange();
 }
 
 function changeAdminPassword() {
@@ -829,4 +878,12 @@ function changeAdminPassword() {
     }
     request.open('POST', '../adminProcess/changePassword.php', true);
     request.send(form);
+}
+
+
+function clearInAdminReports() {
+    loadInvoiceDetails('all', '0', '0');
+    document.getElementById('startDate').value = '';
+    document.getElementById('endDate').value = '';
+
 }

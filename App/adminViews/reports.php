@@ -38,7 +38,7 @@
                                     <p class="text-white fs-5">From</p>
                                 </div>
                                 <div class="row">
-                                    <input type="date" id="startDate" class="form-control"  onchange="handleDateChange()"/>
+                                    <input type="date" id="startDate" class="form-control" onchange="handleStartDateChange()" />
                                 </div>
                             </div>
                             <div class="col-4 offset-2">
@@ -46,14 +46,14 @@
                                     <p class="text-white fs-5">To</p>
                                 </div>
                                 <div class="row">
-                                    <input type="date" id="endDate" class="form-control"  onchange="handleDateChange()"/>
+                                    <input type="date" id="endDate" class="form-control" onchange="handleEndDateChange()" />
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-4">
                         <div class="row h-100 d-flex align-items-end justify-content-center">
-                            <button class="btn btn-danger col-6" onclick="loadInvoiceDetails('all','0','0')">Clear</button>
+                            <button class="btn btn-danger col-6" onclick="clearInAdminReports()">Clear</button>
                         </div>
                     </div>
                 </div>
