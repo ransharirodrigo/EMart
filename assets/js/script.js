@@ -887,3 +887,16 @@ function clearInAdminReports() {
     document.getElementById('endDate').value = '';
 
 }
+
+function adminLogout() {
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 && request.status == 200) {
+            if ("success") {
+                // window.location.href = "../../index.php";
+            }
+        }
+    };
+    request.open("GET", "../../adminProcess/signOutProcess.php", true);
+    request.send();
+}

@@ -85,7 +85,7 @@ if (isset($_SESSION["admin"])) {
 
                     <!-- Logout Button -->
                     <div class="text-center mt-4">
-                        <a href="#" class="btn btn-danger">Logout</a>
+                        <a href="#" class="btn btn-danger" onclick="adminLogout()">Logout</a>
                     </div>
                 </div>
             </div>

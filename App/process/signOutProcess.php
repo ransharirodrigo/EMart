@@ -2,7 +2,12 @@
 
 session_start();
 
-session_unset();
+
+if (isset($_SESSION["user"])) {
+    
+    unset($_SESSION["user"]);
+}
+
 session_destroy();
 
 echo("success");
