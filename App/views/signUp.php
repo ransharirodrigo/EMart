@@ -28,7 +28,7 @@
 
                 <div class="row text-center">
                     <div>
-                        <h3>Create You E-Mart Account</h3>
+                        <h3>Create Your E-Mart Account</h3>
                     </div>
                 </div>
 

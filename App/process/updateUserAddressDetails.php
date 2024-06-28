@@ -31,17 +31,4 @@ if (isset($_POST["addressNo"]) && isset($_POST["addressLine1"]) && isset($_POST[
         echo "Fill No, Line 1, and Line 2 fields and choose the district to update address details.";
     }
 
-
-    // else if (
-    //     (!empty($address_no) && empty($address_line1) && empty($address_line2)) ||
-    //     (empty($address_no) && !empty($address_line1) && empty($address_line2)) ||
-    //     (empty($address_no) && empty($address_line1) && !empty($address_line2)) ||
-    //     (!empty($address_no) && !empty($address_line1) && empty($address_line2)) ||
-    //     (!empty($address_no) && empty($address_line1) && !empty($address_line2)) ||
-    //     (empty($address_no) && !empty($address_line1) && !empty($address_line2))
-    // ) {
-    //     echo "Fill No, Line 1, and Line 2 fields to update address details.";
-    // } else if (empty($address_no) && empty($address_line1) && empty($address_line2)) {
-    //     echo "Fill No, Line 1, and Line 2 fields to update address details.";
-    // }
 }

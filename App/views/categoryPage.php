@@ -39,13 +39,6 @@ if (isset($_GET['id'])) {
 
                 ?>
 
-                <!-- <div class="col-1  ">
-                    <select name="" id="" class="form-select">
-                        <option value="">Default Sort</option>
-                        <option value="">Name</option>
-                    </select>
-                </div> -->
-
                 <div class="col-12 mb-5">
                     <div class="row">
 
