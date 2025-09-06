@@ -10,10 +10,10 @@ EMart is a web-based single-vendor e-commerce platform built to provide a smooth
 
 <h2>⚙️ Tech Stack</h2>
 <ul>
-  <li><b>Frontend:</b> HTML, CSS, JavaScript (Blade Templates / React optional)</li>
-  <li><b>Backend:</b> PHP (Laravel)</li>
+  <li><b>Frontend:</b> HTML, CSS, JavaScript </li>
+  <li><b>Backend:</b> PHP </li>
   <li><b>Database:</b> MySQL</li>
-  <li><b>Other Tools:</b> Git, Bootstrap, Tailwind</li>
+  <li><b>Other Tools:</b> Git, Bootstrap</li>
 </ul>
 
 <h2>🚀 Features</h2>
